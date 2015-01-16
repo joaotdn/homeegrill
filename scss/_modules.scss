@@ -1,0 +1,209 @@
+/*
+	------------------------------------------------------------------------
+	Typograph
+	------------------------------------------------------------------------
+ */
+
+//Sizes
+.font-tiny {
+	font-size: rem-calc(10) !important; 
+}
+
+.font-small {
+	font-size: rem-calc(12) !important; 
+}
+
+.font-medium {
+	font-size: rem-calc(14) !important;
+}
+
+.font-large {
+	font-size: rem-calc(18) !important;
+}
+
+.font-header {
+	font-size: rem-calc(20) !important;
+}
+
+.font-xlarge {
+	font-size: rem-calc(22) !important;
+}
+
+//Weights
+.font-lite {
+	font-weight: 300;
+}
+
+.font-bold {
+	font-weight: 600;
+}
+
+//line heights
+.lh-normal {
+	line-height: 1.4;
+}
+
+.lh-small {
+	line-height: 1.2;
+}
+
+//colours
+.white {
+	color: $white !important;
+}
+
+//Caps
+.text-up {
+	text-transform: uppercase;
+}
+
+.text-low {
+	text-transform: lowercase;
+}
+
+/*
+	------------------------------------------------------------------------
+	Displays
+	------------------------------------------------------------------------
+ */
+.d-block {
+	display: block !important;
+}
+.d-table {
+	display: table;
+}
+.d-table-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/*
+	------------------------------------------------------------------------
+	Positions
+	------------------------------------------------------------------------
+ */
+.rel {
+	position: relative;
+}
+
+.abs {
+	position: absolute;
+}
+
+/*
+	------------------------------------------------------------------------
+	Margins
+	------------------------------------------------------------------------
+ */
+.no-margin {
+	margin: 0 !important;
+}
+
+/*
+	------------------------------------------------------------------------
+	Backgrounds
+	------------------------------------------------------------------------
+ */
+.bg-cover {
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*
+	------------------------------------------------------------------------
+	Buttons
+	------------------------------------------------------------------------
+ */
+.button-glass {
+	@include button(
+		$bg: false,
+		$padding: false
+	);
+	@extend %transition;
+	
+	padding: rem-calc(5);
+	font-weight: 700;
+	color: $yellow;
+	border: 1px solid $yellow;
+
+	&:hover {
+		color: $orange;
+		border-color: $orange;
+
+		.icon-container {
+			background-color: $orange;
+		}
+	}
+
+	&.menu {
+		font-size: rem-calc(20);
+	}
+}
+
+.button-submit {
+	@include button(
+		$bg: $soft-yellow
+	);
+	color: $white;
+	@extend .font-header;
+	@extend .font-bold;
+
+	.icon-chevron-circle-right,.icon-chevron-circle-down {
+		display: inline-block;
+		margin-left: rem-calc(10);
+		font-size: rem-calc(14);
+	}
+
+	.icon-three-bars {
+		font-size: rem-calc(36);
+	}
+
+	.fix {
+		margin-top: rem-calc(5);
+		margin-right: rem-calc(10);
+	}
+
+	&:hover {
+		background-color: $soft-orange;
+	}
+}
+
+.button-smoke {
+	@include button(
+		$bg: $oil
+	);
+	color: $silver;
+	font-size: rem-calc(32);
+}
+
+/*
+	------------------------------------------------------------------------
+	Animações
+	------------------------------------------------------------------------
+ */
+.zigzag {
+	@extend %transition;
+	-webkit-animation: zigzag .3s linear 0s infinite alternate;
+	animation: zigzag .3s linear 0s infinite alternate;
+}
+
+
+@keyframes zigzag {
+    from {
+    	opacity: 1;
+    }
+    to {
+    	opacity: .5;
+    }
+}
+
+@-webkit-keyframes zigzag {
+    from {
+    	-opacity: 1;
+    }
+    to {
+    	opacity: .5;
+    }
+}

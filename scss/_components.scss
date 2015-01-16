@@ -1,0 +1,408 @@
+//Variables
+$yellow-tint: 30%;
+
+#jpreOverlay {
+	width: 0 !important;
+	height: 0 !important;
+}
+
+/*
+	------------------------------------------------------------------------
+	Header
+	------------------------------------------------------------------------
+ */
+#header {
+	padding: rem-calc(30) 0;
+}
+
+.select-lang { 
+	margin-left: rem-calc(40);
+	a {
+		color: $body-font-color;
+		@extend .font-medium;
+		&:hover, &.active {
+			color: $soft-yellow;
+		}
+	}
+
+	li {
+		margin-left: rem-calc(14);
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}
+
+.top-info {
+	width: rem-calc(810);
+}
+
+.contact-top {
+	span {
+		margin-right: rem-calc(10);
+	}
+}
+
+.icon-container {
+	@extend %transition;
+	padding: rem-calc(5);
+	background-color: $yellow;
+	margin-right: rem-calc(10);
+}
+
+.menu-subscriber {
+	margin-top: rem-calc(11);
+}
+
+.menu-top {
+	li {
+		&:first-child {
+			margin-left: 0;
+			margin-right: rem-calc(10);
+		}
+	}
+}
+.social-top {
+	right: rem-calc(10);
+	bottom: rem-calc(33);
+	border: 1px solid $yellow;
+	padding: rem-calc(4);
+
+	li {
+		margin-left: rem-calc(5);
+		&:first-child {
+			@extend .no-margin;
+		}
+	}
+	a {
+		padding: rem-calc(5);
+		background-color: $yellow;
+		color: $white;
+		font-size: rem-calc(22);
+
+		&:hover {
+			background-color: $orange;
+		}
+	}
+
+	.icon-share2 {
+		color: $white;
+	}
+}
+
+#drop-share {
+	span[class^="icon-"], span[class*=" icon-"] {
+		@extend .rel;
+		top: rem-calc(3);
+		margin-right: rem-calc(10);
+	}
+}
+
+.f-dropdown{
+	z-index: 9999 !important;
+}
+
+.get-mo-menu {
+	margin-bottom: 0;
+}
+
+#offcanvas-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: rem-calc(280);
+	height: 100%;
+	background-color: $soft-yellow;
+	z-index: 999;
+	//display: none;
+	@extend %transition;
+	@include translateX(100%);
+
+	&.show {
+		@include translateX(0);
+	}
+
+	a {
+		@extend .button-submit;
+		@extend .text-low;
+	}
+
+	a:not(.close-offcanvas) {
+		@extend .no-margin;
+		padding-top: rem-calc(30);
+		padding-bottom: rem-calc(30);
+		border-top: 1px solid tint($soft-yellow,$yellow-tint);
+		width: 100%; float: left;
+	}
+
+	ul {
+		@extend .no-margin;
+		@extend .no-bullet;
+
+		&.submenu {
+			display: none;
+			
+			&.show {
+				display: block;
+			}
+
+			a {
+				@extend .button;
+				@extend .font-lite;
+				padding-top: rem-calc(30);
+				padding-bottom: rem-calc(30);
+				border-top: 1px solid tint($soft-yellow,$yellow-tint);
+			}
+
+			.icon-chevron-circle-down, .icon-uniE603 {
+				display: none !important;
+			}
+		}
+	}
+
+	li {
+		&:first-child {
+			a {
+				border-top: none;
+			}
+		}
+	}
+}
+
+.mo-menu-container {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	
+}
+
+.hide-offcanvas {
+	position: absolute;
+	z-index: 99;
+	background-color: rgba(#000,.4);
+	left: 0; top: 0;
+	height: 100%;
+	display: none;
+
+	&.show {
+		display: block;
+	}
+}
+
+/*
+	------------------------------------------------------------------------
+	Menu principal
+	------------------------------------------------------------------------
+ */
+#main-menu {
+	background-image: url("images/bg-menu.png");
+
+	ul {
+		@extend .no-margin;
+		@extend .inline-list;
+		line-height: 0;
+
+		&.submenu {
+			display: none;
+			@extend .abs;
+
+			a {
+				@extend .button;
+				@extend .font-lite;
+				@extend .font-large;
+				padding: rem-calc(17) 0;
+
+				&:after {
+					display: none;
+				}
+
+				&:hover {
+					background-color: $primary-color;
+					color: $yellow;
+				}
+			}
+
+			li {
+				padding-left: rem-calc(20);
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	li {
+		@extend .no-margin;
+	}
+
+	a {
+		@extend .button-submit;
+		@extend .text-low;
+		@extend .no-margin;
+		@extend .rel;
+		@extend .d-block;
+
+		padding: rem-calc(20) rem-calc(22.308);
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			border-left: 1px solid tint($soft-yellow,$yellow-tint);
+		}
+
+		&.active {
+			background-color: $primary-color;
+		}
+
+		.icon-chevron-circle-down {
+			margin-left: rem-calc(9);
+		}
+	}
+}
+
+.icon-chevron-circle-down {
+	@extend %transition;
+	&.rotate {
+		@include rotate(-180deg);
+	}
+}
+
+.submenu-bar {
+	height: 0;
+	overflow: hidden;
+	background-color: $primary-color;
+	@extend %transition;
+
+	ul {
+		@extend .no-margin;
+		@extend .inline-list;
+		line-height: 0;
+
+		&.submenu {
+			display: none;
+
+			a {
+				@extend .button;
+				@extend .font-lite;
+				@extend .font-large;
+				padding: rem-calc(17) 0;
+
+				&:after {
+					display: none;
+				}
+
+				&:hover {
+					background-color: $primary-color;
+					color: $yellow;
+				}
+			}
+
+			li {
+				@extend .no-margin;
+				padding-left: rem-calc(20);
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	.icon-chevron-circle-down {
+		display: none !important;
+	}
+}
+
+/*
+	------------------------------------------------------------------------
+	Slider principal
+	------------------------------------------------------------------------
+ */
+#main-slider {
+	height: rem-calc(492);
+	background-color: tint($soft-yellow,20%);
+
+	.loader {
+		left: 0; top: 0;
+		@extend %full-height;
+		z-index: 999;
+	}
+
+	.row {
+		z-index: 999;
+	}
+}
+
+.slider-thumbs {
+	@extend %full-height;
+	overflow: hidden;
+	background-color: $orange;
+	right: 0; top: 0;
+	z-index: 99;
+	@extend %transition;
+	opacity: 0;
+
+	&.show {
+		opacity: 1;
+	}
+
+	figure {
+		@extend %full-height;
+		@include transition(transform .3s linear);
+	}
+
+	&:hover {
+		figure {
+			@include scale(1.05);
+		}
+	}
+}
+
+#jpreBar {
+	background-color: $soft-yellow;
+	@extend .abs;
+	top: 0; left: 0;
+}
+
+.anchor-mask {
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+}
+
+.slide-info {
+	@include transition(opacity .3s linear);
+	opacity: 0;
+
+	&.show {
+		opacity: 1;
+	}
+
+	header,p {
+		height: rem-calc(180);
+		padding: rem-calc(20);
+	}
+
+	header {
+		background-color: $white;
+	}
+
+	p {
+		background-color: $ghost;
+	}
+
+	.bdr {
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			border-left: 1px solid $silver;
+		}
+	}
+}

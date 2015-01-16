@@ -1,6 +1,6 @@
 # Home & Grill
 
-Desenvolvido para Foccus - Estraégia Digital
+Desenvolvido para Foccus - Estratégia Digital
 
 ## Necessário:
 

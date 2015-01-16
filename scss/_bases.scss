@@ -1,0 +1,46 @@
+/*
+	------------------------------------------------------------------------
+	Placeholders
+	------------------------------------------------------------------------
+ */
+%transition {
+	@include transition(all .3s linear !important);
+}
+
+%full-height {
+	height: 100%;
+}
+
+%full-left {
+	width: 100%;
+	float: left;
+}
+
+%first-child-no-left {
+	&:first-child {
+		margin-left: 0;
+	}
+}
+/*
+	------------------------------------------------------------------------
+	Tags
+	------------------------------------------------------------------------
+ */
+body {
+	overflow-x: hidden;
+}
+figure {
+	margin: 0;
+}
+
+strong {
+	font-weight: 600;
+}
+
+a {
+	@extend %transition;
+}
+
+input, button, small.error {
+	margin-bottom: 0 !important;
+}
