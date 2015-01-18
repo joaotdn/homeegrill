@@ -6,6 +6,13 @@ $yellow-tint: 30%;
 	height: 0 !important;
 }
 
+.ajax-loader {
+	display: none;
+	&.show {
+		display: block;
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Header
@@ -106,6 +113,43 @@ $yellow-tint: 30%;
 	margin-bottom: 0;
 }
 
+.header-lines {
+	div {
+		float: left;
+		border-width: 2px;
+		border-style: solid;
+		@extend %transition;
+
+		&:first-child {
+			border-color: $primary-color;
+		}
+		&:nth-child(2n) {
+			border-color: $dark-red;
+		}
+		&:nth-child(3n) {
+			border-color: $primary-color;
+		}
+		&:nth-child(4n) {
+			border-color: $black;
+		}
+		&:nth-child(5n) {
+			border-color: $primary-color;
+		}
+		&:nth-child(6n) {
+			border-color: $dark-red;
+		}
+
+		&.active {
+			border-color: $primary-color !important;
+		}
+	}
+}
+
+/*
+	------------------------------------------------------------------------
+	Menu offcanvas - MOBILE
+	------------------------------------------------------------------------
+ */
 #offcanvas-menu {
 	position: fixed;
 	top: 0;
@@ -113,7 +157,7 @@ $yellow-tint: 30%;
 	width: rem-calc(280);
 	height: 100%;
 	background-color: $soft-yellow;
-	z-index: 999;
+	z-index: 9999999;
 	//display: none;
 	@extend %transition;
 	@include translateX(100%);
@@ -177,8 +221,8 @@ $yellow-tint: 30%;
 }
 
 .hide-offcanvas {
-	position: absolute;
-	z-index: 99;
+	position: fixed;
+	z-index: 99999;
 	background-color: rgba(#000,.4);
 	left: 0; top: 0;
 	height: 100%;
@@ -242,7 +286,7 @@ $yellow-tint: 30%;
 		@extend .rel;
 		@extend .d-block;
 
-		padding: rem-calc(20) rem-calc(22.308);
+		padding: rem-calc(20) rem-calc(22);
 
 		&:after {
 			content: "";
@@ -289,7 +333,7 @@ $yellow-tint: 30%;
 				@extend .button;
 				@extend .font-lite;
 				@extend .font-large;
-				padding: rem-calc(17) 0;
+				padding: rem-calc(20) 0;
 
 				&:after {
 					display: none;
@@ -324,6 +368,7 @@ $yellow-tint: 30%;
 #main-slider {
 	height: rem-calc(492);
 	background-color: tint($soft-yellow,20%);
+	overflow: hidden;
 
 	.loader {
 		left: 0; top: 0;
@@ -352,11 +397,14 @@ $yellow-tint: 30%;
 	figure {
 		@extend %full-height;
 		@include transition(transform .3s linear);
+		&.zoom {
+			@extend %zoom;
+		}
 	}
 
 	&:hover {
 		figure {
-			@include scale(1.05);
+			@extend %zoom;
 		}
 	}
 }
@@ -371,6 +419,11 @@ $yellow-tint: 30%;
 	width: 100%;
 	height: 100%;
 	z-index: 99;
+	top: 0; left: 0;
+}
+
+.nav-info {
+	z-index: 9999;
 }
 
 .slide-info {
@@ -379,6 +432,16 @@ $yellow-tint: 30%;
 
 	&.show {
 		opacity: 1;
+	}
+
+	&.masks {
+		@extend %full-height;
+		article {
+			@extend %full-height;
+		}
+		a {
+			@extend %full-height;
+		}
 	}
 
 	header,p {
@@ -393,6 +456,11 @@ $yellow-tint: 30%;
 	p {
 		background-color: $ghost;
 	}
+}
+
+.slide-controls {
+	@extend %transition;
+	@extend %show;
 
 	.bdr {
 		&:after {
@@ -404,5 +472,263 @@ $yellow-tint: 30%;
 			height: 100%;
 			border-left: 1px solid $silver;
 		}
+	}
+}
+
+/*
+	------------------------------------------------------------------------
+	Tabs (home)
+	------------------------------------------------------------------------
+ */
+#showroom-tab {
+	padding: rem-calc(60) 0;
+}
+
+.tab-options {
+
+	a {
+		border-width: 1px;
+		border-style: solid;
+		border-color: transparent;
+		color: $smoke;
+		padding: rem-calc(10);
+		margin-bottom: rem-calc(10);
+
+		&.silver {
+			color: $silver;
+		}
+
+		&:hover, &.active {
+			color: $primary-color;
+			border-color: $primary-color;
+		}
+	}
+
+}
+
+#showroom-carousel {
+	margin-top: rem-calc(20);
+
+	min-height: rem-calc(600);
+
+	.item {
+		height: rem-calc(600);
+		overflow: hidden;
+
+		&:hover {
+			.infocap {
+				background-color: shade($ghost,20%);
+			}
+		}
+	}
+
+	figure {
+		z-index: 9;
+		height: rem-calc(280);
+	}
+
+	img {
+		height: 100%;
+		width: auto;
+		@extend .centered;
+	}
+}
+
+.infocap {
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+	padding: rem-calc(3);
+	@extend %transition;
+	
+	.container {
+		//height: rem-calc(350);
+		border: 1px solid shade($ghost,20%);
+
+		&.ghost {
+			background-color: $ghost;
+		}
+	}
+
+	header {
+		background-color: $white;
+		margin-top: rem-calc(150);
+	}
+
+	p {
+		background-color: shade($oil,20%);
+		color: $white;
+	}
+
+	h3 {
+		font-size: rem-calc(18);
+	}
+
+	header, p {
+		height: rem-calc(120);
+		padding: rem-calc(20);
+	}
+}
+
+.showroom-controls {
+	margin-top: rem-calc(20);
+
+	li {
+		@extend %first-child-no-left;
+	}
+
+	.btn {
+		padding: rem-calc(10) rem-calc(13);
+		border: 1px solid shade($ghost,30%);
+		color: shade($ghost,30%);
+		font-size: rem-calc(32);
+
+		&:hover {
+			color: $primary-color;
+			border-color: $primary-color;
+		}
+	}
+
+	a {
+		&:last-child {
+			line-height: 2.6;
+		}
+	}
+}
+
+//slide colunistas
+
+.blog-thumb {
+	height: rem-calc(200);
+	@extend %transition;
+
+	&:hover {
+		@extend %zoom;
+	}
+}
+
+.container-thumb {
+	position: relative;
+	@extend %full-height;
+	overflow: hidden;
+}
+
+.post-title {
+	min-height: rem-calc(130);
+	max-height: rem-calc(130);
+}
+
+.block-url {
+	padding: rem-calc(15);
+}
+
+.get-cat {
+	top: 0; left: 0;
+	z-index: 99;
+}
+
+.author-link {
+	height: rem-calc(80);
+	background-color: tint($oil,10%);
+
+	&:hover {
+		background-color: $primary-color;
+	}
+	.d-table {
+		@extend %full-height;
+	}
+	span {
+		color: $soft-yellow;
+	}
+}
+
+.author-avatar {
+	height: 100%;
+}
+
+.author-name {
+	@extend %full-height;
+	padding: 0 rem-calc(20);
+	h3 {
+		color: $soft-yellow;
+	}
+}
+
+/*
+	------------------------------------------------------------------------
+	Rodape
+	------------------------------------------------------------------------
+ */
+#footer {
+	padding: rem-calc(40) 0;
+}
+
+.social-footer {
+	margin-top: rem-calc(20);
+
+	ul {
+		padding: rem-calc(5);
+		border: 1px solid $primary-color;
+	}
+
+	li {
+		@extend %first-child-no-left;
+		margin-left: rem-calc(5);
+	}
+
+	a {
+		@extend .font-medium;
+		@extend .d-block;
+		@extend .white;
+		padding: rem-calc(10);
+		background-color: $primary-color;
+
+		&:hover {
+			background-color: $orange;
+		}
+	}
+}
+
+.share-footer {
+	margin: rem-calc(30) 0;
+
+	li {
+		margin-left: rem-calc(6);
+		&:nth-child(2n) {
+			margin-top: rem-calc(5);
+			width: rem-calc(86);
+		}
+		&:nth-child(3n) {
+			margin-top: rem-calc(5);
+		}
+	}
+}
+
+.footer-newsletter {
+	form {
+		padding: rem-calc(6);
+		border: 1px solid $oil;
+	}
+
+	input[type="email"] {
+		background-color: $white;
+	}
+	input[type="submit"] {
+		padding: rem-calc(8.5);
+	}
+}
+
+#credits {
+	padding: rem-calc(20) 0;
+}
+
+.icon-products {
+	bottom: rem-calc(-20); right: 0;
+
+}
+
+.icon-foccus {
+	&:hover {
+		opacity: 0.8;
 	}
 }

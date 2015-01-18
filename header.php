@@ -12,6 +12,11 @@
   <body>
     
     <!-- offcanvas menu -->
+    <?php
+      /*
+        Implementa clone do menu principal
+       */
+    ?>
     <a href="#" class="close-offcanvas hide-offcanvas small-12"></a>
 
     <nav id="offcanvas-menu" class="hide-for-medium-up">
@@ -21,8 +26,6 @@
             <span class="icon-close"></span>
           </a>
         </div>
-        
-        
       </div>
     </nav>
 
@@ -252,7 +255,17 @@
         </div>
       </div><!-- //row -->
     </nav>
+
     <div class="submenu-bar small-12 left show-for-medium-up">
       <div class="row"><div class="submenu-container small-12 columns"></div></div>
+    </div>
+
+    <div class="small-12 left header-lines">
+      <div class="line-1 small-1"></div>
+      <div class="line-2 small-2"></div>
+      <div class="line-3 small-2"></div>
+      <div class="line-4 small-3"></div>
+      <div class="line-5 small-2"></div>   
+      <div class="line-6 small-2"></div>   
     </div>
     <!-- fim menu principal -->

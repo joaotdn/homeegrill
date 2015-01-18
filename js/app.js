@@ -7,8 +7,6 @@ $(document).foundation();
 	Preloader
 	------------------------------------
  */
-
-
 $(document).ready(function() {
 	$('#jpreBar','#jpreOverlay').clone().appendTo('#main-slider');
 	$('body').jpreLoader({
@@ -18,7 +16,7 @@ $(document).ready(function() {
 		showPercentage: false,
 		closeBtnText: ''
 	},function() {
-		$('.slider-thumbs, .slide-info').addClass('show');
+		$('.slider-thumbs, .slide-info, .yellow-block, .slide-controls').addClass('show');
 		$('.loader').fadeOut('fast');
 	});
 });
@@ -89,6 +87,8 @@ $('li a:first-child','#main-menu').on('click touchstart',function(e) {
 			.find('.icon-chevron-circle-down')
 			.removeClass('rotate');
 
+			$('div','.header-lines').addClass('active');
+
 			$('.icon-chevron-circle-down',this).addClass('rotate');
 
 			$('.submenu-container').html('');
@@ -105,7 +105,9 @@ $('li a:first-child','#main-menu').on('click touchstart',function(e) {
 		$(this).removeClass('active');
 		$('.icon-chevron-circle-down',this).removeClass('rotate');
 		$('.submenu','.submenu-container').fadeOut('fast',function() {
-			$('.submenu-bar').animate({height: '0'},'fast');
+			$('.submenu-bar').animate({height: '0'},'fast',function() {
+				$('div','.header-lines').removeClass('active');
+			});
 		});
 	}
 });
@@ -132,14 +134,22 @@ $('li','#offcanvas-menu').each(function(index, el) {
 $('a:first','.list-submenu').on('click touchstart', function(event) {
 	event.preventDefault();
 	$(this).siblings('.submenu').toggleClass('show');
+
+	$(this).parents('li')
+	.siblings('li')
+	.find('.submenu').removeClass('show');
 });
 
+/*
+	Slider principal
+ */
 $('.slide-info').cycle({
 	fx: 'none',
 	speed: 500,
 	slides: '> article',
 	next: '#next-slide',
-	prev: '#prev-slide'
+	prev: '#prev-slide',
+	timeout: 8000
 });
 
 $('.slider-thumbs').cycle({
@@ -150,3 +160,152 @@ $('.slider-thumbs').cycle({
 	prev: '#prev-slide',
 	timeout: 8000
 });
+
+$('article','.slide-info.masks').each(function(index, el) {
+	$(this).hover(
+		function() {
+			$('figure','.slider-thumbs').addClass('zoom');
+		},
+		function() {
+			$('figure','.slider-thumbs').removeClass('zoom');
+		}
+	);
+});
+
+/*
+	------------------------------------
+	Owl Slider (plugin) - Configurações 
+	para slider responsivo para tabs
+	------------------------------------
+ */
+function hgCarolsels() {
+	var churrasqueiras = $('#showroom-carousel');
+
+  	churrasqueiras.owlCarousel({
+	    margin:10,
+	    responsiveBaseElement: $('#showroom-carousel'),
+
+	    responsive:{
+	        0:{
+	            items:1,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        },
+	        400:{
+	            items:2,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        },
+	        700:{
+	            items:3,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        }
+	    }
+	});
+
+	$('.next-churrasqueira').click(function(e) {
+		e.preventDefault();
+    	churrasqueiras.trigger('next.owl.carousel');
+	});
+
+	$('.prev-churrasqueira').click(function(e) {
+		e.preventDefault();
+    	churrasqueiras.trigger('prev.owl.carousel');
+	});
+
+	var moveis = $('.carousel-moveis');
+
+  	moveis.owlCarousel({
+	    margin:10,
+	    responsiveBaseElement: $('#showroom-carousel'),
+
+	    responsive:{
+	        0:{
+	            items:1,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        },
+	        400:{
+	            items:2,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        },
+	        700:{
+	            items:3,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        }
+	    }
+	});
+
+	$('.next-movel').click(function(e) {
+		e.preventDefault();
+    	moveis.trigger('next.owl.carousel');
+	});
+
+	$('.prev-movel').click(function(e) {
+		e.preventDefault();
+    	moveis.trigger('prev.owl.carousel');
+	});
+
+	//blog
+	var posts = $('#nav-posts');
+
+	posts.owlCarousel({
+	    margin:10,
+	    responsiveBaseElement: $('#showroom-carousel'),
+
+	    responsive:{
+	        0:{
+	            items:1,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        },
+	        400:{
+	            items:2,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        },
+	        700:{
+	            items:3,
+	            nav:false,
+	            dots: false,
+	            loop: true
+	            
+	        }
+	    }
+	});
+
+	$('.next-posts').click(function(e) {
+		e.preventDefault();
+    	posts.trigger('next.owl.carousel');
+	});
+
+	$('.prev-posts').click(function(e) {
+		e.preventDefault();
+    	posts.trigger('prev.owl.carousel');
+	});
+};
+
+hgCarolsels();
+
+//Footer
+$('.footer-newsletter').clone().appendTo('.copy-newsletter');
+

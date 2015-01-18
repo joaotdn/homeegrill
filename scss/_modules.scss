@@ -17,6 +17,10 @@
 	font-size: rem-calc(14) !important;
 }
 
+.font-normal {
+	font-size: rem-calc(16) !important;
+}
+
 .font-large {
 	font-size: rem-calc(18) !important;
 }
@@ -98,6 +102,9 @@
 .no-margin {
 	margin: 0 !important;
 }
+.centered {
+	margin: 0 auto;
+}
 
 /*
 	------------------------------------------------------------------------
@@ -109,6 +116,22 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+
+.bg-ghost {
+	background-color: $ghost;
+}
+
+.bg-white {
+	background-color: $white;
+}
+
+.bg-oil {
+	background-color: $oil;
+}
+
+.bg-silver {
+	background-color: $silver;
 }
 
 /*
@@ -176,6 +199,13 @@
 	);
 	color: $silver;
 	font-size: rem-calc(32);
+}
+
+.icon-chevron-circle-right {
+	@extend %transition;
+	&.hover {
+		@include translateX(rem-calc(10));
+	}
 }
 
 /*
