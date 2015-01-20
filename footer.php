@@ -30,15 +30,6 @@
           </nav>
 
           <nav class="share-footer small-12 left">
-            <ul class="inline-list no-margin">
-              <li>
-                <div class="fb-share-button" data-href="http://www.homeegrill.com.br/index.html" data-layout="button_count"></div>
-              </li>
-
-              <li>
-                <a class="twitter-share-button" data-url="http://www.homeegrill.com.br/index.html" href="https://twitter.com/share">Tweet</a>
-              </li>
-            </ul>
           </nav>
         </div>
 
@@ -218,7 +209,7 @@
             </label>
             
             <label class="no-margin small-4 left">
-              <input type="submit" value="enviar" class="button small-12">
+              <input type="submit" value="enviar" class="button small-12 text-center">
             </label>
           </form>
         </div>
@@ -236,7 +227,7 @@
    <section id="credits" class="small-12 left">
      <div class="row rel">
        
-        <p class="no-margin font-small small-12 medium-6 large-6 columns">
+        <p class="no-margin font-smallest small-12 medium-6 large-6 columns">
           <span class="left"><?php echo date('Y'); ?> Copyright - Todos os direitos reservados à home & GRILL.</span>
           <a href="http://foccus.cc/" class="right d-block icon-foccus" target="_blank" title="Desenvolvido por Foccus - Estratégia Digital"></a>
         </p>

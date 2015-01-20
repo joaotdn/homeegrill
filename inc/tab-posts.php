@@ -31,7 +31,7 @@
                 </div>
               </figure>
 
-              <article class="post-title small-12 left block-url bg-white d-table">
+              <article class="post-title fix small-12 left block-url bg-white d-table">
                 <h2 class="font-large no-margin d-table-cell">
                   <a href="#" title="">Customizing the grid is easy with the Sass variables provided in the options</a>
                 </h2>
@@ -61,7 +61,7 @@
                 </div>
               </figure>
 
-              <article class="post-title small-12 left block-url bg-white d-table">
+              <article class="post-title fix small-12 left block-url bg-white d-table">
                 <h2 class="font-large no-margin d-table-cell">
                   <a href="#" title="">You can further customize your grid columns using the provided options in the</a>
                 </h2>
@@ -91,7 +91,7 @@
                 </div>
               </figure>
 
-              <article class="post-title small-12 left block-url bg-white d-table">
+              <article class="post-title fix small-12 left block-url bg-white d-table">
                 <h2 class="font-large no-margin d-table-cell">
                   <a href="#" title="">Using these source ordering classes, you can shift columns around classes</a>
                 </h2>
@@ -121,7 +121,7 @@
                 </div>
               </figure>
 
-              <article class="post-title small-12 left block-url bg-white d-table">
+              <article class="post-title fix small-12 left block-url bg-white d-table">
                 <h2 class="font-large no-margin d-table-cell">
                   <a href="#" title="">This means if you place sub-navigation below main content on small displays</a>
                 </h2>
@@ -151,7 +151,7 @@
                 </div>
               </figure>
 
-              <article class="post-title small-12 left block-url bg-white d-table">
+              <article class="post-title fix small-12 left block-url bg-white d-table">
                 <h2 class="font-large no-margin d-table-cell">
                   <a href="#" title="">Prefix push/pull with the size of the device you want to apply the styles to</a>
                 </h2>
@@ -181,7 +181,7 @@
                 </div>
               </figure>
 
-              <article class="post-title small-12 left block-url bg-white d-table">
+              <article class="post-title fix small-12 left block-url bg-white d-table">
                 <h2 class="font-large no-margin d-table-cell">
                   <a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipisicing elit ipsum dolor</a>
                 </h2>

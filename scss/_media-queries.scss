@@ -3,6 +3,12 @@
 }
 
 @media only screen and (min-width: 0) and (max-width: rem-calc(766)) {
+	//header
+	.menu-subscriber {
+		span {
+			padding-top: 0;
+		}
+	}
 	
 	.slider-thumbs {
 		height: rem-calc(300);
@@ -59,8 +65,16 @@
 		z-index: 999;
 
 		a {
-			padding-top: rem-calc(10);
-			padding-bottom: rem-calc(10);
+			height: rem-calc(60);
+		}
+	}
+
+	//tabs
+	.tab-options {
+		text-align: center;
+		li {
+			float: inherit;
+			display: inline-block;
 		}
 	}
 }
@@ -247,6 +261,10 @@
 	}
 	.menu-subscriber {
 		margin-top: rem-calc(13);
+
+		span {
+			padding-top: 0;
+		}
 	}
 
 	//menu principal
@@ -342,5 +360,13 @@
 
 	#footer {
 		padding-bottom: rem-calc(70);
+	}
+	.select-lang {
+		float: right !important;
+		margin-right: rem-calc(10);
+
+		ul {
+			float: right !important;
+		}
 	}
 }

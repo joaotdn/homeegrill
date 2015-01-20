@@ -59,6 +59,10 @@ $yellow-tint: 30%;
 
 .menu-subscriber {
 	margin-top: rem-calc(11);
+	span {
+		display: inherit;
+		padding-top: rem-calc(4);
+	}
 }
 
 .menu-top {
@@ -98,10 +102,21 @@ $yellow-tint: 30%;
 }
 
 #drop-share {
+	padding: rem-calc(10) 0;
+
+	a {
+		padding: rem-calc(10) rem-calc(20);
+	}
+
 	span[class^="icon-"], span[class*=" icon-"] {
 		@extend .rel;
-		top: rem-calc(3);
+		//top: rem-calc(3);
 		margin-right: rem-calc(10);
+	}
+
+	.font-medium {
+		@extend .rel;
+		top: rem-calc(2);
 	}
 }
 
@@ -184,11 +199,8 @@ $yellow-tint: 30%;
 		@extend .no-bullet;
 
 		&.submenu {
-			display: none;
-			
-			&.show {
-				display: block;
-			}
+			width: 100%;
+			float: left;
 
 			a {
 				@extend .button;
@@ -211,6 +223,12 @@ $yellow-tint: 30%;
 			}
 		}
 	}
+}
+
+.submenu-mobile {
+	height: 0;
+	overflow: hidden;
+	@extend %transition;
 }
 
 .mo-menu-container {
@@ -347,7 +365,7 @@ $yellow-tint: 30%;
 
 			li {
 				@extend .no-margin;
-				padding-left: rem-calc(20);
+				padding-left: rem-calc(10);
 				&:first-child {
 					padding-left: 0;
 				}
@@ -357,6 +375,10 @@ $yellow-tint: 30%;
 
 	.icon-chevron-circle-down {
 		display: none !important;
+	}
+
+	.icon-uniE603 {
+		margin-right: rem-calc(7);
 	}
 }
 
@@ -396,16 +418,6 @@ $yellow-tint: 30%;
 
 	figure {
 		@extend %full-height;
-		@include transition(transform .3s linear);
-		&.zoom {
-			@extend %zoom;
-		}
-	}
-
-	&:hover {
-		figure {
-			@extend %zoom;
-		}
 	}
 }
 
@@ -461,6 +473,12 @@ $yellow-tint: 30%;
 .slide-controls {
 	@extend %transition;
 	@extend %show;
+
+	a {
+		display: table !important;
+		padding-top: 0; padding-bottom: 0;
+		height: rem-calc(72);
+	}
 
 	.bdr {
 		&:after {
@@ -578,10 +596,12 @@ $yellow-tint: 30%;
 	}
 
 	.btn {
-		padding: rem-calc(10) rem-calc(13);
+		width: rem-calc(60); height: rem-calc(60);
 		border: 1px solid shade($ghost,30%);
 		color: shade($ghost,30%);
 		font-size: rem-calc(32);
+		text-align: center;
+		display: table !important;
 
 		&:hover {
 			color: $primary-color;
@@ -620,6 +640,9 @@ $yellow-tint: 30%;
 
 .block-url {
 	padding: rem-calc(15);
+	&.fix {
+		padding: rem-calc(20);
+	}
 }
 
 .get-cat {

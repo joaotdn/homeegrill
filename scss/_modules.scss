@@ -9,6 +9,10 @@
 	font-size: rem-calc(10) !important; 
 }
 
+.font-smallest {
+	font-size: rem-calc(11);
+}
+
 .font-small {
 	font-size: rem-calc(12) !important; 
 }
@@ -123,7 +127,7 @@
 }
 
 .bg-white {
-	background-color: $white;
+	background-color: #f9f9f9;
 }
 
 .bg-oil {
@@ -139,6 +143,16 @@
 	Buttons
 	------------------------------------------------------------------------
  */
+.button {
+	text-align: left;
+	.icon-chevron-circle-right {
+		margin-left: rem-calc(10);
+	}
+	&:hover {
+		background-color: $orange;
+	}
+}
+
 .button-glass {
 	@include button(
 		$bg: false,

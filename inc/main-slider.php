@@ -73,7 +73,7 @@
                 <p class="no-margin d-table lh-normal font-large">
                   <span class="d-table-cell">Ipsum ipsum dolor sit amet, Quis, hic, sed aperiam accusantium amet, consectetur adipisicing consectetur adipisicing elit.</span>
                 </p>
-                <a href="#" title="" class="button small-12 left font-xlarge font-bold no-margin">saiba mais <span class="icon-chevron-circle-right font-large"></span></a>
+                <a href="#" title="" class="button text-left small-12 left font-xlarge font-bold no-margin">saiba mais <span class="icon-chevron-circle-right font-large"></span></a>
               </article>
 
               <article class="item small-12 left">
@@ -86,7 +86,7 @@
                 <p class="no-margin d-table lh-normal font-large">
                   <span class="d-table-cell">Quis, hic, sed aperiam accusantium amet, consectetur adipisicing. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                 </p>
-                <a href="#" title="" class="button small-12 left font-xlarge font-bold no-margin">saiba mais <span class="icon-chevron-circle-right font-large"></span></a>
+                <a href="#" title="" class="button text-left small-12 left font-xlarge font-bold no-margin">saiba mais <span class="icon-chevron-circle-right font-large"></span></a>
               </article>
 
               <article class="item small-12 left">
@@ -99,7 +99,7 @@
                 <p class="no-margin d-table lh-normal font-large">
                   <span class="d-table-cell">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, hic, sed aperiam accusantium amet, consectetur adipisicing.</span>
                 </p>
-                <a href="#" title="" class="button small-12 left font-xlarge font-bold no-margin">saiba mais <span class="icon-chevron-circle-right font-large"></span></a>
+                <a href="#" title="" class="button text-left small-12 left font-xlarge font-bold no-margin">saiba mais <span class="icon-chevron-circle-right font-large"></span></a>
               </article>
             
             </div><!-- slider container -->
@@ -107,10 +107,10 @@
             <!-- slider controls -->
             <div class="slide-controls small-4 medium-8 large-10 left">
               <a href="#" id="prev-slide" title="Anterior" class="button-smoke small-6 left no-margin">
-                <span class="icon-arrow-left"></span>
+                <span class="icon-arrow-left d-table-cell"></span>
               </a>
               <a href="#" id="next-slide" title="Próximo" class="button-smoke small-6 left no-margin bdr">
-                <span class="icon-uniE603"></span>
+                <span class="icon-uniE603 d-table-cell"></span>
               </a>
             </div>
 

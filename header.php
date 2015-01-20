@@ -26,6 +26,74 @@
             <span class="icon-close"></span>
           </a>
         </div>
+
+        <ul>
+            <li>
+              <a href="#">Churrasqueiras</a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">acessórios</a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">móveis</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">blog</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">aprenda</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#">quem somos</a>
+            </li>
+
+            <li>
+              <a href="#">contato</span></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Churrasqueira a gás</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
       </div>
     </nav>
 
@@ -48,9 +116,9 @@
       </h3><!-- menu mobile button -->
 
       <section class="top-info right">
-        <h2 class="font-medium font-lite no-margin left contact-top hide-for-small-only"><span class="show-for-large-up left">Ligue agora:</span> João Pessoa <strong>(83) 9999.0000</strong> • São Paulo <strong>(83) 0000.0000</strong></h2>
+        <h2 class="font-medium font-lite no-margin left contact-top show-for-medium-up"><span class="show-for-large-up left">Ligue agora:</span> João Pessoa <strong>(83) 9999.0000</strong> • São Paulo <strong>(83) 0000.0000</strong></h2>
         
-        <nav class="select-lang clang left hide-for-small-only" role="navigation">
+        <nav class="select-lang clang left show-for-medium-up" role="navigation">
           <ul class="inline-list no-margin lh-normal">
             <li><a href="#" title="Português brasileiro" class="active"><strong>Brasil</strong></a></li>
             <li><a href="#" title="English"><strong>English</strong></a></li>
@@ -72,8 +140,8 @@
             </li>
 
             <li class="no-margin">
-              <h3 class="no-margin">
-                <a href="#" title="Loja virtual" class="button-glass no-margin font-xlarge">
+              <h3 class="no-margin font-large">
+                <a href="#" title="Loja virtual" class="button-glass no-margin font-large">
                   <i class="d-block left icon-container small-no-margin">
                     <i class="icon-cart d-block"></i>
                   </i>
@@ -83,8 +151,8 @@
             </li>
 
             <li class="hide-for-small-only">
-              <h3 class="no-margin">
-                <a href="#" title="Ligamos pra você" aria-controls="drop-subscribe" data-options="align:bottom" data-dropdown="drop-subscribe" class="button-glass no-margin font-xlarge">
+              <h3 class="no-margin font-large">
+                <a href="#" title="Ligamos pra você" aria-controls="drop-subscribe" data-options="align:bottom" data-dropdown="drop-subscribe" class="button-glass no-margin font-large">
                   <i class="d-block left icon-container">
                     <i class="icon-chat d-block"></i>
                   </i>
@@ -94,8 +162,8 @@
             </li>
 
             <li>
-              <h3 class="no-margin">
-                <a href="#" title="Faça seu projeto" class="button-glass no-margin font-xlarge make-project">
+              <h3 class="no-margin font-large">
+                <a href="#" title="Faça seu projeto" class="button-glass no-margin font-large make-project">
                   <i class="d-block left icon-container tiny-no-margin">
                     <i class="icon-pencil d-block"></i>
                   </i>
@@ -154,23 +222,23 @@
           
           <ul id="drop-share" class="small f-dropdown show-for-tiny" data-dropdown-content>
             <li>
-              <a href="#" class="d-block" title="Seguir no Youtube" target="_blank">
-                <span class="icon-youtube-play"></span> <span class="font-medium text-up">Seguir no Youtube</span>
+              <a href="#" class="d-block small-12 left" title="Seguir no Youtube" target="_blank">
+                <span class="left icon-youtube-play"></span> <span class="left font-medium text-up">Seguir no Youtube</span>
               </a>
             </li>
             <li>
-              <a href="#" class="d-block" title="Seguir no Instagram" target="_blank">
-                <span class="icon-instagram2"></span> <span class="font-medium text-up">Seguir no Instagram</span>
+              <a href="#" class="d-block small-12 left" title="Seguir no Instagram" target="_blank">
+                <span class="left icon-instagram2"></span> <span class="left font-medium text-up">Seguir no Instagram</span>
               </a>
             </li>
             <li>
-              <a href="#" class="d-block" title="Seguir no Facebook" target="_blank">
-                <span class="icon-facebook"></span> <span class="font-medium text-up">Seguir no Facebook</span>
+              <a href="#" class="d-block small-12 left" title="Seguir no Facebook" target="_blank">
+                <span class="left icon-facebook"></span> <span class="left font-medium text-up">Seguir no Facebook</span>
               </a>
             </li>
             <li>
-              <a href="#" class="d-block" title="Seguir no Twitter" target="_blank">
-                <span class="icon-twitter"></span> <span class="font-medium text-up">Seguir no Twitter</span>
+              <a href="#" class="d-block small-12 left" title="Seguir no Twitter" target="_blank">
+                <span class="left icon-twitter"></span> <span class="left font-medium text-up">Seguir no Twitter</span>
               </a>
             </li>
           </ul><!-- drop redes sociais (320px) -->
