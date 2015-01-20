@@ -97,6 +97,18 @@
 .abs {
 	position: absolute;
 }
+.p-bottom {
+	bottom: 0;
+}
+.p-left {
+	left: 0;
+}
+.p-right {
+	right: 0;
+}
+.p-top {
+	top: 0;
+}
 
 /*
 	------------------------------------------------------------------------
@@ -109,6 +121,24 @@
 .centered {
 	margin: 0 auto;
 }
+.divide-20 {
+	@extend .small-12;
+	@extend .left;
+	margin-bottom: rem-calc(20);
+}
+.divide-30 {
+	@extend .small-12;
+	@extend .left;
+	margin-bottom: rem-calc(30);
+}
+.divide-40 {
+	@extend .small-12;
+	@extend .left;
+	margin-bottom: rem-calc(40);
+}
+
+
+
 
 /*
 	------------------------------------------------------------------------

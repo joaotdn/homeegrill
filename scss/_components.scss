@@ -679,6 +679,103 @@ $yellow-tint: 30%;
 
 /*
 	------------------------------------------------------------------------
+	Conteudo (page / single)
+	------------------------------------------------------------------------
+ */
+#breadcrumb {
+
+	div {
+		padding-top: rem-calc(30);
+		padding-bottom: rem-calc(10);
+	}
+
+	span {
+
+		a,span {
+			@extend .font-medium;
+			@extend .font-bold;
+			@extend .text-low;
+			float: left;
+			margin-right: rem-calc(10);
+		}
+
+		span.font-lite {
+			@extend .font-lite;
+		}
+
+		a {
+			&:after {
+				content: " > ";
+				display: inline-block;
+				margin-left: rem-calc(10);
+			}
+		}
+
+	}
+}
+
+.post-header {
+	@extend .divide-30;
+}
+
+#product-gallery {
+	height: rem-calc(450);
+	border: 1px solid $silver;
+	overflow: hidden;
+}
+
+.list-small-thumbs {
+	width: rem-calc(90);
+	@extend %full-height;
+	background-color: $white;
+
+	&:hover {
+		.small-thumb-next,.small-thumb-prev {
+			@include translateY(0);
+		}
+	}
+}
+
+.small-thumb-nav {
+	padding: rem-calc(10) 0;
+	background-color: rgba($oil,.4);
+	@extend %transition;
+	z-index: 99;
+
+	&:hover {
+		background-color: rgba($oil,.8);
+	}
+}
+
+.small-thumb-next {
+	@include translateY(-100%);
+}
+
+.small-thumb-prev {
+	@include translateY(100%);
+}
+
+.border-mask {
+	@extend %full-height;
+	@extend .p-top;
+	@extend .p-left;
+	@extend %transition;
+	border: 1px solid $silver;
+	border-left: none;
+	border-bottom: none;
+	z-index: 9;
+
+	&:hover {
+		border:6px solid $orange;
+	}
+
+	&.active {
+		border:6px solid $primary-color;
+	}
+}
+
+/*
+	------------------------------------------------------------------------
 	Rodape
 	------------------------------------------------------------------------
  */

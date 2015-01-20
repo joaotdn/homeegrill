@@ -21,6 +21,10 @@ $(document).ready(function() {
 	});
 });
 
+$('.prev-default').on('click touchstart',function(e) {
+	e.preventDefault();
+});
+
 /*
 	------------------------------------
 	Torne data-thumb em background para 
