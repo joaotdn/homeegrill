@@ -718,6 +718,7 @@ $yellow-tint: 30%;
 	@extend .divide-30;
 }
 
+//Slider do produto
 #product-gallery {
 	height: rem-calc(450);
 	border: 1px solid $silver;
@@ -732,6 +733,15 @@ $yellow-tint: 30%;
 	&:hover {
 		.small-thumb-next,.small-thumb-prev {
 			@include translateY(0);
+		}
+	}
+
+	li {
+		width:100%;
+		height: rem-calc(90);
+
+		&:first-child {
+			border-top: none;
 		}
 	}
 }
@@ -771,6 +781,59 @@ $yellow-tint: 30%;
 
 	&.active {
 		border:6px solid $primary-color;
+	}
+}
+
+#product-canvas {
+	width: rem-calc(570);
+	@extend %full-height;
+
+	img {
+		width: 80%;
+	}
+
+	figcaption {
+		padding: rem-calc(10) rem-calc(15);
+		color: shade($ghost,30%);
+		z-index: 1;
+	}
+}
+
+.zoom-image {
+	position: absolute !important;
+	@extend %full-height;
+	@extend .p-top;
+	@extend .p-left;
+	padding-top: rem-calc(20);
+
+}
+
+.zoomImg {
+	background-color: $white !important;
+	z-index: 9;
+	cursor: move;
+}
+
+.icon-glass {
+	margin: rem-calc(3) 0 0 rem-calc(10);
+}
+
+//comprar
+#product-info {
+	height: rem-calc(450);
+}
+
+.icon-cart2 {
+	margin-left: rem-calc(10);
+	margin-top: rem-calc(3);
+}
+
+.info-footer {
+	left: rem-calc(10);
+	
+	i {
+		margin-right: rem-calc(10);
+		margin-top: rem-calc(3);
 	}
 }
 

@@ -59,6 +59,10 @@
 .white {
 	color: $white !important;
 }
+.oil {
+	color: $oil !important;
+}
+
 
 //Caps
 .text-up {
@@ -120,6 +124,11 @@
 }
 .centered {
 	margin: 0 auto;
+}
+.divide-10 {
+	@extend .small-12;
+	@extend .left;
+	margin-bottom: rem-calc(10);
 }
 .divide-20 {
 	@extend .small-12;
@@ -249,6 +258,15 @@
 	@extend %transition;
 	&.hover {
 		@include translateX(rem-calc(10));
+	}
+}
+
+.button-success {
+	@include button(
+		$bg: $success-color
+	);
+	&:hover {
+		background-color: tint($success-color,20%);
 	}
 }
 

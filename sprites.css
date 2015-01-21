@@ -1,24 +1,30 @@
 .icon-br {
   background-image: url(images/spritesheet.png);
-  background-position: -24px -135px;
+  background-position: -106px -135px;
   width: 20px;
   height: 20px;
 }
 .icon-cart {
   background-image: url(images/spritesheet.png);
-  background-position: -44px -135px;
+  background-position: -86px -135px;
   width: 20px;
   height: 20px;
 }
+.icon-cart2 {
+  background-image: url(images/spritesheet.png);
+  background-position: -24px -135px;
+  width: 22px;
+  height: 22px;
+}
 .icon-chat {
   background-image: url(images/spritesheet.png);
-  background-position: -64px -135px;
+  background-position: -46px -135px;
   width: 20px;
   height: 20px;
 }
 .icon-en {
   background-image: url(images/spritesheet.png);
-  background-position: -84px -135px;
+  background-position: -66px -135px;
   width: 20px;
   height: 20px;
 }
@@ -28,15 +34,33 @@
   width: 24px;
   height: 26px;
 }
+.icon-glass {
+  background-image: url(images/spritesheet.png);
+  background-position: -160px -135px;
+  width: 17px;
+  height: 17px;
+}
 .icon-pencil {
   background-image: url(images/spritesheet.png);
-  background-position: -104px -135px;
+  background-position: -126px -135px;
   width: 20px;
   height: 20px;
+}
+.icon-prazo {
+  background-image: url(images/spritesheet.png);
+  background-position: -146px -135px;
+  width: 14px;
+  height: 18px;
 }
 .icon-products {
   background-image: url(images/spritesheet.png);
   background-position: 0px 0px;
   width: 450px;
   height: 135px;
+}
+.icon-question {
+  background-image: url(images/spritesheet.png);
+  background-position: -177px -135px;
+  width: 17px;
+  height: 17px;
 }

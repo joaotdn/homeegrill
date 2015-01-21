@@ -306,6 +306,34 @@ function hgCarolsels() {
 
 hgCarolsels();
 
+/*
+	Slider de produtos
+ */           
+$(".zoom-image").zoom({on : 'grab'});
+
+//miniaturas
+$('a','.vertical-slider').on('click',function(e) {
+	e.preventDefault();
+
+	$('.border-mask',this).addClass('active');
+
+	$(this).parent()
+	.siblings('li')
+	.find('.border-mask')
+	.removeClass('active');
+
+	var thFull = $(this).data('post-thumbnail');
+
+	$('img','#product-canvas').attr({
+		'src': thFull,
+		'data-zoom-image': thFull
+	});
+
+	$(".zoom-image").trigger('zoom.destroy').zoom({on : 'grab'});
+});
+
 //Footer
 $('.footer-newsletter').clone().appendTo('.copy-newsletter');
+
+
 
