@@ -837,6 +837,141 @@ $yellow-tint: 30%;
 	}
 }
 
+//dados gerais do produto
+#nav-product-data {
+	background-color: #e0e0e0;
+
+	a {
+		@include button(
+			$bg: false
+		);
+		color: $primary-color;
+		@extend .no-margin;
+		@extend .text-low;
+		height: rem-calc(78);
+		display: table !important;
+		font-size: rem-calc(18);
+		@extend .rel;
+		padding: rem-calc(16 24);
+	}
+
+	ul {
+		padding: 0 rem-calc(10);
+	}
+
+	li {
+		@extend .no-margin;
+		@extend %transition;
+		line-height: 0;
+
+		&:not(:first-child) {
+			a {
+				&:before {
+					content: "";
+					@extend .d-block;
+					@extend .abs;
+					@extend .p-left;
+					@extend .p-top;
+					@extend %full-height;
+					border-left: 1px solid $ghost;
+				}
+			}
+		}
+
+		&.active {
+			&:nth-child(2n) {
+				@extend .bg-white;
+			}
+			&:nth-child(3n) {
+				@extend .bg-ghost;
+			}
+			&:nth-child(4n) {
+				@extend .bg-oil;
+			}
+			&:nth-child(5n) {
+				@extend .bg-ghost;
+			}
+			&:nth-child(6n) {
+				@extend .bg-oil;
+			}
+		}
+
+		&:not(.active) {
+			&:hover {
+				background-color: shade(#e0e0e0,5%);
+			}
+		}
+	}
+
+	&.fixed {
+		position: fixed;
+		@extend .p-top;
+		@extend .p-left;
+		z-index: 9999;
+	}
+}
+
+.data-panel {
+	padding: rem-calc(40) 0;
+	header {
+		@extend .divide-30;
+	}
+}
+
+.nav-espec {
+	li {
+		@extend .d-block;
+		padding: rem-calc(15 10);
+		
+		@extend .small-12;
+		@extend .left;
+		&:nth-child(odd) {
+			background-color: $ghost;
+		}	
+	}
+}
+
+#product-down {
+	.post-title {
+		min-height: rem-calc(100) !important;
+		max-height: rem-calc(100) !important;
+		padding: rem-calc(0 30);
+	}
+}
+
+.feature-thumb {
+	overflow: hidden;
+	cursor: pointer;
+
+	a {
+		height: rem-calc(200);
+		&:hover {
+			@extend %zoom;
+		}
+	}
+
+	.show-more {
+		padding: rem-calc(10);
+		background-color: $primary-color;
+		@extend %transition;
+		color: $oil;
+		z-index: 99;
+	}
+
+	figcaption {
+		@extend %full-height;
+		background-color: tint($oil,10%);
+		z-index: 9;
+		padding: rem-calc(20 30);
+		@extend %transition;
+		@include translateY(-100%);
+
+		&.active {
+			@include translateY(0);
+		}
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Rodape

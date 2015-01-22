@@ -270,6 +270,17 @@
 	}
 }
 
+.button-white {
+	@include button( $bg: $white );
+	color: $primary-color;
+	@extend .font-bold;
+	text-align: left;
+	&:hover {
+		color: $silver;
+		background-color: $white;
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Animações

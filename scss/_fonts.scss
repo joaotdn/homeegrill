@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?twxrbx');
-	src:url('fonts/icomoon.eot?#iefixtwxrbx') format('embedded-opentype'),
-		url('fonts/icomoon.woff?twxrbx') format('woff'),
-		url('fonts/icomoon.ttf?twxrbx') format('truetype'),
-		url('fonts/icomoon.svg?twxrbx#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-3xt77y');
+	src:url('fonts/icomoon.eot?#iefix-3xt77y') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-3xt77y') format('woff'),
+		url('fonts/icomoon.ttf?-3xt77y') format('truetype'),
+		url('fonts/icomoon.svg?-3xt77y#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -83,6 +83,10 @@
 	content: "\e608";
 }
 
+.icon-plus:before {
+	content: "\e60c";
+}
+
 .icon-help:before {
 	content: "\e609";
 }
@@ -153,6 +157,10 @@
 
 .icon-truck:before {
 	content: "\e60b";
+}
+
+.icon-add:before {
+	content: "\e60d";
 }
 
 .icon-close:before {
