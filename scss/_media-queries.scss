@@ -197,6 +197,17 @@
 	#product-gallery {
 		height: rem-calc(300);
 	}
+
+	.list-small-thumbs {
+		width: rem-calc(60);
+
+		li {
+			height: rem-calc(60);
+		}
+	}
+	#product-canvas {
+		width: rem-calc(237);
+	}
 }
 
 /*
@@ -333,7 +344,7 @@
 	//menu principal
 	#main-menu {
 		a {
-			padding: rem-calc(20) rem-calc(15.3);
+			padding: rem-calc(20) rem-calc(14);
 			font-size: rem-calc(16) !important;
 
 			.icon-chevron-circle-down {

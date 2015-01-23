@@ -179,7 +179,7 @@ $('.slider-thumbs').cycle({
 	------------------------------------
  */
 function hgCarolsels() {
-	var churrasqueiras = $('#showroom-carousel');
+	var churrasqueiras = $('.caroulsel-grill');
 
   	churrasqueiras.owlCarousel({
 	    margin:10,
@@ -266,7 +266,7 @@ function hgCarolsels() {
 
 	posts.owlCarousel({
 	    margin:10,
-	    responsiveBaseElement: $('#showroom-carousel'),
+	    responsiveBaseElement: $('#nav-posts'),
 
 	    responsive:{
 	        0:{
@@ -382,8 +382,7 @@ $('a','#nav-product-data').click(function(event) {
 	event.preventDefault();
 });
 
-var sT = $(this).scrollTop(),
-	elMenu = ($('#nav-product-data').position().top - 205),
+var elMenu = ($('#nav-product-data').position().top - 205),
 	elProfile = ($('#product-profile').position().top - 205),
 	elEspec = ($('#product-espec').position().top - 205),
 	elFeatures = ($('#list-features').position().top - 205),

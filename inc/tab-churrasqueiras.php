@@ -1,4 +1,4 @@
-<!-- inicio tab prdutos (cozinha) -->
+    <!-- inicio tab prdutos (cozinha) -->
     <nav id="showroom-tab" class="small-12 left">
 
       <div class="row">
@@ -26,7 +26,7 @@
               <img src="images/loader.png" alt="" class="zigzag">
           </div><!-- loader -->
 
-          <div id="showroom-carousel" class="small-12 left owl-carousel owl-theme owl-responsive-1000 owl-loaded">
+          <div id="showroom-carousel" class="caroulsel-grill small-12 left owl-carousel owl-theme owl-responsive-1000 owl-loaded">
             
             <div class="item rel">
               <figure class="small-12 left rel showroom-thumb">
