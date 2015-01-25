@@ -705,6 +705,53 @@ $yellow-tint: 30%;
 	margin: rem-calc(0 0 10 10);
 }
 
+.gallery-thumb {
+	height: rem-calc(320);
+}
+
+.gallery-pager {
+	span {
+		display: inline-block;
+		height: rem-calc(8);
+		width: rem-calc(8);
+		background-color: $ghost;
+		margin: 0 rem-calc(3);
+		border-radius: 100%;
+		border: 1px solid $silver;
+		cursor: pointer;
+
+		&.cycle-pager-active {
+			background-color: $silver;
+		}
+	}
+}
+
+.nav-gallery {
+	top: 40%;
+	z-index: 999;
+	background-color: rgba(#000,.8);
+	padding: rem-calc(10);
+	color: $white;
+}
+
+#post-galery {
+	overflow: hidden;
+	&:hover {
+		#prev-gallery-thumb,
+		#next-gallery-thumb {
+			@include translateX(0);
+		}
+	}
+}
+
+#prev-gallery-thumb {
+	@include translateX(-100%);
+}
+
+#next-gallery-thumb {
+	@include translateX(100%);
+}
+
 //settings
 #breadcrumb {
 
@@ -936,7 +983,9 @@ $yellow-tint: 30%;
 }
 
 .data-panel {
-	padding: rem-calc(40) 0;
+	padding-top: rem-calc(40);
+	padding-bottom: rem-calc(40);
+
 	header {
 		@extend .divide-30;
 	}
@@ -996,6 +1045,145 @@ $yellow-tint: 30%;
 	}
 }
 
+// --- página interna do blog
+.author-thumb {
+	height: rem-calc(200);
+}
+
+.post-author {
+	figcaption {
+		padding: rem-calc(20);
+		background-color: $ghost;
+	}
+	&.inner {
+		figcaption {
+			@extend .bg-white;
+		}
+	}
+}
+
+// --- formularios
+.dotted-row {
+	height: rem-calc(30);
+	background: url("images/bg-menu.png") repeat;
+}
+
+.form-field {
+
+	input,select,textarea {
+		@extend .no-margin;
+		@extend .lh-normal;
+		border: 1px solid shade($ghost,20%);
+	}
+}
+
+.call-we {
+	figure {
+		height: rem-calc(180);
+	}
+	figcaption {
+		padding: rem-calc(10 12);
+	}
+	section {
+		padding: rem-calc(20);
+		padding-bottom: 0;
+	}
+}
+
+// |- Nossas lojas
+.shop-info {
+	height: rem-calc(220);
+
+	&.how-to {
+		height: rem-calc(250);
+	}
+
+	&.sale-point {
+		height: rem-calc(250);
+	}
+
+	hgroup {
+		padding: 0 rem-calc(30);
+	}
+
+	iframe {
+		@extend %full-height;
+	}
+}
+
+.full-shop-data {
+	height: 0;
+	overflow: hidden;
+	@extend %transition;
+
+	img {
+		padding: rem-calc(3);
+		background-color: tint($oil,20%);
+		&:hover {
+			background-color: $silver;
+		}
+	}
+
+	&.display {
+		height: rem-calc(400);
+		.d-table-cell {
+			opacity: 1;
+		}
+	}
+
+	iframe {
+		height: rem-calc(400);
+		width: 100%;
+	}
+
+	.d-table-cell {
+		opacity: 0;
+		@extend %transition;
+	}
+}
+
+.shop-address {
+	padding: rem-calc(0 20);
+}
+
+.geo-component {
+	@extend %full-height;
+}
+
+.shop-item {
+
+}
+
+// Perguntas frequentes
+.faq-list {
+
+	li {
+		width: 100%;
+		float: left;
+
+		&:nth-child(odd) {
+			@extend .bg-white;
+		}
+	}
+	a {
+		padding: rem-calc(20);
+		
+		h6 {
+			color: $primary-color;
+		}
+
+		&.active {
+			h6 {
+				color: $silver;
+				margin-bottom: rem-calc(10) !important;
+			}
+		}
+	}
+	p {
+		display: none;
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Arquivos (category,taxonomy,author,tag,archive,search)
@@ -1014,7 +1202,40 @@ $yellow-tint: 30%;
 	.infocap {
 		padding: rem-calc(10);
 	}
-}	
+}
+
+.select-writter {
+
+	h5 {
+		border: 1px solid shade($ghost,20%);
+		cursor: pointer;
+		height: rem-calc(51);
+		@extend .d-table;
+		padding: rem-calc(6);
+
+		span {
+			color: shade($ghost,30%);
+			@extend .d-table-cell;
+			padding-left: rem-calc(8);
+		}
+	}
+
+	i {
+		@extend .d-table;
+		@extend .rel;
+		@extend %full-height;
+		padding: 0 rem-calc(12);
+		background-color: $primary-color;
+
+		&:before {
+			@extend .d-table-cell;
+		}
+	}
+}
+
+#list-writters {
+	@extend #drop-share;
+}
 
 /*
 	------------------------------------------------------------------------
@@ -1069,7 +1290,7 @@ $yellow-tint: 30%;
 .footer-newsletter {
 	form {
 		padding: rem-calc(6);
-		border: 1px solid $oil;
+		border: 1px solid shade($ghost,20%);
 	}
 
 	input[type="email"] {

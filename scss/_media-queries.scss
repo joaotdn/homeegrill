@@ -114,6 +114,16 @@
 			}
 		}
 	}
+
+	.full-shop-data {
+		&.display {
+			height: rem-calc(800);
+		}
+	}
+
+	.geo-component {
+		height: rem-calc(400);
+	}
 }
 
 /*

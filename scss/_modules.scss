@@ -62,6 +62,12 @@
 .oil {
 	color: $oil !important;
 }
+.silver {
+	color: $silver;
+}
+.primary {
+	color: $primary-color;
+}
 
 
 //Caps
@@ -87,6 +93,9 @@
 .d-table-cell {
 	display: table-cell;
 	vertical-align: middle;
+}
+.full-height {
+	@extend %full-height;
 }
 
 /*

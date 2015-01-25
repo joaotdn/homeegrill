@@ -21,7 +21,7 @@
             </li>
           </ul>
 
-          <div id="nav-posts" class="small-12 left">
+          <div id="nav-posts" class="small-12 left carousel">
             
             <div class="item">
               <figure class="small-12 left rel">

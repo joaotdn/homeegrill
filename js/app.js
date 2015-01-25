@@ -2,6 +2,7 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+
 /*
 	------------------------------------
 	Preloader
@@ -59,6 +60,7 @@ $('.toggle-lang').on('click touchstart',function(e) {
 jQuery(function($){
     $('.mk-dd').autotab({ maxlength: 2, format: 'number', target: '.mk-phone' });
     $('.mk-phone').autotab({ maxlength: 8, format: 'number' });
+    $('.mk-cnpj').autotab({ maxlength: 14, format: 'number' });
 });
 
 /*
@@ -179,11 +181,15 @@ $('.slider-thumbs').cycle({
 	------------------------------------
  */
 function hgCarolsels() {
+
+	/*
+		churrasqueiras
+	 */
 	var churrasqueiras = $('.caroulsel-grill');
 
   	churrasqueiras.owlCarousel({
 	    margin:10,
-	    responsiveBaseElement: $('#showroom-carousel'),
+	    responsiveBaseElement: $('.row'),
 
 	    responsive:{
 	        0:{
@@ -220,11 +226,14 @@ function hgCarolsels() {
     	churrasqueiras.trigger('prev.owl.carousel');
 	});
 
+	/*
+		Moveis
+	 */
 	var moveis = $('.carousel-moveis');
 
   	moveis.owlCarousel({
 	    margin:10,
-	    responsiveBaseElement: $('#showroom-carousel'),
+	    responsiveBaseElement: $('.row'),
 
 	    responsive:{
 	        0:{
@@ -262,11 +271,11 @@ function hgCarolsels() {
 	});
 
 	//blog
-	var posts = $('#nav-posts');
+	var posts = $('#nav-posts.carousel');
 
 	posts.owlCarousel({
 	    margin:10,
-	    responsiveBaseElement: $('#nav-posts'),
+	    responsiveBaseElement: $('.row'),
 
 	    responsive:{
 	        0:{
@@ -305,6 +314,70 @@ function hgCarolsels() {
 };
 
 hgCarolsels();
+
+/*
+	------------------------------------
+	Páginas
+	------------------------------------
+ */
+
+//nossas lojas
+$('.display-shop-data').on('click', function(event) {
+	event.preventDefault();
+	$(this).parent()
+	.siblings('.full-shop-data')
+	.toggleClass('display');
+});
+
+//pontos de venda
+(function() {
+	//aparecer apenas os estados que estão nos mapas
+	var stateItem = [];
+
+	$('.shop-item','#shop-list').each(function(index, el) {
+		stateItem[index] = $(this).data('state');
+	});
+
+	var stateUniqueArr = $.unique(stateItem);
+	$.each(stateUniqueArr, function(index, val) {
+		//console.log(stateUniqueArr[index]);
+		
+		$('#list-states').append('<li><a href="#" title="'+ stateUniqueArr[index] +'" class="font-medium small-12" data-select-state="'+ stateUniqueArr[index] +'">'+ stateUniqueArr[index] +'</a></li>');
+	});
+})();
+
+$('a','#list-states').bind('click',function(e) {
+	e.preventDefault();
+	var state = $(this).data('select-state');
+
+	$('h5','.select-writter').html('<span class="">'+ $(this).text() +'</span> <i class="icon-arrow-down right white font-bold"></i>');
+
+	if(state != 'todos') {
+		$('.shop-item','#shop-list').each(function(index, el) {
+			var stateItem = $(this).data('state');
+
+			if(stateItem == state) {
+				$(this).fadeIn('fast');
+			} else {
+				$(this).fadeOut('fast');
+			}
+		});
+	} else {
+		$('.shop-item','#shop-list').each(function(index, el) {
+			$(this).fadeIn('fast');
+		});	
+	}
+});
+
+//Perguntas frequentes
+$('a','.faq-list').bind('click',function(e) {
+	e.preventDefault();
+	if(!$(this).hasClass('active')) {
+		$(this).addClass('active').find('p').fadeIn('fast');
+	} else {
+		$(this).removeClass('active').find('p').fadeOut('fast');
+	}
+});
 
 /*
 	Slider de produtos
@@ -443,7 +516,7 @@ $('.button-white').on('click',function(e) {
 	if($('.feature-thumb').length) {
 		$(this).parent().siblings('.feature-thumb').trigger('click');
 	}
-})
+});
 
 //Footer
 $('.footer-newsletter').clone().appendTo('.copy-newsletter');

@@ -12,6 +12,8 @@
         data-cycle-prev=".prev-features"
         data-cycle-next=".next-features"
         data-cycle-slides="> div"
+        data-cycle-swipe="true"
+        data-cycle-swipe-fx="scrollHorz"
       >
         
         <!-- slide -->

@@ -49,7 +49,7 @@ strong {
 	font-weight: 600;
 }
 
-a {
+a:not(.gallery-thumb) {
 	@extend %transition;
 }
 
