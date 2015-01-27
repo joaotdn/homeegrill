@@ -26,7 +26,7 @@
           </label>
             
           <label class="no-margin small-4 left">
-            <input type="submit" value="enviar" class="button small-12 text-center">
+            <input type="submit" value="buscar" class="button small-12 text-center">
           </label>
         </form>
 
@@ -46,7 +46,7 @@
 
       <div class="divide-20"></div>
 
-      <ul id="list-writters" class="f-dropdown small" data-dropdown-content aria-hidden="true" tabindex="-1">
+      <ul id="list-writters" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
         <li><a href="#" title="" class="font-medium small-12">Stan Lee</a></li>
         <li><a href="#" title="" class="font-medium small-12">Stephen King</a></li>
         <li><a href="#" title="" class="font-medium small-12">Jô Soares</a></li>

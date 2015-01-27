@@ -2,6 +2,25 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+//diferenciais
+$('a, span','#nav-features').on('click',function(e) {
+	e.preventDefault();
+
+	$(this).parents('figure')
+	.find('figcaption')
+	.toggleClass('active');
+
+	if(!$(this).parents('figure').find('.icon-add').hasClass('icon-close')){
+		$(this).parents('figure')
+		.find('.icon-add')
+		.addClass('icon-close');
+	} else {
+		$(this).parents('figure')
+		.find('.icon-add')
+		.removeClass('icon-close');
+	}
+	
+});
 
 /*
 	------------------------------------
@@ -321,12 +340,48 @@ hgCarolsels();
 	------------------------------------
  */
 
+//geral
+$('.icon-arrow-down','.form-field').on('click', function() {
+
+	//$(this).siblings('select');
+
+});
+
+$('.not-keyword').keypress(function(event) {
+	/* Act on the event */
+	event.preventDefault();
+});
+
+$('a','#list-states-form').bind('click',function(e) {
+	e.preventDefault();
+
+	var txt = $(this).text();
+	
+	$(this).parents('ul')
+	.siblings('input[type="text"]')
+	.val(txt);
+
+	Foundation.libs.dropdown.close($('#list-states-form'));
+
+});
+
 //nossas lojas
 $('.display-shop-data').on('click', function(event) {
 	event.preventDefault();
-	$(this).parent()
+	
+	$(this)
+	.toggleClass('active')
+	.parent()
 	.siblings('.full-shop-data')
 	.toggleClass('display');
+
+	if($(this).hasClass('active')) {
+		$(this).html('Fechar <span class="icon-chevron-circle-right font-medium">');
+	} else {
+		$(this).html('Ver agora <span class="icon-chevron-circle-right font-medium">');
+	}
+
+
 });
 
 //pontos de venda
@@ -342,7 +397,7 @@ $('.display-shop-data').on('click', function(event) {
 	$.each(stateUniqueArr, function(index, val) {
 		//console.log(stateUniqueArr[index]);
 		
-		$('#list-states').append('<li><a href="#" title="'+ stateUniqueArr[index] +'" class="font-medium small-12" data-select-state="'+ stateUniqueArr[index] +'">'+ stateUniqueArr[index] +'</a></li>');
+		$('#list-states').append('<li><a href="#" title="'+ stateUniqueArr[index] +'" class="font-medium small-12 primary" data-select-state="'+ stateUniqueArr[index] +'">'+ stateUniqueArr[index] +'</a></li>');
 	});
 })();
 
@@ -489,26 +544,6 @@ $('li','#nav-product-data').on('click',function(e) {
 	if(i == 5) {
 		$('body').animate({scrollTop: elRelated}, 'fast');
 	}
-});
-
-$('.feature-thumb').on('click',function(e) {
-	e.preventDefault();
-	var showMore = $(this).find('.show-more');
-	var figCaption = $(this).find('figcaption');
-	
-	if(showMore.hasClass('icon-add')) {
-		showMore.removeClass('icon-add').addClass('icon-close');
-		figCaption.addClass('active');
-
-		$(this).parents('figure')
-		.siblings('figure').find('.feature-thumb').find('figcaption')
-		.removeClass('active');
-
-	} else {
-		showMore.addClass('icon-add').removeClass('icon-close');
-		figCaption.removeClass('active');
-	}
-
 });
 
 $('.button-white').on('click',function(e) {

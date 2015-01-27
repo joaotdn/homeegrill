@@ -26,7 +26,7 @@
           </label>
             
           <label class="no-margin small-4 left">
-            <input type="submit" value="enviar" class="button small-12 text-center">
+            <input type="submit" value="buscar" class="button small-12 text-center">
           </label>
         </form>
 

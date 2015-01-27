@@ -117,7 +117,7 @@
           </nav>
         </div><!-- //informações -->
 
-        <div class="yellow-block small-6 abs"></div>
+        <div class="yellow-block small-6 large-4 abs"></div>
       </div><!-- row -->
 
     </section>

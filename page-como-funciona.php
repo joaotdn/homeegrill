@@ -32,13 +32,13 @@
               <hgroup class="small-12">
                 <div class="divide-20"></div>
                 <h4 class="font-low no-margin">Antes de planejar</h4>
-                <p class="no-margin font-lite font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ratione dolorum dolore iure voluptatum optio est natus possimus neque veniam.</p>
+                <p class="no-margin font-lite font-large">Lorem ipsum dolor sit amet</p>
               </hgroup>
 
-              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-small"></a>
+              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-medium"></a>
             </div>
 
-            <div class="small-12 left full-shop-data bg-oil">
+            <div class="small-12 left full-shop-data info bg-oil">
 
               <div class="small-12 left bg-oil shop-address geo-component d-table">
                 <div class="d-table-cell small-12 white">
@@ -61,13 +61,13 @@
               <hgroup class="small-12">
                 <div class="divide-20"></div>
                 <h4 class="font-low no-margin">Antes de planejar</h4>
-                <p class="no-margin font-lite font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ratione dolorum dolore iure voluptatum optio est natus possimus neque veniam.</p>
+                <p class="no-margin font-lite font-large">Lorem ipsum dolor sit amet</p>
               </hgroup>
 
-              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-small"></a>
+              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-medium"></a>
             </div>
 
-            <div class="small-12 left full-shop-data bg-oil">
+            <div class="small-12 left full-shop-data info bg-oil">
 
               <div class="small-12 left bg-oil shop-address geo-component d-table">
                 <div class="d-table-cell small-12 white">

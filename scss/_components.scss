@@ -41,7 +41,7 @@ $yellow-tint: 30%;
 }
 
 .top-info {
-	width: rem-calc(810);
+	width: rem-calc(732);
 }
 
 .contact-top {
@@ -74,8 +74,8 @@ $yellow-tint: 30%;
 	}
 }
 .social-top {
-	right: rem-calc(10);
-	bottom: rem-calc(33);
+	//right: rem-calc(10);
+	//bottom: rem-calc(33);
 	border: 1px solid $yellow;
 	padding: rem-calc(4);
 
@@ -435,6 +435,7 @@ $yellow-tint: 30%;
 }
 
 .nav-info {
+	top: rem-calc(50);
 	z-index: 9999;
 }
 
@@ -457,7 +458,7 @@ $yellow-tint: 30%;
 	}
 
 	header,p {
-		height: rem-calc(180);
+		height: rem-calc(156);
 		padding: rem-calc(20);
 	}
 
@@ -1069,11 +1070,25 @@ $yellow-tint: 30%;
 }
 
 .form-field {
+	@extend .rel;
 
 	input,select,textarea {
 		@extend .no-margin;
 		@extend .lh-normal;
 		border: 1px solid shade($ghost,20%);
+	}
+
+	input,select {
+		height: rem-calc(45);
+	}
+
+	.icon-arrow-down {
+		@extend .d-block;
+		background-color: $primary-color;
+		right: rem-calc(15);
+		padding: rem-calc(10);
+		top: 4.5px;
+		cursor: pointer;
 	}
 }
 
@@ -1126,6 +1141,11 @@ $yellow-tint: 30%;
 
 	&.display {
 		height: rem-calc(400);
+		
+		&.info {
+			height: rem-calc(300);
+		}
+
 		.d-table-cell {
 			opacity: 1;
 		}

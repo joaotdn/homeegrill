@@ -32,8 +32,8 @@
           <div class="divide-20"></div>
         </div>
 
-        <ul id="list-states" class="f-dropdown small" data-dropdown-content aria-hidden="true" tabindex="-1">
-          <li><a href="#" title="Todos" class="font-medium small-12" data-select-state="todos">Todos os estados</a></li>
+        <ul id="list-states" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
+          <li><a href="#" title="Todos" class="font-medium small-12 primary" data-select-state="todos">Todos os estados</a></li>
         </ul>
       </section><!-- seleciona o estado -->
       

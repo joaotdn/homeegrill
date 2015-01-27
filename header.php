@@ -181,23 +181,25 @@
                 </a>
               </h3>
             </li>
+
+            <li class="show-for-medium-up">
+              <ul class="inline-list social-top no-margin">
+                <li>
+                  <a href="#" class="d-block icon-youtube-play" title="" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="#" class="d-block icon-instagram2" title="" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="#" class="d-block icon-facebook" title="" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="#" class="d-block icon-twitter" title="" target="_blank"></a>
+                </li>
+              </ul>
+            </li>
           </ul>
 
-          <ul class="inline-list social-top no-margin abs">
-            <li>
-              <a href="#" class="d-block icon-youtube-play" title="" target="_blank"></a>
-            </li>
-            <li>
-              <a href="#" class="d-block icon-instagram2" title="" target="_blank"></a>
-            </li>
-            <li>
-              <a href="#" class="d-block icon-facebook" title="" target="_blank"></a>
-            </li>
-            <li>
-              <a href="#" class="d-block icon-twitter" title="" target="_blank"></a>
-            </li>
-          </ul>
-          
           <!-- Dropdowns -->
           <div id="drop-subscribe" data-dropdown-content class="f-dropdown small content show-for-medium-up auto-jump" aria-hidden="true" tabindex="-1">
             <form action="" data-abide>

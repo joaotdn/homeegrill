@@ -63,10 +63,10 @@
 	color: $oil !important;
 }
 .silver {
-	color: $silver;
+	color: $silver !important;
 }
 .primary {
-	color: $primary-color;
+	color: $primary-color !important;
 }
 
 
@@ -287,6 +287,26 @@
 	&:hover {
 		color: $silver;
 		background-color: $white;
+	}
+}
+
+/*
+	------------------------------------------------------------------------
+	Animações
+	------------------------------------------------------------------------
+ */
+.f-dropdown {
+	&.bg-white {
+		a,li {
+			@extend .primary;
+			&:hover {
+				background-color: $white;
+			}
+		}
+
+		&:before {
+			border-color: transparent transparent #f9f9f9;
+		}
 	}
 }
 

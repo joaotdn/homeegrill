@@ -22,9 +22,7 @@
       
       <!-- widget: sobre o colunista corrente -->
       <section id="hg-widget" class="divide-20 post-author inner">
-        <h5 class="font-medium no-margin font-lite">Autor do post:</h5>
         <figure class="small-12 left">
-          <div class="divide-10"></div>
           <a href="#" class="small-12 left d-block author-thumb bg-cover" title="Rubens Maia" data-thumb="http://graphics8.nytimes.com/images/2012/10/11/technology/bits-sloan/bits-sloan-tmagArticle.jpg"></a>
 
           <figcaption class="small-12 left bg-white">
@@ -51,7 +49,7 @@
           </label>
             
           <label class="no-margin small-4 left">
-            <input type="submit" value="enviar" class="button small-12 text-center">
+            <input type="submit" value="buscar" class="button small-12 text-center">
           </label>
         </form>
 
@@ -71,7 +69,7 @@
 
       <div class="divide-20"></div>
 
-      <ul id="list-writters" class="f-dropdown small" data-dropdown-content aria-hidden="true" tabindex="-1">
+      <ul id="list-writters" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
         <li><a href="#" title="" class="font-medium small-12">Stan Lee</a></li>
         <li><a href="#" title="" class="font-medium small-12">Stephen King</a></li>
         <li><a href="#" title="" class="font-medium small-12">Jô Soares</a></li>

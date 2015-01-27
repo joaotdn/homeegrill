@@ -222,8 +222,12 @@
           </li>
 
           <li>
+            <!--
+            esse link soh devera aparecer na single do produto
             <h5 class="text-low"><a href="#" title="Ver todas as churrasqueiras">Veja como funciona a churrasqueira home & GRILL</a></h5>
+            -->
           </li>
+
         </ul>
       </div>
     </div>

@@ -13,6 +13,10 @@
               <p class="lh-small font-medium">Arquiteto</p>
               <p class="no-margin font-medium"><strong>Resumo do perfil:</strong></p>
               <p class="lh-normal font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, exercitationem, voluptates illo blanditiis cumque beatae aliquam repellendus error vitae similique qui illum. Veniam, veritatis maiores neque deserunt perspiciatis illo nihil.</p>
+              
+              <h6 class="no-margin">Site: <a href="#" target="_blank" title="">http://google.com</a></h6>
+              <h6 class="no-margin">Telefone: <span class="font-lite">(83) 9999 9999</span></h6>
+              <h6 class="no-margin">Redes sociais: <a href="#" target="_blank" title="">Facebook</a></h6>
             </figcaption>
           </figure>
 
