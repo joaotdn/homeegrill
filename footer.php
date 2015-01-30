@@ -227,12 +227,12 @@
    <section id="credits" class="small-12 left">
      <div class="row rel">
        
-        <p class="no-margin font-smallest small-12 medium-6 large-6 columns">
+        <p class="no-margin font-smallest small-12 medium-12 large-6 columns">
           <span class="left"><?php echo date('Y'); ?> Copyright - Todos os direitos reservados à home & GRILL.</span>
           <a href="http://foccus.cc/" class="right d-block icon-foccus" target="_blank" title="Desenvolvido por Foccus - Estratégia Digital"></a>
         </p>
 
-        <figure class="abs products-footer icon-products show-for-medium-up"></figure>
+        <figure class="abs products-footer icon-products show-for-large-up"></figure>
 
      </div><!-- // row -->
    </section>

@@ -207,7 +207,7 @@
       </nav>
 
       <!-- controles do carrossel -->
-      <div class="small-12 left showroom-controls">
+      <div class="small-12 columns showroom-controls">
         <ul class="inline-list no-margin">
           <li>
             <a href="#" class="btn d-table prev-features">

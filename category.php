@@ -34,26 +34,24 @@
       </div>
 
       <div class="tiny-12 small-6 medium-4 columns end select-writter">
-        <nav class="small-12 left">
+        <nav class="small-12 left rel">
           <h5 class="no-margin small-12 left font-medium" data-dropdown="list-writters" aria-controls="list-writters" aria-expanded="false">
             <span class="">todos os colunistas</span>
             <i class="icon-arrow-down right white font-bold"></i>
           </h5>
-        </nav>
 
+          <ul id="list-writters" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
+            <li><a href="#" title="" class="font-medium small-12">Stan Lee</a></li>
+            <li><a href="#" title="" class="font-medium small-12">Stephen King</a></li>
+            <li><a href="#" title="" class="font-medium small-12">Jô Soares</a></li>
+            <li><a href="#" title="" class="font-medium small-12">Paulo Coelho</a></li>
+            <li><a href="#" title="" class="font-medium small-12">Garph Ennis</a></li>
+          </ul>
+        </nav>
         <div class="divide-20"></div>
-      </div>
+      </div> <!-- // colunistas -->
 
       <div class="divide-20"></div>
-
-      <ul id="list-writters" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
-        <li><a href="#" title="" class="font-medium small-12">Stan Lee</a></li>
-        <li><a href="#" title="" class="font-medium small-12">Stephen King</a></li>
-        <li><a href="#" title="" class="font-medium small-12">Jô Soares</a></li>
-        <li><a href="#" title="" class="font-medium small-12">Paulo Coelho</a></li>
-        <li><a href="#" title="" class="font-medium small-12">Garph Ennis</a></li>
-      </ul>
-
     </section>
 
     <nav id="nav-posts" class="small-12 left" role="navigation">

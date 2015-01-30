@@ -518,7 +518,7 @@ $yellow-tint: 30%;
 		}
 
 		&:hover, &.active {
-			color: $primary-color;
+			color: $primary-color !important;
 			border-color: $primary-color;
 		}
 	}
@@ -535,7 +535,7 @@ $yellow-tint: 30%;
 		overflow: hidden;
 
 		&:hover {
-			.infocap {
+			.infocap:not(.inner) {
 				background-color: shade($ghost,20%);
 			}
 		}
@@ -1105,15 +1105,29 @@ $yellow-tint: 30%;
 	}
 }
 
+.states-drop {
+	//@extend .rel;
+	height: rem-calc(250);
+	overflow: hidden;
+	padding-top: rem-calc(10);
+	padding-bottom: rem-calc(10);
+}
+
+#drop-subscribe {
+	input  {
+		@extend .bg-white;
+	}
+}
+
 // |- Nossas lojas
+.shop-item {
+	margin-bottom: rem-calc(20);
+}
+
 .shop-info {
 	height: rem-calc(220);
 
 	&.how-to {
-		height: rem-calc(250);
-	}
-
-	&.sale-point {
 		height: rem-calc(250);
 	}
 
@@ -1123,6 +1137,16 @@ $yellow-tint: 30%;
 
 	iframe {
 		@extend %full-height;
+	}
+}
+
+.sale-point {
+	&.fix {
+		padding: rem-calc(0 30);
+
+		hgroup {
+			padding: rem-calc(40 0);
+		}
 	}
 }
 
@@ -1140,14 +1164,17 @@ $yellow-tint: 30%;
 	}
 
 	&.display {
-		height: rem-calc(400);
-		
-		&.info {
-			height: rem-calc(300);
-		}
+		min-height: rem-calc(400);
 
 		.d-table-cell {
 			opacity: 1;
+		}
+
+		&.about-item {
+			min-height: rem-calc(0);
+			height: auto;
+			display: table;
+			overflow: hidden;
 		}
 	}
 
@@ -1158,7 +1185,7 @@ $yellow-tint: 30%;
 
 	.d-table-cell {
 		opacity: 0;
-		@extend %transition;
+		//@extend %transition;
 	}
 }
 
@@ -1168,10 +1195,6 @@ $yellow-tint: 30%;
 
 .geo-component {
 	@extend %full-height;
-}
-
-.shop-item {
-
 }
 
 // Perguntas frequentes
@@ -1195,13 +1218,115 @@ $yellow-tint: 30%;
 		&.active {
 			h6 {
 				color: $silver;
-				margin-bottom: rem-calc(10) !important;
 			}
 		}
 	}
 	p {
 		display: none;
+		margin-top: rem-calc(10) !important;
 	}
+}
+
+//tipos de churrasqueiras
+.product-info-box {
+	height: 0;
+	overflow: hidden;
+}
+
+.product-info-container {
+	padding: rem-calc(30 20);
+
+	p {
+		&:last-child {
+			@extend .no-margin;
+		}
+	}
+
+	ul {
+		margin-bottom: rem-calc(0);
+	}
+}
+
+//Quem somos
+#about-header {
+	height: rem-calc(600);
+	overflow: hidden;
+	background-color: $soft-yellow;
+}
+
+.about-intro {
+	height: rem-calc(550);
+	z-index: 99;
+
+	header {
+		@extend %padding-30;
+		@extend .bg-white;
+		width: rem-calc(502);
+	}
+
+	article {
+		height: 87%;
+		@extend .bg-ghost;
+		@extend %padding-30;
+	}
+
+	p {
+		@extend .font-large;
+	}
+}
+
+#about-video {
+	iframe {
+		height: rem-calc(400);
+		width: 100%;
+	}
+}
+
+.bg-rows,.bg-rows-header {
+	height: rem-calc(160);
+	div {
+		height: 50%;
+	}
+}
+
+.nav-our-features {
+	span {
+		@extend .left;
+		@extend .font-bold;
+		@extend .font-large;
+		@extend .text-low;
+		@extend %transition;
+		cursor: pointer;
+		color: $primary-color;
+		margin-left: rem-calc(16);
+		&:first-child {
+			margin-left: 0;
+		}
+		&:hover,&.cycle-pager-active {
+			color: $white;
+		}
+	}
+}
+
+.nav-content-features {
+	padding-top: rem-calc(40);
+	padding-bottom: rem-calc(40);
+	padding-right: rem-calc(30);
+	@extend .rel;
+	z-index: 99999;
+}
+
+.content-features-cycle {
+	min-height: rem-calc(330);
+}
+
+.features-thumb-cycle {
+	z-index: 0;
+}
+
+.more-pics {
+	padding: rem-calc(20 30);
+	@extend .bg-silver;
 }
 
 /*
@@ -1214,13 +1339,18 @@ $yellow-tint: 30%;
 	.item {
 		margin-bottom: rem-calc(20);
 		&:hover {
-			.infocap {
+			.fix-bg {
 				background-color: shade($ghost,10%) !important;
 			}
 		}
 	}
 	.infocap {
-		padding: rem-calc(10);
+		padding: rem-calc(7);
+	}
+
+	.fix-bg {
+		padding: rem-calc(3);
+		@extend %transition;
 	}
 }
 
@@ -1311,10 +1441,6 @@ $yellow-tint: 30%;
 	form {
 		padding: rem-calc(6);
 		border: 1px solid shade($ghost,20%);
-	}
-
-	input[type="email"] {
-		background-color: $white;
 	}
 	input[type="submit"] {
 		padding: rem-calc(8.5);

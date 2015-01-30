@@ -182,6 +182,10 @@
 	background-color: $oil;
 }
 
+.bg-oil-light {
+	background-color: tint($oil,10%);
+}
+
 .bg-silver {
 	background-color: $silver;
 }
@@ -297,6 +301,11 @@
  */
 .f-dropdown {
 	&.bg-white {
+		
+		&.open {
+			left: 0 !important;
+			max-width: 100% !important;
+		}
 		a,li {
 			@extend .primary;
 			&:hover {

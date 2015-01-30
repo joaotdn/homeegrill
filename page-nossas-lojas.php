@@ -36,18 +36,18 @@
                 <h6 class="font-lite font-medium">contato@homeegrill.com</h6>
               </hgroup>
 
-              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-small"></a>
+              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-medium"></a>
             </div>
 
-            <div class="small-12 left full-shop-data">
+            <div class="small-12 left full-shop-data bg-oil">
               
               <div class="small-12 medium-8 right shop-map geo-component">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.221434357672!2d-34.837045999999994!3d-7.100315000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acdd169e895165%3A0xa03a65ce4d48bafb!2shome%26GRILL+-+Jo%C3%A3o+Pessoa!5e0!3m2!1spt-BR!2sbr!4v1422207346929" frameborder="0" style="border:0"></iframe>
               </div>
 
               <div class="small-12 medium-4 right bg-oil shop-address geo-component d-table">
+                <div class="divide-20"></div>
                 <div class="d-table-cell small-12">
-                  <h5 class="divide-10 white">Endereço:</h5>
                   <h5 class="white font-lite no-margin">Av. Esperança - 1260 - Manaíra</h5>
                   <h5 class="white font-lite no-margin">João Pessoa - PB - Brasil</h5>
                   <h5 class="white font-lite no-margin">Cep 58038-282</h5>
@@ -111,10 +111,10 @@
                 <h6 class="font-lite font-medium">contato@homeegrill.com</h6>
               </hgroup>
 
-              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-small"></a>
+              <a href="#" class="display-shop-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-medium"></a>
             </div>
 
-            <div class="small-12 left full-shop-data">
+            <div class="small-12 left full-shop-data bg-oil">
               
               <div class="small-12 medium-8 right shop-map geo-component">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.221434357672!2d-34.837045999999994!3d-7.100315000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acdd169e895165%3A0xa03a65ce4d48bafb!2shome%26GRILL+-+Jo%C3%A3o+Pessoa!5e0!3m2!1spt-BR!2sbr!4v1422207346929" frameborder="0" style="border:0"></iframe>

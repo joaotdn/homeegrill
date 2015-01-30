@@ -1,4 +1,4 @@
-<?php
++<?php
   //Header
   include_once "header.php";
 
@@ -59,40 +59,42 @@
                   <div class="divide-20"></div> 
                 </div>
 
-                <div class="small-12 medium-6 columns form-field">
+                <div class="small-12 medium-6 columns form-field select-state">
                   <?php
                     $est = 'Acre,Alagoas,Amapá,Amazonas,Bahia,Ceará,Distrito Federal,Espírito Santo,Goiás,Maranhão,Mato Grosso,Mato Grosso do Sul,Minas Gerais,Pará,Paraíba,Paraná,Pernambuco,Piauí,Rio de Janeiro,Rio Grande do Norte,Rio Grande do Sul,Rondônia,Roraima,Santa Catarina,São Paulo,Sergipe,Tocantins';
                     $est = explode(',', $est);
                   ?>
                   <input type="text" placeholder="Estado" class="not-keyword" required pattern="[a-zA-Z]+">
-                  <small class="error small-12 columns">Obrigatório (qual seu estado?)</small>
                   <i class="icon-arrow-down white font-bold abs" data-dropdown="list-states-form" aria-controls="list-states-form" aria-expanded="false"></i>
-                  <ul id="list-states-form" class="f-dropdown small bg-white" aria-hidden="true" tabindex="-1">
                   
-                  <?php
-                    function slugify($text) { 
-                      $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
-                      $text = trim($text, '-');
-                      $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-                      $text = strtolower($text);
-                      $text = preg_replace('~[^-\w]+~', '', $text);
+                  <div class="small-12 columns rel bg-white states-container">
+                    <ul id="list-states-form" class="f-dropdown small small-12 bg-white states-drop no-margin" aria-hidden="true" tabindex="-1">
+                    
+                    <?php
+                      function slugify($text) { 
+                        $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+                        $text = trim($text, '-');
+                        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+                        $text = strtolower($text);
+                        $text = preg_replace('~[^-\w]+~', '', $text);
 
-                      if (empty($text))
-                      {
-                        return 'n-a';
+                        if (empty($text))
+                        {
+                          return 'n-a';
+                        }
+                        return $text;
                       }
-                      return $text;
-                    }
 
-                    for ($i=0; $i < count($est); $i++) { 
-                      //echo "<option value=\"". slugify($est[$i]) ."\">". $est[$i] ."</option>";
-                      echo "<li><a href=\"#\" class=\"font-medium primary\">". $est[$i] ."</a></li>";
-                    }
-                  ?>
-                  </ul>
+                      for ($i=0; $i < count($est); $i++) { 
+                        //echo "<option value=\"". slugify($est[$i]) ."\">". $est[$i] ."</option>";
+                        echo "<li><a href=\"#\" class=\"font-medium primary\">". $est[$i] ."</a></li>";
+                      }
+                    ?>
+                    </ul>
+                  </div>
                   
                   <div class="divide-20"></div>
-                </div> <!-- //row -->
+                </div> <!-- // form field: estados -->
 
                 <div class="small-12 columns form-field">
                   <textarea name="" id="" cols="30" rows="10" placeholder="Sua mensagem" required></textarea>

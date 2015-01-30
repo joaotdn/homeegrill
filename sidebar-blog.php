@@ -29,11 +29,11 @@
 
           <form action="" class="small-12 left">
             <label class="no-margin small-8 left">
-              <input type="text" class="small-12 left bg-white" placeholder="O que você procura?">
+              <input type="text" class="small-12 left" placeholder="O que você procura?">
             </label>
             
             <label class="no-margin small-4 left">
-              <input type="submit" value="enviar" class="button small-12 text-center">
+              <input type="submit" value="buscar" class="button small-12 text-center">
             </label>
           </form>
 
@@ -110,7 +110,7 @@
 
           <form action="" class="small-12 left" data-abide>
            <label class="no-margin small-8 left">
-              <input type="email" class="small-12 left bg-white" placeholder="cadastre seu email" required pattern="email">
+              <input type="email" class="small-12 left bg-ghost" placeholder="cadastre seu email" required pattern="email">
               <small class="error small-12 left">E-mail inválido</small>
             </label>
             
