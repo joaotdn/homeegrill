@@ -1329,6 +1329,24 @@ $yellow-tint: 30%;
 	@extend .bg-silver;
 }
 
+#about-links {
+	nav {
+		padding: rem-calc(30 0);
+	}
+
+	figcaption {
+		min-height: rem-calc(95);
+		padding: rem-calc(0 30);
+	}
+}
+
+.about-link-thumb {
+	height: rem-calc(180);
+	&:hover {
+		opacity: .9;
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Arquivos (category,taxonomy,author,tag,archive,search)

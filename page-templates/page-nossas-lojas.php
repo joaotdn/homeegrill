@@ -1,10 +1,18 @@
 <?php
+  /**
+   * Template Name: Nossas lojas
+   *
+   * @package WordPress
+   * @subpackage home_grill
+   * @since home & GRILL 1.0
+  */
+
   //Header
-  include_once "header.php";
+  get_header();
 
   //breadcrumb
-  include_once "content-breadcrumb.php";
-  ?>
+  get_template_part('content-breadcrumb');
+?>
   
   <div class="row">
     
@@ -187,5 +195,5 @@
 
 <?php
   //footer
-  include_once "footer.php";
+  get_footer();
 ?>

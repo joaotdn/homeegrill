@@ -141,6 +141,14 @@
 	.nav-content-features {
 		padding-right: rem-calc(10);
 	}
+
+	#about-links {
+		figure {
+			&:not(:last-child) {
+				margin-bottom: rem-calc(20);
+			}
+		}
+	}
 }
 
 /*

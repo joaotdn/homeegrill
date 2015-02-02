@@ -1,19 +1,19 @@
 <?php
   //Header
-  include_once "header.php";
+  get_header();
 
   //Slider de destaques
-  include_once "inc/main-slider.php";
+  require get_template_directory() . "/inc/main-slider.php";
 
   //Tab - churrasqueiras
-  include_once "inc/tab-churrasqueiras.php";
+  require get_template_directory() . "/inc/tab-churrasqueiras.php";
 
   //Tab - moveis
-  include_once "inc/tab-moveis.php";
+  require get_template_directory() . "/inc/tab-moveis.php";
 
   //Tab posts
-  include_once "inc/tab-posts.php";
+  require get_template_directory() . "/inc/tab-posts.php";
 
   //footer
-  include_once "footer.php";
+  get_footer();
 ?>

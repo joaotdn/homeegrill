@@ -1,22 +1,19 @@
 <!doctype html>
 <html class="no-js" lang="pt-br">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home & Grill</title>
+    <title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
+
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-ico"/>
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css" />
-    
-    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <?php wp_head(); ?>
   </head>
   <body>
     
     <!-- offcanvas menu -->
-    <?php
-      /*
-        Implementa clone do menu principal
-       */
-    ?>
     <a href="#" class="close-offcanvas hide-offcanvas small-12"></a>
 
     <nav id="offcanvas-menu" class="hide-for-medium-up">
@@ -28,72 +25,27 @@
         </div>
 
         <ul>
-            <li>
-              <a href="#">Churrasqueiras</a>
-
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">acessórios</a>
-
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">móveis</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">blog</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">aprenda</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">quem somos</a>
-            </li>
-
-            <li>
-              <a href="#">contato</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <?php
+          $defaults = array(
+            'theme_location'  => '',
+            'menu'            => 'Menu principal',
+            'container'       => '',
+            'container_class' => '',
+            'container_id'    => '',
+            'menu_class'      => '',
+            'menu_id'         => '',
+            'echo'            => true,
+            'fallback_cb'     => 'main_menu',
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '',
+            'link_after'      => '',
+            'items_wrap'      => '%3$s',
+            'depth'           => 0,
+            'walker'          => ''
+          );
+          wp_nav_menu( $defaults );
+        ?>
       </div>
     </nav>
 
@@ -102,8 +54,8 @@
       
       <figure class="small-5 medium-3 large-2 columns logo">
         <h1 class="no-margin">
-          <a href="#" title="Início" class="d-block">
-            <img src="images/logo.png" alt="Home & Grill">
+          <a href="<?php bloginfo('home'); ?>" title="Início" class="d-block">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Home & Grill">
           </a>
         </h1>
       </figure>
@@ -116,7 +68,9 @@
       </h3><!-- menu mobile button -->
 
       <section class="top-info right">
-        <h2 class="font-medium font-lite no-margin left contact-top show-for-medium-up"><span class="show-for-large-up left">Ligue agora:</span> João Pessoa <strong>(83) 9999.0000</strong> • São Paulo <strong>(83) 0000.0000</strong></h2>
+        <h2 class="font-medium font-lite no-margin left contact-top show-for-medium-up">
+          <span class="show-for-large-up left">Ligue agora:</span> João Pessoa <strong>(83) 9999.0000</strong> • São Paulo <strong>(83) 0000.0000</strong>
+        </h2>
         
         <nav class="select-lang clang left show-for-medium-up" role="navigation">
           <ul class="inline-list no-margin lh-normal">

@@ -35,6 +35,7 @@
 
         <div class="tiny-12 small-6 medium-12 left">
           <div class="contact-footer small-12 left">
+
             <p class="no-margin font-small"><strong>home & GRILL João Pessoa</strong></p>
             <p class="no-margin font-small">Contato: (83) 9999.9999</p>
             <p class="no-margin font-small">Av. Esperança, 1260 - Manaíra</p>
@@ -48,6 +49,7 @@
             <p class="no-margin font-small">João Pessoa - Paraíba</p>
             <p class="no-margin font-small">Cep.: 58038-282</p>
             <p class="font-small">contato@homeegrill.com.br</p>
+            
           </div>
         </div>
 
@@ -238,8 +240,8 @@
    </section>
    <!-- // creditos -->
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="scripts.js"></script>
+    <?php wp_footer(); ?>
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
