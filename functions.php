@@ -27,6 +27,13 @@ if ( ! function_exists( 'ac_setup' ) ) :
 		register_nav_menus( array(
 			'main_menu' => __( 'Menu principal', 'home_e_grill' ),
 		) );
+
+		// Muda o nome da classe de submenu nativa
+		function change_submenu_class($menu) {  
+		  $menu = preg_replace('/ class="sub-menu"/','/ class="submenu" /',$menu);  
+		  return $menu;  
+		}  
+		add_filter('wp_nav_menu','change_submenu_class');  
 	}
 endif;
 
@@ -96,4 +103,33 @@ add_action( 'wp_enqueue_scripts', 'hg_load_styles' );
  * @since home & GRILL 1.0
  */
 require get_template_directory() . '/theme-options.php';
+
+
+/**********************************************
+	POST TYPES
+***********************************************/
+
+/**
+ * Implementa tipo de post personalizado para "Nossas lojas"
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/inc/cpt-lojas.php';
+
+/*
+    Icones para post-types
+    (http://melchoyce.github.io/dashicons/)
+ */
+function add_menu_icons_styles(){
+?>
+ 
+<style>
+#menu-posts-lojas div.wp-menu-image:before {
+  content: "\f513";
+}
+</style>
+ 
+<?php
+}
+add_action( 'admin_head', 'add_menu_icons_styles' );
 ?>

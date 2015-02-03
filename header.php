@@ -9,6 +9,13 @@
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-ico"/>
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 
+    <?php
+      $scripts = get_option('nt_sah');
+      if($scripts) {
+        echo stripcslashes($scripts);
+      }
+    ?>
+
     <?php wp_head(); ?>
   </head>
   <body>
@@ -69,7 +76,13 @@
 
       <section class="top-info right">
         <h2 class="font-medium font-lite no-margin left contact-top show-for-medium-up">
-          <span class="show-for-large-up left">Ligue agora:</span> João Pessoa <strong>(83) 9999.0000</strong> • São Paulo <strong>(83) 0000.0000</strong>
+          <span class="show-for-large-up left">Ligue agora:</span>
+          <?php
+            $tel = get_option('nt_head_contact');
+            if($tel) {
+              echo stripcslashes($tel);
+            }
+          ?>
         </h2>
         
         <nav class="select-lang clang left show-for-medium-up" role="navigation">
@@ -92,16 +105,22 @@
                 </a>
               </h3>
             </li>
-
+            
             <li class="no-margin">
+              <?php
+                // Link para o e-commerce
+                $shop_link = get_option('nt_shop_link');
+                if($shop_link):
+              ?>
               <h3 class="no-margin font-large">
-                <a href="#" title="Loja virtual" class="button-glass no-margin font-large">
+                <a href="<?php echo $shop_link; ?>" target="_blank" title="Loja virtual" class="button-glass no-margin font-large">
                   <i class="d-block left icon-container small-no-margin">
                     <i class="icon-cart d-block"></i>
                   </i>
                   <span class="show-for-medium-up">loja virtual</span>
                 </a>
               </h3>
+              <?php endif; ?>
             </li>
 
             <li class="hide-for-small-only">
@@ -116,14 +135,19 @@
             </li>
 
             <li>
+              <?php
+                $page = get_page_by_title('Faça seu projeto');
+                if($page):
+              ?>
               <h3 class="no-margin font-large">
-                <a href="#" title="Faça seu projeto" class="button-glass no-margin font-large make-project">
+                <a href="<?php echo esc_html(get_page_uri($page->ID)); ?>" title="Faça seu projeto" class="button-glass no-margin font-large make-project">
                   <i class="d-block left icon-container tiny-no-margin">
                     <i class="icon-pencil d-block"></i>
                   </i>
                   <span>Faça seu projeto</span>
                 </a>
               </h3>
+              <?php endif; ?>
             </li>
 
             <li class="show-for-tiny">
@@ -138,18 +162,31 @@
 
             <li class="show-for-medium-up">
               <ul class="inline-list social-top no-margin">
-                <li>
-                  <a href="#" class="d-block icon-youtube-play" title="" target="_blank"></a>
-                </li>
-                <li>
-                  <a href="#" class="d-block icon-instagram2" title="" target="_blank"></a>
-                </li>
-                <li>
-                  <a href="#" class="d-block icon-facebook" title="" target="_blank"></a>
-                </li>
-                <li>
-                  <a href="#" class="d-block icon-twitter" title="" target="_blank"></a>
-                </li>
+                <?php
+                  /*
+                    Social links
+                   */
+                  $twitter = get_option('nt_tw');
+                  $facebook = get_option('nt_fb');
+                  $youtube = get_option('nt_yt');
+                  $instagram = get_option('nt_ins');
+
+                  if ($youtube) {
+                    printf('<li><a href="%s" class="d-block icon-youtube-play" title="Siga-nos no Youtube" target="_blank"></a></li>',$youtube);
+                  }
+
+                  if ($instagram) {
+                    printf('<li><a href="%s" class="d-block icon-instagram2" title="Siga-nos no Instagram" target="_blank"></a></li>',$instagram);
+                  }
+
+                  if ($facebook) {
+                    printf('<li><a href="%s" class="d-block icon-facebook" title="Siga-nos no Facebook" target="_blank"></a></li>',$facebook);
+                  }
+
+                  if ($twitter) {
+                    printf('<li><a href="%s" class="d-block icon-twitter" title="Siga-nos no Twitter" target="_blank"></a></li>',$twitter);
+                  }
+                ?>
               </ul>
             </li>
           </ul>
@@ -177,26 +214,23 @@
           </div><!-- drop ligamos pra você -->
           
           <ul id="drop-share" class="small f-dropdown show-for-tiny" data-dropdown-content>
-            <li>
-              <a href="#" class="d-block small-12 left" title="Seguir no Youtube" target="_blank">
-                <span class="left icon-youtube-play"></span> <span class="left font-medium text-up">Seguir no Youtube</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="d-block small-12 left" title="Seguir no Instagram" target="_blank">
-                <span class="left icon-instagram2"></span> <span class="left font-medium text-up">Seguir no Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="d-block small-12 left" title="Seguir no Facebook" target="_blank">
-                <span class="left icon-facebook"></span> <span class="left font-medium text-up">Seguir no Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="d-block small-12 left" title="Seguir no Twitter" target="_blank">
-                <span class="left icon-twitter"></span> <span class="left font-medium text-up">Seguir no Twitter</span>
-              </a>
-            </li>
+            <?php
+              if ($youtube) {
+                printf('<li><a href="%s" class="d-block small-12 left" title="Seguir no Youtube" target="_blank"><span class="left icon-youtube-play"></span> <span class="left font-medium text-up">Seguir no Youtube</span></a></li>',$youtube);
+              }
+
+              if ($instagram) {
+                printf('<li><a href="%s" class="d-block small-12 left" title="Seguir no Instagram" target="_blank"><span class="left icon-instagram2"></span> <span class="left font-medium text-up">Seguir no Instagram</span></a></li>',$instagram);
+              }
+
+              if ($facebook) {
+                printf('<li><a href="%s" class="d-block small-12 left" title="Seguir no Facebook" target="_blank"><span class="left icon-facebook"></span> <span class="left font-medium text-up">Seguir no Facebook</span></a></li>',$facebook);
+              }
+
+              if ($twitter) {
+                printf('<li><a href="%s" class="d-block small-12 left" title="Seguir no Twitter" target="_blank"><span class="left icon-twitter"></span> <span class="left font-medium text-up">Seguir no Twitter</span></a></li>',$twitter);
+              }
+            ?>
           </ul><!-- drop redes sociais (320px) -->
         </nav>
       </section>
@@ -209,71 +243,27 @@
         <div class="small-12 columns main-menu-container">
 
           <ul>
-            <li>
-              <a href="#">Churrasqueiras</a>
-
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">acessórios</a>
-
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">móveis</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">blog</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">aprenda</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#">quem somos</a>
-            </li>
-
-            <li>
-              <a href="#">contato</span></a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Churrasqueira a gás</a>
-                </li>
-              </ul>
-            </li>
+            <?php
+              $defaults = array(
+                'theme_location'  => '',
+                'menu'            => 'Menu principal',
+                'container'       => '',
+                'container_class' => '',
+                'container_id'    => '',
+                'menu_class'      => '',
+                'menu_id'         => '',
+                'echo'            => true,
+                'fallback_cb'     => 'main_menu',
+                'before'          => '',
+                'after'           => '',
+                'link_before'     => '',
+                'link_after'      => '',
+                'items_wrap'      => '%3$s',
+                'depth'           => 0,
+                'walker'          => ''
+              );
+              wp_nav_menu( $defaults );
+            ?>
           </ul>
 
         </div>

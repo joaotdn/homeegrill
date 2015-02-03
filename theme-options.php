@@ -51,9 +51,9 @@ array( "name" => "Twitter",
   "type" => "text",
   "std" => ""),
 
-array( "name" => "Google Plus",
-  "desc" => "Endere&ccedil;o do Google Plus",
-  "id" => $shortname."_gp",
+array( "name" => "Youtube",
+  "desc" => "Endere&ccedil;o do Youtube",
+  "id" => $shortname."_yt",
   "type" => "text",
   "std" => ""),
 
@@ -81,6 +81,24 @@ array( "type" => "close"),
  */
 
 /*
+  OPEN HOMEPAGE
+ */
+array( "name" => "Homepage",
+  "type" => "section"),
+array( "type" => "open"),
+
+array( "name" => "Telefones de contato do cabeçalho",
+  "desc" => "Principais lojas e seus respectivos telefones",
+  "id" => $shortname."_head_contact",
+  "type" => "text",
+  "std" => ""),
+
+array( "type" => "close"),
+/*
+  CLOSE HOMEPAGE
+ */
+
+/*
   OPEN LINKS
  */
 array( "name" => "Links",
@@ -89,7 +107,7 @@ array( "type" => "open"),
 
 array( "name" => "Link para a loja",
   "desc" => "",
-  "id" => $shortname."_shop",
+  "id" => $shortname."_shop_link",
   "type" => "text",
   "std" => ""),
 

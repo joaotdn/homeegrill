@@ -119,7 +119,8 @@ $('.submenu','#main-menu').each(function(index, el) {
 
 $('li','#main-menu').each(function(index, el) {
 	if ($('.submenu',this).length) {
-		$('a:first-child',this).append('<span class="icon-chevron-circle-down"></span>')
+		$('a:first-child',this).append('<span class="icon-chevron-circle-down"></span>').bind('click touchstart',function(e)
+			{e.preventDefault();} );
 	}
 });
 
