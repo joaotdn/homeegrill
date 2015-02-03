@@ -13,6 +13,16 @@ $yellow-tint: 30%;
 	}
 }
 
+.ajax-loader-mac {
+	display: none;
+	&.plist {
+		top: 40%;
+	}
+	&.show {
+		display: block;
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Header

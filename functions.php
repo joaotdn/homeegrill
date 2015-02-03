@@ -106,6 +106,23 @@ require get_template_directory() . '/theme-options.php';
 
 
 /**********************************************
+	Funções utilitárias
+***********************************************/
+require get_template_directory() . '/inc/util-functions.php';
+
+/**********************************************
+	AJAX
+***********************************************/
+
+/**
+ * Requisita produtos para o carrossel a partir do slug do termo clicado
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/requests/tabs-produtos.php';
+
+
+/**********************************************
 	POST TYPES
 ***********************************************/
 
@@ -115,6 +132,20 @@ require get_template_directory() . '/theme-options.php';
  * @since home & GRILL 1.0
  */
 require get_template_directory() . '/inc/cpt-lojas.php';
+
+/**
+ * Implementa tipo de post personalizado para "Slider"
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/inc/cpt-slider.php';
+
+/**
+ * Implementa tipo de post personalizado para "Produtos"
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/inc/cpt-produtos.php';
 
 /*
     Icones para post-types
@@ -126,6 +157,14 @@ function add_menu_icons_styles(){
 <style>
 #menu-posts-lojas div.wp-menu-image:before {
   content: "\f513";
+}
+
+#menu-posts-slider div.wp-menu-image:before {
+  content: "\f157";
+}
+
+#menu-posts-produtos div.wp-menu-image:before {
+  content: "\f174";
 }
 </style>
  

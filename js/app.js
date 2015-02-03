@@ -1,3 +1,46 @@
+(function() {
+	$.fn.getDataThumb = function(options) {
+		options = $.extend({
+			bgClass : 'bg-cover'
+		}, options || {});
+
+		return this.each(function() {
+			var th = $(this).data('thumb');
+
+			if (th.length) {
+				$(this).css('background-image','url('+ th +')')
+				.addClass(options.bgClass);
+			}
+		});
+	};
+
+	$.fn.toggleActive = function(options) {
+		options = $.extend({
+			activeClass: 'active'
+		}, options || {});
+
+		return this.on('click', function(event) {
+			event.preventDefault();
+			if(!$(this).hasClass(options.activeClass)) {
+				$(this).addClass(options.activeClass);
+			} else {
+				$(this).removeClass(options.activeClass);
+			}
+		});
+	};
+
+	$.fn.setFirstClass = function(opts) {
+		opts = $.extend({
+			firstClass: 'active'
+		}, opts || {});
+
+		return this.eq(0).addClass(opts.firstClass);
+	};
+
+})();
+
+$('a','.tab-options').setFirstClass();
+
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
@@ -49,6 +92,17 @@ $('a, span','#nav-features').on('click',function(e) {
 		});
 	}
 })();
+
+//tabs
+$('a','.tab-options').bind('click', function(event) {
+	event.preventDefault();
+
+	$(this).addClass('active')
+	.parents('li')
+	.siblings('li')
+	.find('a')
+	.removeClass('active');
+});
 
 /*
 	------------------------------------

@@ -30,10 +30,9 @@ function lojas_init() {
     'rewrite'            => array( 'slug' => 'lojas' ),
     //'menu_icon'           => get_stylesheet_directory_uri() . '/images/works.png',
     'capability_type'    => 'post',
-    'menu_position'      => 1,
     'has_archive'        => false,
     'hierarchical'       => false,
-    'menu_position'      => 5,
+    'menu_position'      => 6,
     'supports'           => array( 'title', 'thumbnail' )
   );
 
