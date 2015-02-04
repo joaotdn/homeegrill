@@ -48,4 +48,9 @@
           get_first_category_name();
       }
   }
+
+  //Mensagem de erros
+  function doer_of_stuff() {
+    return new WP_Error( 'broke', __( "Houve algum erro interno. Tente novamente.", "home_e_grill" ) );
+  }
 ?>

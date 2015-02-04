@@ -4,13 +4,15 @@
       <div class="row">
         <div class="small-12 columns rel">
 
-          <ul class="inline-list tab-options">
-            <li>
-              <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes">Recentes</a></h4>
-            </li>
+          <ul class="inline-list tab-options tab-churrasqueiras">
             <?php
               $churrasqueiras = get_term_by( 'name', 'churrasqueiras', 'categoria-produto' );
               $terms = get_terms('categoria-produto','hide_empty=0&child_of='.$churrasqueiras->term_id);
+            ?>
+            <li>
+              <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $churrasqueiras->slug; ?>">Recentes</a></h4>
+            </li>
+            <?php
               foreach ($terms as $term):
                 $term_link = get_term_link( $term );
             ?>
@@ -22,12 +24,11 @@
             ?>
           </ul>
 
-          <div class="ajax-loader-mac p-list small-12 text-center abs p-top p-left">
+          <div class="ajax-loader-mac p-list small-12 text-center abs p-left">
             <img src="<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif" alt="">
           </div>
 
           <div id="showroom-carousel" class="caroulsel-grill small-12 left owl-carousel owl-theme owl-responsive-1000 owl-loaded">
-
             <?php
               $args = array( 'posts_per_page' => 6, 'post_type' => 'produtos', 'taxonomy' => 'categoria-produto', 'term' => 'churrasqueiras' );
               $produtos_posts = get_posts( $args );
@@ -36,7 +37,7 @@
             <div class="item rel">
               <figure class="small-12 left rel showroom-thumb">
                 <a href="<?php the_permalink(); ?>" class="d-block small-12 left text-center" title="<?php the_title(); ?>">
-                  <img src="<?php getThumbUrl('medium'); ?>" alt="">
+                  <img src="<?php getThumbUrl('medium'); ?>" alt="<?php the_title(); ?>">
                 </a>
               </figure>
 

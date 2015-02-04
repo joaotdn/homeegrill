@@ -14,21 +14,6 @@
 		});
 	};
 
-	$.fn.toggleActive = function(options) {
-		options = $.extend({
-			activeClass: 'active'
-		}, options || {});
-
-		return this.on('click', function(event) {
-			event.preventDefault();
-			if(!$(this).hasClass(options.activeClass)) {
-				$(this).addClass(options.activeClass);
-			} else {
-				$(this).removeClass(options.activeClass);
-			}
-		});
-	};
-
 	$.fn.setFirstClass = function(opts) {
 		opts = $.extend({
 			firstClass: 'active'
@@ -36,6 +21,18 @@
 
 		return this.eq(0).addClass(opts.firstClass);
 	};
+
+
+	//Ajax setup
+	$.ajaxSetup({
+		url: getData.ajaxDir,
+		type: 'GET',
+		dataType: 'html',
+		error: function(e) {
+			console.log(e.statusText);
+		}
+	});
+	
 
 })();
 
@@ -93,16 +90,6 @@ $('a, span','#nav-features').on('click',function(e) {
 	}
 })();
 
-//tabs
-$('a','.tab-options').bind('click', function(event) {
-	event.preventDefault();
-
-	$(this).addClass('active')
-	.parents('li')
-	.siblings('li')
-	.find('a')
-	.removeClass('active');
-});
 
 /*
 	------------------------------------
@@ -415,7 +402,150 @@ function hgCarolsels() {
 	});
 };
 
-hgCarolsels();
+//hgCarolsels();
+function initTabsCarousels() {
+	
+	var tabChurrasqueiras = $(".caroulsel-grill");
+
+	  tabChurrasqueiras.owlCarousel({
+	    responsiveBaseWidth: $('.row'),
+	    responsive: true,
+    	responsiveRefreshRate : 200,
+	    pagination: false,
+	    itemsCustom : [
+	          [200, 1],
+	          [400, 2],
+	          [766, 3],
+	        ],
+	    rewindNav: false,
+	    rewindSpeed: 300
+	  });
+
+	$(".next-churrasqueira").click(function(e){
+		e.preventDefault();
+	    tabChurrasqueiras.trigger('owl.next');
+	});
+
+	$(".prev-churrasqueira").click(function(e){
+		e.preventDefault();
+	  	tabChurrasqueiras.trigger('owl.prev');
+	});
+
+	/*
+		Moveis
+	 */
+	var tabMoveis = $(".carousel-moveis");
+
+	  tabMoveis.owlCarousel({
+	    responsiveBaseWidth: $('.row'),
+	    responsive: true,
+    	responsiveRefreshRate : 200,
+	    pagination: false,
+	    itemsCustom : [
+	          [200, 1],
+	          [400, 2],
+	          [766, 3],
+	        ],
+	    rewindNav: false,
+	    rewindSpeed: 300
+	  });
+
+	$(".next-movel").click(function(e){
+		e.preventDefault();
+	    tabMoveis.trigger('owl.next');
+	});
+
+	$(".prev-movel").click(function(e){
+		e.preventDefault();
+	  	tabMoveis.trigger('owl.prev');
+	});
+
+	/*
+		Blog
+	 */
+	var tabBlog = $("#nav-posts.carousel");
+
+	  tabBlog.owlCarousel({
+	    responsiveBaseWidth: $('.row'),
+	    responsive: true,
+    	responsiveRefreshRate : 200,
+	    pagination: false,
+	    itemsCustom : [
+	          [200, 1],
+	          [400, 2],
+	          [766, 3],
+	        ],
+	    rewindNav: false,
+	    rewindSpeed: 300
+	  });
+
+	$(".next-posts").click(function(e){
+		e.preventDefault();
+	    tabBlog.trigger('owl.next');
+	});
+
+	$(".prev-posts").click(function(e){
+		e.preventDefault();
+	  	tabBlog.trigger('owl.prev');
+	});
+
+}
+
+initTabsCarousels();
+
+/*
+	Requisita produtos nas tabs
+ */
+
+var owlchurraqueiras = $(".caroulsel-grill").data('owlCarousel');
+	owlmoveis = $(".carousel-moveis").data('owlCarousel');
+	owlblog = $("#nav-posts.carousel").data('owlCarousel');
+
+function requestAjaxProducts(tabOptions,container,instance) {
+
+	$('a',tabOptions).bind('click', function(event) {
+		event.preventDefault();
+
+		$(this).addClass('active')
+		.parents('li')
+		.siblings('li')
+		.find('a')
+		.removeClass('active');
+
+		var thisTerm = $(this).data('product-term'),
+			thisType = $(this).data('product-type'),
+			caroulselContainer = $(this).parents('#showroom-tab').find(container);
+
+		$.ajax({
+			data: {
+				action: 'req_products_list',
+				thisterm: thisTerm,
+				thistype: thisType
+			},
+			beforeSend: function() {
+				console.log('foi');
+			},
+			complete: function() {
+				console.log('comleto');
+				caroulselContainer.animate({opacity: 1}, 'fast', function() {
+					$('.ajax-loader-mac').css('display', 'none');
+				});
+			},
+			success: function(data) {
+				caroulselContainer.animate({opacity: 0}, 'fast', function() {
+					$(this).html(data);
+					$('.ajax-loader-mac').fadeIn('fast');
+					instance.reinit();
+				});
+			}
+		});
+	});
+
+};
+
+requestAjaxProducts('.tab-moveis','.carousel-moveis',owlmoveis);
+requestAjaxProducts('.tab-churrasqueiras','#showroom-carousel',owlchurraqueiras);
+
 
 /*
 	------------------------------------

@@ -39,6 +39,33 @@ endif;
 
 add_action('after_setup_theme','hg_setup');
 
+function register_authors_tax() {
+	$labels = array(
+    'name'              => __( 'Autores'),
+    'singular_name'     => __( 'Autor'),
+    'search_items'      =>  __( 'Buscar' ),
+    'popular_items'     => __( 'Mais usados' ),
+    'all_items'         => __( 'Todos os autores' ),
+    'parent_item'       => null,
+    'parent_item_colon' => null,
+    'edit_item'         => __( 'Adicionar novo' ),
+    'update_item'       => __( 'Atualizar' ),
+    'add_new_item'      => __( 'Adicionar novo autor' ),
+    'new_item_name'     => __( 'Novo' )
+    );
+
+  register_taxonomy("colunista", array("post"), array(
+    "hierarchical"      => true, 
+    "labels"            => $labels, 
+    "singular_label"    => "Autor", 
+    "rewrite"           => true,
+    "add_new_item"      => "Adicionar novo autor",
+    "new_item_name"     => "Novo autor",
+  ));
+}
+add_action('init','register_authors_tax');
+
+
 /*
  * Incluir scripts essenciais
  */

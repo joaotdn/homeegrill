@@ -15,14 +15,14 @@ $yellow-tint: 30%;
 
 .ajax-loader-mac {
 	display: none;
-	&.plist {
-		top: 40%;
-	}
-	&.show {
-		display: block;
-	}
+	top: 40%;
 }
 
+.owl-item {
+	.item {
+		padding: 0 rem-calc(5);
+	}
+}
 /*
 	------------------------------------------------------------------------
 	Header

@@ -9,6 +9,15 @@
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-ico"/>
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 
+    <script>
+      //<![CDATA[
+      var getData = {
+        'urlDir':'<?php bloginfo('template_directory'); ?>/',
+        'ajaxDir':'<?php echo stripslashes(get_admin_url()).'admin-ajax.php'; ?>'
+      }
+      //]]>
+    </script>
+
     <?php
       $scripts = get_option('nt_sah');
       if($scripts) {
