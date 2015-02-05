@@ -7,7 +7,7 @@
           <ul class="inline-list tab-options tab-churrasqueiras">
             <?php
               $churrasqueiras = get_term_by( 'name', 'churrasqueiras', 'categoria-produto' );
-              $terms = get_terms('categoria-produto','hide_empty=0&child_of='.$churrasqueiras->term_id);
+              $terms = get_terms('categoria-produto','child_of='.$churrasqueiras->term_id);
             ?>
             <li>
               <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $churrasqueiras->slug; ?>">Recentes</a></h4>

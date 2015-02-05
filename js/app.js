@@ -30,6 +30,9 @@
 		dataType: 'html',
 		error: function(e) {
 			console.log(e.statusText);
+		},
+		success: function() {
+			dataThumb();
 		}
 	});
 	
@@ -263,146 +266,6 @@ $('.slider-thumbs').cycle({
 	timeout: 8000
 });
 
-/*
-	------------------------------------
-	Owl Slider (plugin) - Configurações 
-	para slider responsivo para tabs
-	------------------------------------
- */
-function hgCarolsels() {
-
-	/*
-		churrasqueiras
-	 */
-	var churrasqueiras = $('.caroulsel-grill');
-
-  	churrasqueiras.owlCarousel({
-	    margin:10,
-	    responsiveBaseElement: $('.row'),
-
-	    responsive:{
-	        0:{
-	            items:1,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        },
-	        400:{
-	            items:2,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        },
-	        700:{
-	            items:3,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        }
-	    }
-	});
-
-	$('.next-churrasqueira').click(function(e) {
-		e.preventDefault();
-    	churrasqueiras.trigger('next.owl.carousel');
-	});
-
-	$('.prev-churrasqueira').click(function(e) {
-		e.preventDefault();
-    	churrasqueiras.trigger('prev.owl.carousel');
-	});
-
-	/*
-		Moveis
-	 */
-	var moveis = $('.carousel-moveis');
-
-  	moveis.owlCarousel({
-	    margin:10,
-	    responsiveBaseElement: $('.row'),
-
-	    responsive:{
-	        0:{
-	            items:1,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        },
-	        400:{
-	            items:2,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        },
-	        700:{
-	            items:3,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        }
-	    }
-	});
-
-	$('.next-movel').click(function(e) {
-		e.preventDefault();
-    	moveis.trigger('next.owl.carousel');
-	});
-
-	$('.prev-movel').click(function(e) {
-		e.preventDefault();
-    	moveis.trigger('prev.owl.carousel');
-	});
-
-	//blog
-	var posts = $('#nav-posts.carousel');
-
-	posts.owlCarousel({
-	    margin:10,
-	    responsiveBaseElement: $('.row'),
-
-	    responsive:{
-	        0:{
-	            items:1,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        },
-	        400:{
-	            items:2,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        },
-	        700:{
-	            items:3,
-	            nav:false,
-	            dots: false,
-	            loop: true
-	            
-	        }
-	    }
-	});
-
-	$('.next-posts').click(function(e) {
-		e.preventDefault();
-    	posts.trigger('next.owl.carousel');
-	});
-
-	$('.prev-posts').click(function(e) {
-		e.preventDefault();
-    	posts.trigger('prev.owl.carousel');
-	});
-};
-
-//hgCarolsels();
 function initTabsCarousels() {
 	
 	var tabChurrasqueiras = $(".caroulsel-grill");
@@ -545,6 +408,51 @@ function requestAjaxProducts(tabOptions,container,instance) {
 
 requestAjaxProducts('.tab-moveis','.carousel-moveis',owlmoveis);
 requestAjaxProducts('.tab-churrasqueiras','#showroom-carousel',owlchurraqueiras);
+
+/*
+	Requisita postagens nas tabs
+ */
+$('a','.tab-blog').on('click',function(event) {
+		event.preventDefault();
+
+		$(this).addClass('active')
+		.parents('li')
+		.siblings('li')
+		.find('a')
+		.removeClass('active');
+
+		var thisTerm = $(this).data('category'),
+			thisTermId = $(this).data('category-id'),
+			caroulselContainer = $(this).parents('#showroom-tab').find('#nav-posts');
+
+		console.log(thisTerm + ', ' + thisTermId);
+
+		$.ajax({
+			data: {
+				action: 'req_posts_list',
+				term: thisTerm,
+				termid: thisTermId
+			},
+			beforeSend: function() {
+				
+			},
+			complete: function() {
+				console.log('comleto');
+				caroulselContainer.animate({opacity: 1}, 'fast', function() {
+					$('.ajax-loader-mac.blob-loader').css('display', 'none');
+				});
+			},
+			success: function(data) {
+				caroulselContainer.animate({opacity: 0}, 'fast', function() {
+					$(this).html(data);
+					$('.ajax-loader-mac.blob-loader').fadeIn('fast');
+					owlblog.reinit();
+					console.log(data);
+					dataThumb();
+				});
+			}
+		});
+});
 
 
 /*

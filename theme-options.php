@@ -57,6 +57,12 @@ array( "name" => "Youtube",
   "type" => "text",
   "std" => ""),
 
+array( "name" => "Whatsapp",
+  "desc" => "N&uacute;mero do Whatsapp",
+  "id" => $shortname."_ws",
+  "type" => "text",
+  "std" => ""),
+
 array( "type" => "close"),
 /*
   CLOSE SOCIAL LINKS

@@ -7,25 +7,38 @@
 
         <div class="tiny-12 small-6 medium-12 left">
           <figure class="logo-footer small-12 left">
-            <a href="#" title="Início">
-              <img src="images/logo-footer.png" alt="Home & Grill">
+            <a href="<?php bloginfo('home'); ?>" title="Início">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-footer.png" alt="Home & Grill">
             </a>
           </figure>
           
           <nav class="social-footer left">
             <ul class="inline-list no-margin">
-              <li>
-                <a href="#" class="d-block icon-youtube-play" title="" target="_blank"></a>
-              </li>
-              <li>
-                <a href="#" class="d-block icon-instagram2" title="" target="_blank"></a>
-              </li>
-              <li>
-                <a href="#" class="d-block icon-facebook" title="" target="_blank"></a>
-              </li>
-              <li>
-                <a href="#" class="d-block icon-twitter" title="" target="_blank"></a>
-              </li>
+              <?php
+                  /*
+                    Social links
+                   */
+                  $twitter = get_option('nt_tw');
+                  $facebook = get_option('nt_fb');
+                  $youtube = get_option('nt_yt');
+                  $instagram = get_option('nt_ins');
+
+                  if ($youtube) {
+                    printf('<li><a href="%s" class="d-block icon-youtube-play" title="Siga-nos no Youtube" target="_blank"></a></li>',$youtube);
+                  }
+
+                  if ($instagram) {
+                    printf('<li><a href="%s" class="d-block icon-instagram2" title="Siga-nos no Instagram" target="_blank"></a></li>',$instagram);
+                  }
+
+                  if ($facebook) {
+                    printf('<li><a href="%s" class="d-block icon-facebook" title="Siga-nos no Facebook" target="_blank"></a></li>',$facebook);
+                  }
+
+                  if ($twitter) {
+                    printf('<li><a href="%s" class="d-block icon-twitter" title="Siga-nos no Twitter" target="_blank"></a></li>',$twitter);
+                  }
+              ?>
             </ul>
           </nav>
 
@@ -36,19 +49,46 @@
         <div class="tiny-12 small-6 medium-12 left">
           <div class="contact-footer small-12 left">
 
-            <p class="no-margin font-small"><strong>home & GRILL João Pessoa</strong></p>
-            <p class="no-margin font-small">Contato: (83) 9999.9999</p>
-            <p class="no-margin font-small">Av. Esperança, 1260 - Manaíra</p>
-            <p class="no-margin font-small">João Pessoa - Paraíba</p>
-            <p class="no-margin font-small">Cep.: 58038-282</p>
-            <p class="font-small">contato@homeegrill.com.br</p>
+            <?php
+               $whatsapp = get_option('nt_ws');
+               if ($whatsapp) {
+                 echo "<p class=\"no-margin font-small\"><strong>Whatsapp</strong></p>";
+                 printf('<p class="font-small">%s</p>',$whatsapp);
+               }
 
-            <p class="no-margin font-small"><strong>home & GRILL São Paulo</strong></p>
-            <p class="no-margin font-small">Contato: (83) 9999.9999</p>
-            <p class="no-margin font-small">Av. Esperança, 1260 - Manaíra</p>
-            <p class="no-margin font-small">João Pessoa - Paraíba</p>
-            <p class="no-margin font-small">Cep.: 58038-282</p>
-            <p class="font-small">contato@homeegrill.com.br</p>
+              $args = array( 'posts_per_page' => 2, 'post_type' => 'lojas' );
+              $produtos_posts = get_posts( $args );
+              foreach ($produtos_posts as $post): setup_postdata( $post );
+                $tel = get_field('loja_telefone',$post->ID);
+                $email = get_field('loja_email',$post->ID);
+                $endereco = get_field('loja_endereco',$post->ID);
+                $cidade = get_field('loja_cidade',$post->ID);
+                $cep = get_field('loja_cep',$post->ID);
+            ?>
+
+            <p class="no-margin font-small"><strong><?php the_title(); ?></strong></p>
+            
+            <?php if ($tel): ?>
+              <p class="no-margin font-small">Contato: <?php echo $tel; ?></p>
+            <?php endif ?>
+
+            <?php if ($endereco): ?>
+              <p class="no-margin font-small"><?php echo $endereco; ?></p>
+            <?php endif ?>
+
+            <?php if ($cidade): ?>
+              <p class="no-margin font-small"><?php echo $cidade; ?></p>
+            <?php endif ?>
+
+            <?php if ($cep): ?>
+              <p class="no-margin font-small">Cep.: <?php echo $cep; ?></p>  
+            <?php endif ?>
+
+            <?php if ($email): ?>
+              <p class="font-small"><?php echo $email; ?></p>
+            <?php endif ?>
+
+            <?php endforeach; ?>
             
           </div>
         </div>
@@ -57,69 +97,10 @@
 
       <section class="tiny-12 small-6 medium-4 large-4 columns show-for-medium-up">
         
-        <nav class="site-map-widget small-12 left">
-          <ul class="no-bullet font-medium text-low">
-            <li>
-              <h3 class="font-large no-margin">churrasqueiras</h3>
-            </li>
-
-            <li>
-              <a href="">churrasqueiras a gás linha smart</a>
-            </li>
-
-            <li>
-              <a href="#">churrasqueiras a gás linha premium</a>
-            </li>
-
-            <li>
-              <a href="#">grelhadores</a>
-            </li>
-          </ul>
-        </nav>
-
-        <nav class="site-map-widget small-12 left">
-          <ul class="no-bullet font-medium text-low">
-            <li>
-              <h3 class="font-large no-margin">acessórios</h3>
-            </li>
-
-            <li>
-              <a href="#">para bancadas gourmet</a>
-            </li>
-
-            <li>
-              <a href="#">para churrasqueiras linha premium</a>
-            </li>
-          </ul>
-        </nav>
-
-        <nav class="site-map-widget small-12 left">
-          <ul class="no-bullet font-medium text-low">
-            <li>
-              <h3 class="font-large no-margin">Blog</h3>
-            </li>
-
-            <li>
-              <a href="#">últimos posts</a>
-            </li>
-
-            <li>
-              <a href="#">área gourmet</a>
-            </li>
-
-            <li>
-              <a href="#">cliente</a>
-            </li>
-
-            <li>
-              <a href="#">institucional</a>
-            </li>
-
-            <li>
-              <a href="#">vídeos</a>
-            </li>
-          </ul>
-        </nav>
+        <?php 
+          if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('menu-redape-centro') ) : 
+            endif;
+        ?>
 
       </section>
 
@@ -127,77 +108,34 @@
 
         <nav class="small-12 left footer-menu">
           <ul class="no-bullet">
-            <li>
-              <h5 class="text-low no-margin">
-                <a href="#">Quem somos</a>
-              </h5>
-            </li>
-
-            <li>
-              <h5 class="text-low no-margin">
-                <a href="#">faça seu projeto</a>
-              </h5>
-            </li>
-
-            <li>
-              <h5 class="text-low no-margin">
-                <a href="#">loja virtual</a>
-              </h5>
-            </li>
+            <?php
+              $defaults = array(
+                'theme_location'  => '',
+                'menu'            => 'Menu rodapé',
+                'container'       => '',
+                'container_class' => '',
+                'container_id'    => '',
+                'menu_class'      => '',
+                'menu_id'         => '',
+                'echo'            => true,
+                'fallback_cb'     => 'footer_menu',
+                'before'          => '<h5 class="text-low no-margin">',
+                'after'           => '</h5>',
+                'link_before'     => '',
+                'link_after'      => '',
+                'items_wrap'      => '%3$s',
+                'depth'           => 0,
+                'walker'          => ''
+              );
+              wp_nav_menu( $defaults );
+            ?>
           </ul>
         </nav>
 
-        <nav class="site-map-widget small-12 left">
-          <ul class="no-bullet font-medium text-low">
-            <li>
-              <h3 class="font-large no-margin">aprenda</h3>
-            </li>
-
-            <li>
-              <a href="#">perguntas frequentes</a>
-            </li>
-
-            <li>
-              <a href="#">comparador de tipos de churrasqueiras</a>
-            </li>
-
-            <li>
-              <a href="#">como funciona uma churrasqueira a gás</a>
-            </li>
-          </ul>
-        </nav>
-
-        <nav class="site-map-widget small-12 left">
-          <ul class="no-bullet font-medium text-low">
-            <li>
-              <h3 class="font-large no-margin">contato</h3>
-            </li>
-
-            <li>
-              <a href="#">nossas lojas</a>
-            </li>
-
-            <li>
-              <a href="#">pontos de venda</a>
-            </li>
-
-            <li>
-              <a href="#">seja nosso parceiro</a>
-            </li>
-
-            <li>
-              <a href="#">trabalhe conosco</a>
-            </li>
-
-            <li>
-              <a href="#">assistência técnica</a>
-            </li>
-
-            <li>
-              <a href="#">fale conosco</a>
-            </li>
-          </ul>
-        </nav>
+        <?php 
+          if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('menu-rodape-direita') ) : 
+            endif;
+        ?>
 
         <div class="footer-newsletter small-12 left">
           <header>
@@ -239,24 +177,22 @@
      </div><!-- // row -->
    </section>
    <!-- // creditos -->
+    
+    <?php
+      /*
+        Google Analytics
+       */
+      $ga = get_option('nt_ga');
+      if($ga != '') {
+        echo stripcslashes($ga);
+      }
+
+      $scripts = get_option('nt_saf');
+      if($scripts) {
+        echo stripcslashes($scripts);
+      }
+    ?>
 
     <?php wp_footer(); ?>
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=1437610746483475&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <script>
-    window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
-    </script>
-
-    <script src="https://apis.google.com/js/platform.js" async defer>
-      {lang: 'pt-BR'}
-    </script>
   </body>
 </html>

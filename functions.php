@@ -26,6 +26,7 @@ if ( ! function_exists( 'ac_setup' ) ) :
 		// Menus personalizados
 		register_nav_menus( array(
 			'main_menu' => __( 'Menu principal', 'home_e_grill' ),
+			'footer_menu' => __( 'Menu rodapé', 'home_e_grill' ),
 		) );
 
 		// Muda o nome da classe de submenu nativa
@@ -123,6 +124,39 @@ function hg_load_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'hg_load_styles' );
 
+/**********************************************
+	Sidebars
+***********************************************/
+function hg_top_sidebar() {
+
+	//Menus do rodape (centro)
+    $args = array(
+        'name'          => 'Menus do rodape (centro)', 
+        'id'            => 'menu-redape-centro',
+        'description'   => 'Adicione apenas menus personalizados construídos a partir do wordpress (Aparência > Menu)',
+        'class'         => 'text-low',
+        'before_widget' => '<nav class="site-map-widget small-12 left">',
+        'after_widget'  => '</nav>',
+        'before_title'  => '<header class="title-cat small-12 left"><h3 class="font-large no-margin">',
+        'after_title'   => '</h3></header>' 
+    );
+    register_sidebar( $args );
+
+    //Menus do rodape (direita)
+    $args = array(
+        'name'          => 'Menus do rodape (direita)', 
+        'id'            => 'menu-rodape-direita',
+        'description'   => 'Adicione apenas menus personalizados construídos a partir do wordpress (Aparência > Menu)',
+        'class'         => 'text-low',
+        'before_widget' => '<nav class="site-map-widget small-12 left">',
+        'after_widget'  => '</nav>',
+        'before_title'  => '<header class="title-cat small-12 left"><h3 class="font-large no-margin">',
+        'after_title'   => '</h3></header>' 
+    );
+    register_sidebar( $args );
+}
+
+add_action( 'widgets_init', 'hg_top_sidebar' );
 
 /**
  * Implementa opções para o tema
@@ -137,6 +171,7 @@ require get_template_directory() . '/theme-options.php';
 ***********************************************/
 require get_template_directory() . '/inc/util-functions.php';
 
+
 /**********************************************
 	AJAX
 ***********************************************/
@@ -147,6 +182,13 @@ require get_template_directory() . '/inc/util-functions.php';
  * @since home & GRILL 1.0
  */
 require get_template_directory() . '/requests/tabs-produtos.php';
+
+/**
+ * Requisita posts para o carrossel a partir do slug do termo clicado
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/requests/tabs-blog.php';
 
 
 /**********************************************

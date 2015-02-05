@@ -1,15 +1,15 @@
 <?php
   //Header
-  include_once "header.php";
+  get_header();
 
   //breadcrumb
-  include_once "content-breadcrumb.php";
+  get_template_part('content-breadcrumb');
   ?>
   
   <div class="row">
     
     <header class="small-12 columns post-header">
-      <h2 class="no-margin lh-normal">Compact premium hg-2b de embutir</h2>
+      <h2 class="no-margin lh-normal"><?php the_title(); ?></h2>
       <div class="divide-20"></div>
 
       <nav class="share-post small-12 left show-for-medium-up">
@@ -22,7 +22,7 @@
       /*
         Galeria do produto
        */
-      include_once "inc/single-produtos/galeria.php";
+      require get_template_directory() . "/inc/single-produtos/galeria.php";
     ?>
 
     <div class="divide-20"></div>
@@ -81,29 +81,29 @@
     /*
       -| Características
      */
-    include_once "inc/single-produtos/caracteristicas.php";
+    require get_template_directory() . "/inc/single-produtos/caracteristicas.php";
 
     /*
       -| Especificações
      */
-    include_once "inc/single-produtos/especificacoes.php";
+    require get_template_directory() . "/inc/single-produtos/especificacoes.php";
 
     /*
       -| Diferenciais
      */
-    include_once "inc/single-produtos/diferenciais.php";
+    require get_template_directory() . "/inc/single-produtos/diferenciais.php";
   ?>
 
 
   <div id="other-products" class="small-12 left">
-    <?php include_once "inc/tab-churrasqueiras.php"; // outros produtos ?>
+    <?php require get_template_directory() . "/inc/tab-churrasqueiras.php"; // outros produtos ?>
   </div>
 
   <div id="related-posts" class="small-12 left">
-    <?php include_once "inc/tab-posts.php"; // postagens do blog ?>
+    <?php require get_template_directory() . "/inc/tab-posts.php"; // postagens do blog ?>
   </div>
 
 <?php
   //footer
-  include_once "footer.php";
+  get_footer();
 ?>

@@ -1475,6 +1475,24 @@ $yellow-tint: 30%;
 	}
 }
 
+.footer-menu {
+	.submenu {
+		@extend .no-margin;
+	}
+}
+
+.site-map-widget {
+	ul {
+		//@extend .no-margin;
+		@extend .font-medium;
+		@extend .no-bullet;
+	}
+
+	.submenu {
+		@extend .no-margin;
+	}
+}
+
 #credits {
 	padding: rem-calc(20) 0;
 }
