@@ -1,22 +1,28 @@
 <?php
+  /**
+   * Template Name: Quem somos
+   *
+   * @package WordPress
+   * @subpackage home_grill
+   * @since home & GRILL 1.0
+  */
+
   //Header
-  include_once "header.php";
+  get_header();
 
   //breadcrumb
-  include_once "content-breadcrumb.php";
-  ?>
+  get_template_part('content-breadcrumb');
+?>
   
   <div class="row">
     
     <section id="blog-content" class="small-12 left data-panel">
 
       <header class="small-12 columns post-header">
-        <h2 class="no-margin lh-normal text-low">Quem somos</h2>
+        <h2 class="no-margin lh-normal text-low"><?php the_title(); ?></h2>
         <div class="divide-20"></div>
 
-        <nav class="share-post small-12 left show-for-medium-up">
-          <img src="media/share.png" alt="" class="left">
-        </nav><!-- // share buttons -->
+        <?php  get_template_part('content-share'); ?>
 
       </header><!-- //post-header -->
     
@@ -25,12 +31,12 @@
   </div><!-- // row -->
 
   <section id="about-header" class="small-12 left rel">
-    <figure class="about-thumb small-12 medium-6 abs p-right p-top full-height show-for-medium-up bg-cover" data-thumb="http://www.homeegrill.com.br/site/images/quemsomos/quemsomos.png"></figure>
+    <figure class="about-thumb small-12 medium-6 abs p-right p-top full-height show-for-medium-up bg-cover" data-thumb="<?php getThumbUrl('full'); ?>"></figure>
 
     <div class="row full-height rel">
       <div class="small-12 medium-8 columns abs p-bottom p-left about-intro">
         
-        <figure class="about-thumb small-12 medium-6 abs p-left full-height hide-for-tiny hide-for-medium-up bg-cover" data-thumb="http://www.homeegrill.com.br/site/images/quemsomos/quemsomos.png"></figure>
+        <figure class="about-thumb small-12 medium-6 abs p-left full-height hide-for-tiny hide-for-medium-up bg-cover" data-thumb="<?php getThumbUrl('full'); ?>"></figure>
 
         <header class="left rel">
           <h4 class="left bg-white no-margin">evolução em churrasqueiras a gás</h4>
@@ -500,5 +506,5 @@
 
 <?php
   //footer
-  include_once "footer.php";
+  get_footer();
 ?>

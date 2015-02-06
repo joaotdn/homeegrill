@@ -48,13 +48,15 @@
               <?php
                 $terms = get_the_terms($post->ID, 'colunista');
                 $i = 0;
-                foreach ($terms as $term) {
-                  $i++;
-                  if(1 == $i) {
-                    $avatar = get_field('colunista_avatar',$term);
-                    $name = $term->name;
-                    $profissao = get_field('colunista_profissao',$term);
-                    $archive = get_term_link( $term, 'colunista' );
+                if($terms) {
+                  foreach ($terms as $term) {
+                    $i++;
+                    if(1 == $i) {
+                      $avatar = get_field('colunista_avatar',$term);
+                      $name = $term->name;
+                      $profissao = get_field('colunista_profissao',$term);
+                      $archive = get_term_link( $term, 'colunista' );
+                    }
                   }
                 }
               ?>

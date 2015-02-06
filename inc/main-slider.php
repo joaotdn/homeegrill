@@ -26,7 +26,7 @@
             global $post;
             $link = get_field('slider_link',$post->ID);
         ?>
-        <figure class="small-12 left bg-cover" data-thumb="<?php getThumbUrl(); ?>">
+        <figure class="small-12 left bg-cover" data-thumb="<?php getThumbUrl('full'); ?>">
           <a href="<?php echo $link; ?>" title="<?php the_title(); ?>" class="d-block abs anchor-mask"></a>
         </figure>
         <?php

@@ -27,7 +27,7 @@
             <a href="<?php echo $archive; ?>" class="small-12 left d-block author-thumb bg-cover" title="<?php echo $name; ?>" data-thumb="<?php echo $foto; ?>"></a>
 
             <figcaption class="small-12 left">
-              <h5 class="lh-small font-large no-margin"><a href="#" title="Rubens Maia"><?php echo $name; ?></a></h5>
+              <h5 class="lh-small font-large no-margin"><a href="<?php echo $archive; ?>" title="Rubens Maia"><?php echo $name; ?></a></h5>
               <?php if ($profissao): ?>
                 <p class="lh-small font-medium"><?php echo $profissao; ?></p>
               <?php endif; ?>

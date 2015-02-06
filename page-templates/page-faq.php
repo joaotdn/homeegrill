@@ -1,66 +1,41 @@
 <?php
+  /**
+   * Template Name: FAQ
+   *
+   * @package WordPress
+   * @subpackage home_grill
+   * @since home & GRILL 1.0
+  */
+
   //Header
-  include_once "header.php";
+  get_header();
 
   //breadcrumb
-  include_once "content-breadcrumb.php";
-  ?>
+  get_template_part('content-breadcrumb');
+?>
   
   <div class="row">
     
     <header class="small-12 columns post-header">
-      <h2 class="no-margin lh-normal text-low">Perguntas frequentes</h2>
+      <h2 class="no-margin lh-normal text-low"><?php the_title(); ?></h2>
       <div class="divide-20"></div>
 
-      <nav class="share-post small-12 left show-for-medium-up">
-        <img src="media/share.png" alt="" class="left">
-      </nav><!-- // share buttons -->
-
+      <?php  get_template_part('content-share'); ?>
     </header><!-- //post-header -->
 
     <nav class="faq-list small-12 columns">
       <ul class="no-margin no-bullet small-12 left">
+        <?php
+          $faq_lista = get_field('faq_lista',$post->ID);
+          foreach ($faq_lista as $faq):
+        ?>
         <li>
           <a href="#" title="" class="d-block small-12 left primary">
-            <h6 class="font-medium no-margin">Como funciona a Churrasqueira a Gás home & GRILL?</h6>
-            <p class="font-medium no-margin silver">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nostrum voluptatibus obcaecati nobis modi cumque eveniet laudantium aliquid corrupti labore. Rerum, earum alias molestias consequuntur repudiandae. Soluta illo voluptatibus cupiditate.</p>
+            <h6 class="font-medium no-margin"><?php echo $faq['faq_pergunta']; ?></h6>
+            <p class="font-medium no-margin silver"><?php echo $faq['faq_resposta']; ?></p>
           </a>
         </li>
-
-        <li>
-          <a href="#" title="" class="d-block small-12 left primary">
-            <h6 class="font-medium no-margin">Como funciona a Churrasqueira a Gás home & GRILL?</h6>
-            <p class="font-medium no-margin silver">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nostrum voluptatibus obcaecati nobis modi cumque eveniet laudantium aliquid corrupti labore. Rerum, earum alias molestias consequuntur repudiandae. Soluta illo voluptatibus cupiditate.</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" title="" class="d-block small-12 left primary">
-            <h6 class="font-medium no-margin">Como funciona a Churrasqueira a Gás home & GRILL?</h6>
-            <p class="font-medium no-margin silver">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nostrum voluptatibus obcaecati nobis modi cumque eveniet laudantium aliquid corrupti labore. Rerum, earum alias molestias consequuntur repudiandae. Soluta illo voluptatibus cupiditate.</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" title="" class="d-block small-12 left primary">
-            <h6 class="font-medium no-margin">Como funciona a Churrasqueira a Gás home & GRILL?</h6>
-            <p class="font-medium no-margin silver">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nostrum voluptatibus obcaecati nobis modi cumque eveniet laudantium aliquid corrupti labore. Rerum, earum alias molestias consequuntur repudiandae. Soluta illo voluptatibus cupiditate.</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" title="" class="d-block small-12 left primary">
-            <h6 class="font-medium no-margin">Como funciona a Churrasqueira a Gás home & GRILL?</h6>
-            <p class="font-medium no-margin silver">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nostrum voluptatibus obcaecati nobis modi cumque eveniet laudantium aliquid corrupti labore. Rerum, earum alias molestias consequuntur repudiandae. Soluta illo voluptatibus cupiditate.</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" title="" class="d-block small-12 left primary">
-            <h6 class="font-medium no-margin">Como funciona a Churrasqueira a Gás home & GRILL?</h6>
-            <p class="font-medium no-margin silver">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nostrum voluptatibus obcaecati nobis modi cumque eveniet laudantium aliquid corrupti labore. Rerum, earum alias molestias consequuntur repudiandae. Soluta illo voluptatibus cupiditate.</p>
-          </a>
-        </li>
+        <?php endforeach; ?>
       </ul>
 
       <div class="divide-20"></div>
@@ -70,5 +45,5 @@
 
 <?php
   //footer
-  include_once "footer.php";
+  get_footer();
 ?>

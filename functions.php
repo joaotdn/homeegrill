@@ -329,10 +329,10 @@ function add_menu_icons_styles(){
 
 #menu-posts-diferencial div.wp-menu-image:before {
   content: "\f155";
-}/*
+}
 li#toplevel_page_edit-post_type-acf {
 	display: none !important;
-}*/
+}
 </style>
  
 <?php
