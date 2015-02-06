@@ -2,8 +2,8 @@
   <div id="list-features" class="small-12 left data-panel bg-oil">
     <div class="row">
        <header class="columns">
-        <h5 class="white no-margin lh-normal">Sabor no tempo certo!</h5>
-        <h6 class="font-lite no-margin">Estilo e funcionalidade para aqueles que desejam o melhor resultado na culinária moderna. A home & GRILL STYLE surpreenderá você em todos os sentidos.</h6>
+        <h5 class="white no-margin lh-normal">Diferenciais que só a home & GRILL tem!</h5>
+        <h6 class="font-lite no-margin">A Churrasqueira home & GRILL utiliza aço inoxidável de alta qualidade em seu componentes, pois foram feitas para durar. Projetada e fabricada com o máximo de atenção em todos os detalhes, elas são sinônimos de qualidade e tecnologia.</h6>
       </header>
 
       <nav id="nav-features" class="small-12 left cycle-slideshow"
@@ -18,189 +18,53 @@
         
         <!-- slide -->
         <div class="small-12 left">
+          <?php
+            $args = array( 'posts_per_page' => 6, 'post_type' => 'diferencial' );
+            $diferenciais = get_posts( $args );
+            foreach ($diferenciais as $post): setup_postdata( $post );
+              $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
+          ?>
           <figure class="tiny-12 small-6 medium-4 columns">
             <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-tampa-cf3a9b86dd0519ef26ec76b3580671c3.png">
+              <a href="#" title="<?php the_title(); ?>" class="d-block rel small-12 bg-cover rel" data-thumb="<?php echo $thumb[0]; ?>">
               </a>
               <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
 
               <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
+                <p class="font-small white"><?php the_excerpt(); ?></p>
               </figcaption>
             </div>
             <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
+              <a href="#" title="<?php the_title(); ?>" class="button-white small-12 lef text-center"><?php the_title(); ?></a>
             </h3>
           </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-grelhas-ff59911f4f5b1ce5db459853bb63ed75.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-fundos-removiveis-749537000226ab802148badef2ce2457.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-coletor-de-gordura-frontal-aeea96bf870522345f45fc9951fd889e.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-bandejas-laterais-dobraveis-258caf1fa57adf094c3c3bffb2f83016.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-espeto-giratorio-922de90b9af27b675a31b86d11bc4f8a.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
+          <?php endforeach; ?>
         </div>
         <!-- // slide -->
 
         <!-- slide -->
         <div class="small-12 left">
+          <?php
+            $args = array( 'posts_per_page' => 6, 'post_type' => 'diferencial', 'offset' => 6 );
+            $produtos_posts = get_posts( $args );
+            foreach ($produtos_posts as $post): setup_postdata( $post );
+              $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
+          ?>
           <figure class="tiny-12 small-6 medium-4 columns">
             <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-anti-labaredas-4f703e7d981b1274f940750a420c656c.png">
+              <a href="#" title="<?php the_title(); ?>" class="d-block rel small-12 bg-cover rel" data-thumb="<?php echo $thumb[0]; ?>">
               </a>
               <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
 
               <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
+                <p class="font-small white"><?php the_excerpt(); ?></p>
               </figcaption>
             </div>
             <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
+              <a href="#" title="<?php the_title(); ?>" class="button-white small-12 lef text-center"><?php the_title(); ?></a>
             </h3>
           </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-isoladores-de-calor-924885e75b83e1fb3ecd3a1367a44726.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-queimador-infravermelho-404975e52941666f487d35d0d85bbfa8.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-carrinhost-e751e3621bfd787c8a20760b789005b7.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-reguladores-de-temperaturas-3f524c59817f8c9f7df52d6270cba13b.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
-
-          <figure class="tiny-12 small-6 medium-4 columns">
-            <div class="feature-thumb small-12 left rel">
-              <a href="#" title="" class="d-block rel small-12 bg-cover rel" data-thumb="http://www.homeegrill.com.br/conteudo/home-grill-espeto-giratorio-922de90b9af27b675a31b86d11bc4f8a.png">
-              </a>
-              <span class="show-capiton d-block abs p-right p-bottom icon-add show-more"></span>
-
-              <figcaption class="small-12 abs p-top p-left">
-                <p class="font-small white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam aut pariatur reiciendis minus laudantium veniam error vel dolores cum esse earum autem labore accusantium mollitia iusto eveniet quisquam adipisci!</p>
-              </figcaption>
-            </div>
-            <h3 class="font-large no-margin">
-              <a href="#" title="" class="button-white small-12 lef">Coletor de gordura frontal</a>
-            </h3>
-          </figure>
+          <?php endforeach; ?>
         </div>
         <!-- // slide -->
 

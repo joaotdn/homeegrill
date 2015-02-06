@@ -1,97 +1,85 @@
 <?php
   //Header
-  include_once "header.php";
+  get_header();
 
   //breadcrumb
-  include_once "content-breadcrumb.php";
+  get_template_part('content-breadcrumb');
+
+  // $obj = get_queried_object();
 ?>
 
   <div class="divide-20"></div>
   <section id="blog-content" class="small-12 left bg-white data-panel">
     <div class="row">
       
-      <article class="small-12 medium-8 large-8 columns">
+      <article class="small-12 medium-8 large-8 columns post-inner-content">
         
         <header class="small-12 left post-header">
-          <time class="font-small small-12 left" pubdate>29 de julho de 2014</time>
-          <h2 class="no-margin lh-normal">Saiba o que o gaúcho Marcos Arruda está achando das churrasqueiras home & GRILL</h2>
+          <time class="font-small small-12 left" pubdate><?php the_time('d \d\e F \d\e Y'); ?></time>
+          <h2 class="no-margin lh-normal"><?php the_title(); ?></h2>
           <div class="divide-20"></div>
 
-          <nav class="share-post small-12 left show-for-medium-up">
-            <img src="media/share.png" alt="" class="left">
-          </nav><!-- // share buttons -->
+          <?php  get_template_part('content-share'); ?>
 
         </header><!-- //post-header -->
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quo necessitatibus a rerum! Enim, possimus, sapiente consectetur veniam temporibus magni odio impedit corrupti sunt delectus iste rerum nesciunt necessitatibus architecto! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, unde, ipsum, omnis, doloribus consequatur quidem dolore quam impedit odio dicta ut porro distinctio praesentium magni alias dolores similique. Quis, esse.</p>
-
-        <p>
-          <div class="aligncenter">
-            <img src="http://www.espacogourmetecia.com.br/_libs/imgs/final/1227.jpg" alt="">
-          </div>
-        </p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, sunt, quis provident eligendi quod optio explicabo nemo consectetur ea iure. Ratione, nam alias libero natus ad autem ipsum illum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, veritatis, eveniet aperiam voluptatum obcaecati nam fugiat odio culpa quo. Officia qui ullam cupiditate perspiciatis non totam iusto quasi molestias ex.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, sunt, quis provident eligendi quod optio explicabo nemo consectetur ea iure. Ratione, nam alias libero natus ad autem ipsum illum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, veritatis, eveniet aperiam voluptatum obcaecati nam fugiat odio culpa quo. Officia qui ullam cupiditate perspiciatis non totam iusto quasi molestias ex.</p>
-
-        <p>
-          <nav id="post-galery" class="small-12 left rel">
-            <div class="small-12 left cycle-slideshow"
-              data-cycle-fx="scrollHorz"
-              data-cycle-pause-on-hover="true"
-              data-cycle-speed="200"
-              data-cycle-timeout="8000"
-              data-cycle-prev="#prev-gallery-thumb"
-              data-cycle-next="#next-gallery-thumb"
-              data-cycle-slides="> a"
-              data-cycle-pager=".gallery-pager"
-              data-cycle-pager-template="<span></span>"
-              data-cycle-swipe="true"
-              data-cycle-swipe-fx="scrollHorz"
-            >
-              <a href="http://www.comerjapones.com/cursos/img/cursos/teppanyaki/teppanyaki-miele.jpg" data-lightbox="post-gallery" class="gallery-thumb d-block small-12 left bg-cover" data-thumb="http://www.comerjapones.com/cursos/img/cursos/teppanyaki/teppanyaki-miele.jpg">
-              </a>
-
-              <a href="http://blog.gardelino.de/wp-content/uploads/2012/01/Fire-Magic-Echelon-Gasgrill-Station-2012.jpg" data-lightbox="post-gallery" class="gallery-thumb d-block small-12 left bg-cover" data-thumb="http://blog.gardelino.de/wp-content/uploads/2012/01/Fire-Magic-Echelon-Gasgrill-Station-2012.jpg">
-              </a>
-
-              <a href="http://hgtv.sndimg.com/HGTV/2012/02/24/GH2012_BBQ-Courtyard-01-Wide-Grill-Table_Courtyard-3-Hero_s4x3_lg.jpg" data-lightbox="post-gallery" class="gallery-thumb d-block small-12 left bg-cover" data-thumb="http://hgtv.sndimg.com/HGTV/2012/02/24/GH2012_BBQ-Courtyard-01-Wide-Grill-Table_Courtyard-3-Hero_s4x3_lg.jpg">
-              </a>
-
-              <a href="http://www.likecool.com/Home/Outdoor/Jag%20Grill%20BBQ%20Table/Jag-Grill-BBQ-Table.jpg" data-lightbox="post-gallery" class="gallery-thumb d-block small-12 left bg-cover" data-thumb="http://www.likecool.com/Home/Outdoor/Jag%20Grill%20BBQ%20Table/Jag-Grill-BBQ-Table.jpg">
-              </a>
-
-              <div class="small-12 left text-center">
-                <div class="gallery-pager centered"></div>
-              </div>
+        <?php
+          //Se o post tiver video
+          global $post;
+          $video = get_field('post_video',$post->ID);
+          if($video != '') {
+            ?>
+            <div class="small-12 left">
+              <figure class="flex-video small-12 left"><?php echo $video; ?></figure>
             </div>
+            <div class="divide-20"></div>
+            <?php
+          }
+        ?>
 
-  
-            <a href="#" id="prev-gallery-thumb" title="Imagem anterior" class="d-block abs p-left nav-gallery">
-              <span class="icon-arrow-left d-block"></span>
-            </a>
-
-            <a href="#" id="next-gallery-thumb" title="Próxima imagem" class="d-block abs p-right nav-gallery">
-              <span class="icon-uniE603 d-block"></span>
-            </a>
-
-
-            <div class="divide-10"></div>
-          </nav>
-        </p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, sunt, quis provident eligendi quod optio explicabo nemo consectetur ea iure. Ratione, nam alias libero natus ad autem ipsum illum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, veritatis, eveniet aperiam voluptatum obcaecati nam fugiat odio culpa quo. Officia qui ullam cupiditate perspiciatis non totam iusto quasi molestias ex.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, sunt, quis provident eligendi quod optio explicabo nemo consectetur ea iure. Ratione, nam alias libero natus ad autem ipsum illum dolor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, veritatis, eveniet aperiam voluptatum obcaecati nam fugiat odio culpa quo. Officia qui ullam cupiditate perspiciatis non totam iusto quasi molestias ex.</p>
-
-        <p>Tags: <a href="#">Churrasqueiras</a>, <a href="#">grelhadeiras</a></p>
+        <?php 
+          if (have_posts()) : while (have_posts()) : the_post(); 
+              the_content(); 
+            endwhile; 
+          endif;
+        ?>
+        
+        <?php
+          /*
+            Tags
+           */
+          $posttags = get_the_tags();
+          echo "<p class=\"posttags\">Tags:";
+          foreach ($posttags as $tag):
+            $tag_link = get_tag_link($tag->term_id);
+        ?>
+        <a href="<?php echo $tag_link; ?>"><?php echo $tag->name; ?></a>
+        <?php 
+          endforeach;
+          echo "</p>"; 
+        ?>
         
         <footer class="small-12 left">
           
-          <nav class="share-post small-12 left show-for-medium-up">
-            <img src="media/share.png" alt="" class="left">
-          </nav><!-- // share buttons -->
+          <?php  get_template_part('content-share'); ?>
+
+          <div class="divide-20"></div>
+
+          <nav id="comments" class="small-12 left">
+            <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                  var disqus_shortname = 'homegrill'; // required: replace example with your forum shortname
+
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </nav>
 
         </footer>
 
@@ -103,7 +91,7 @@
           Sidebar blog
           ---------------------
          */
-        include_once "sidebar-blog.php";
+        get_sidebar('blog');
       ?>
 
     </div><!-- // row -->
@@ -111,8 +99,8 @@
 
 <?php
   // postagens do blog
-  include_once "inc/tab-posts.php";
+  require get_template_directory() . "/inc/tab-posts.php";
   
   //footer
-  include_once "footer.php";
+  get_footer();
 ?>

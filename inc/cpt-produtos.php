@@ -23,7 +23,7 @@ function produtos_init() {
     'labels'             => $labels,
     'public'             => true,
     'taxonomies'        => array('post_tag'),
-    'exclude_from_search' => true,
+    'exclude_from_search' => false,
     'publicly_queryable' => true,
     'show_ui'            => true,
     'show_in_menu'       => true,
@@ -36,7 +36,7 @@ function produtos_init() {
     'supports'           => array( 'title', 'thumbnail' )
   );
 
-  register_post_type( 'produtos', $args );
+  register_post_type( 'produto', $args );
 
   $labels = array(
     'name'              => __( 'Categorias'),
@@ -52,7 +52,7 @@ function produtos_init() {
     'new_item_name'     => __( 'Nova' )
     );
 
-  register_taxonomy("categoria-produto", array("produtos"), array(
+  register_taxonomy("produtos", array("produto"), array(
     "hierarchical"      => true, 
     "labels"            => $labels, 
     "singular_label"    => "Categoria", 

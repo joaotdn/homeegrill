@@ -9,7 +9,7 @@
   <div class="row">
     
     <header class="small-12 columns post-header">
-      <h2 class="no-margin lh-normal text-low"><?php echo single_cat_title(); ?></h2>
+      <h2 class="no-margin lh-normal text-low">Busca por: <?php get_search_query(); ?></h2>
       <div class="divide-20"></div>
 
       <?php  get_template_part('content-share'); ?>
@@ -60,7 +60,7 @@
       <?php
         if (have_posts()) : while (have_posts()) : the_post();
       ?>
-       
+
       <!-- item -->
       <div class="tiny-12 small-6 medium-4 columns">
         <figure class="small-12 left rel">

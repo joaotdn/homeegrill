@@ -1,22 +1,61 @@
       
       <aside id="post-sidebar" class="small-12 medium-4 columns">
-        
         <!-- widget: post-author -->
+        <?php
+        global $post;
+          $terms = get_the_terms($post->ID, 'colunista');
+          $i = 0;
+          foreach ($terms as $term) {
+            $i++;
+            if(1 == $i) {
+              $foto = get_field('colunista_foto',$term);
+              $site = get_field('colunista_site',$term);
+              $tel = get_field('colunista_telefone',$term);
+              $social = get_field('colunista_social',$term);
+              $name = $term->name;
+              $profissao = get_field('colunista_profissao',$term);
+              $archive = get_term_link( $term, 'colunista' );
+              $descricao = $term->description;
+              $autor_id = $term->term_id;
+            }
+          }
+        ?>
         <section id="hg-widget" class="small-12 left post-author hide-for-small">
           <h5 class="font-medium no-margin font-lite">Autor do post:</h5>
           <figure class="small-12 left">
             <div class="divide-10"></div>
-            <a href="#" class="small-12 left d-block author-thumb bg-cover" title="Rubens Maia" data-thumb="http://graphics8.nytimes.com/images/2012/10/11/technology/bits-sloan/bits-sloan-tmagArticle.jpg"></a>
+            <a href="<?php echo $archive; ?>" class="small-12 left d-block author-thumb bg-cover" title="<?php echo $name; ?>" data-thumb="<?php echo $foto; ?>"></a>
 
             <figcaption class="small-12 left">
-              <h5 class="lh-small font-large no-margin"><a href="#" title="Rubens Maia">Rubens Maia</a></h5>
-              <p class="lh-small font-medium">Arquiteto</p>
-              <p class="no-margin font-medium"><strong>Resumo do perfil:</strong></p>
-              <p class="lh-normal font-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, exercitationem, voluptates illo blanditiis cumque beatae aliquam repellendus error vitae similique qui illum. Veniam, veritatis maiores neque deserunt perspiciatis illo nihil.</p>
+              <h5 class="lh-small font-large no-margin"><a href="#" title="Rubens Maia"><?php echo $name; ?></a></h5>
+              <?php if ($profissao): ?>
+                <p class="lh-small font-medium"><?php echo $profissao; ?></p>
+              <?php endif; ?>
+
+              <?php if ($descricao): ?>
+                <p class="no-margin font-medium"><strong>Resumo do perfil:</strong></p>
+                <p class="lh-normal font-medium"><?php echo $descricao; ?></p>
+              <?php endif; ?>
               
-              <h6 class="no-margin">Site: <a href="#" target="_blank" title="">http://google.com</a></h6>
-              <h6 class="no-margin">Telefone: <span class="font-lite">(83) 9999 9999</span></h6>
-              <h6 class="no-margin">Redes sociais: <a href="#" target="_blank" title="">Facebook</a></h6>
+              <?php if ($site): ?>
+                <h6 class="no-margin">Site: <a href="<?php echo $site; ?>" target="_blank" title=""><?php echo $site; ?></a></h6>
+              <?php endif; ?>
+
+              <?php if ($tel): ?>
+                <h6 class="no-margin">Telefone: <span class="font-lite"><?php echo $tel; ?></span></h6>
+              <?php endif; ?>
+
+              <?php 
+                if ($social): 
+                echo '<h6 class="no-margin author-social-links">Redes sociais:';
+                foreach ($social as $network):
+              ?>
+                <a href="<?php echo $network['colunista_social_link']; ?>" target="_blank" title="<?php echo $network['colunista_social_nome']; ?>"><?php echo $network['colunista_social_nome']; ?></a>
+              <?php 
+                endforeach; 
+                echo "</h6>";
+                endif; 
+              ?>
             </figcaption>
           </figure>
 
@@ -27,9 +66,9 @@
         <section id="hg-widget" class="small-12 left search-in-blog hide-for-small footer-newsletter">
           <h5 class="font-large text-low">Faça sua busca no blog</h5>
 
-          <form action="" class="small-12 left">
+          <form action="<?php bloginfo('home'); ?>/" class="small-12 left" method="GET">
             <label class="no-margin small-8 left">
-              <input type="text" class="small-12 left" placeholder="O que você procura?">
+              <input type="text" class="small-12 left" placeholder="O que você procura?" name="s" id="s">
             </label>
             
             <label class="no-margin small-4 left">
@@ -42,17 +81,29 @@
 
         <!-- widget: outros arquitetos -->
         <section id="hg-widget" class="small-12 left other-authors hide-for-small footer-newsletter">
-          <h5 class="font-large text-low">Outros arquitetos</h5>
+          <h5 class="font-large text-low">Outros colunistas</h5>
           <div id="" class="small-12 left">
+            <?php
+              $i = 0;
+              $terms = get_terms( 'colunista', 'hide_empty=0&exclude=' . $autor_id );
+              foreach ($terms as $term):
+                if(3 == $i) {
+                  break;
+                }
+                $avatar = get_field('colunista_avatar',$term);
+                $name = $term->name;
+                $profissao = get_field('colunista_profissao',$term);
+                $archive = get_term_link( $term, 'colunista' );
+            ?>
             
             <div class="small-12 left">
-              <a href="#" class="d-block small-12 left author-link">
-                <div class="small-4 left author-avatar bg-cover" data-thumb="http://www.estrategista.net/wp-content/uploads/2013/07/pic_andre.jpg"></div>
+              <a href="<?php echo esc_html($archive); ?>" class="d-block small-12 left author-link" title="Todos os posts de <?php echo $name; ?>">
+                <div class="small-4 left author-avatar bg-cover" data-thumb="<?php echo $avatar; ?>"></div>
 
                 <div class="author-name medium-8 large-6 left d-table">
                   <div class="small-12 d-table-cell">
-                    <h3 class="yellow font-large no-margin">João Paulo</h3>
-                    <p class="no-margin white font-small">Arquiteto</p>
+                    <h3 class="yellow font-large no-margin"><?php echo $name; ?></h3>
+                    <p class="no-margin white font-small"><?php echo $profissao; ?></p>
                   </div>
                 </div>
 
@@ -64,43 +115,14 @@
               <div class="divide-10"></div>
             </div>
 
-            <div class="small-12 left">
-              <a href="#" class="d-block small-12 left author-link">
-                <div class="small-4 left author-avatar bg-cover" data-thumb="http://img.timeinc.net/time/photoessays/2011/twitter_cuts/authors/authors_weiner_a.jpg"></div>
-
-                <div class="author-name medium-8 large-6 left d-table">
-                  <div class="small-12 d-table-cell">
-                    <h3 class="yellow font-large no-margin">Olivia Stark</h3>
-                    <p class="no-margin white font-small">Arquiteto</p>
-                  </div>
-                </div>
-
-                <span class="small-2 d-table left go-post">
-                  <span class="icon-chevron-circle-right d-table-cell text-center"></span>
-                </span>
-              </a>
-              <div class="divide-10"></div>
-            </div>
-
-            <div class="small-12 left">
-              <a href="#" class="d-block small-12 left author-link">
-                <div class="small-4 left author-avatar bg-cover" data-thumb="http://monkeypuzzlepress.com/wp-content/uploads/2011/04/Travis-Cebula.jpg"></div>
-
-                <div class="author-name medium-8 large-6 left d-table">
-                  <div class="small-12 d-table-cell">
-                    <h3 class="yellow font-large no-margin">Jason Brian</h3>
-                    <p class="no-margin white font-small">Arquiteto</p>
-                  </div>
-                </div>
-
-                <span class="small-2 d-table left go-post">
-                  <span class="icon-chevron-circle-right d-table-cell text-center"></span>
-                </span>
-              </a>
-              <div class="divide-10"></div>
-            </div>
-
-            <h6 class="divide-20 text-low"><a href="#" title="Ver todos os arquitetos">Ver todos os arquitetos</a></h6>
+            <?php
+              $i++; endforeach;
+              
+              $page = get_page_by_title('Colunistas');
+              if($page):
+            ?>
+            <h6 class="divide-20 text-low"><a href="<?php echo get_page_link($page->ID); ?>" title="Ver todos os colunistas">Ver todos os colunistas</a></h6>
+            <?php endif; ?>
         </section>
 
         <!-- widget: newsletter blog -->

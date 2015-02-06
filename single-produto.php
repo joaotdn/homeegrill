@@ -12,9 +12,7 @@
       <h2 class="no-margin lh-normal"><?php the_title(); ?></h2>
       <div class="divide-20"></div>
 
-      <nav class="share-post small-12 left show-for-medium-up">
-        <img src="media/share.png" alt="" class="left">
-      </nav><!-- // share buttons -->
+      <?php  get_template_part('content-share'); ?>
       
     </header><!-- //post-header -->
 

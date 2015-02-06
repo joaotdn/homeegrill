@@ -11,71 +11,55 @@
             <a href="#" class="white prev-default abs small-12 p-bottom p-left small-thumb-nav small-thumb-prev d-table text-center">
               <span class="icon-arrow-down font-xlarge d-table-cell"></span>
             </a>
+
+            <?php
+              global $post;
+              $gallery = get_field('produto_galeria',$post->ID);
+            ?>
             
             <ul class="no-margin no-bullet vertical-slider cycle-slideshow vertical"
               data-cycle-fx='carousel'
               data-cycle-timeout='0'
               data-cycle-next=".small-thumb-next"
               data-cycle-prev=".small-thumb-prev"
-              data-cycle-carousel-visible='5'
+              data-cycle-carousel-visible='<?php echo count($gallery); ?>'
               data-cycle-carousel-vertical='true'
               data-cycle-slides="> li"
               data-allow-wrap="false"
             >
+              <?php
+                $i = 0; 
+                foreach ($gallery as $photo):
+                  $i++;
+                  $small = wp_get_attachment_image_src( $photo['produto_foto'], 'medium' );
+                  $large = wp_get_attachment_image_src( $photo['produto_foto'], 'full' );
+                  if (1 == $i) { $i = "active"; }
+              ?>
               <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/3.png">
-                  <span class="border-mask small-12 abs active"></span>
-                  <img src="media/thp1.png" alt="">
+                <a href="#" class="d-table small-12 left rel full-height" data-post-thumbnail="<?php echo $large[0]; ?>">
+                  <span class="border-mask small-12 abs <?php echo $i; ?>"></span>
+                  <div class="small-12 d-table-cell">
+                    <img src="<?php echo $small[0]; ?>" alt="">
+                  </div>
                 </a>
               </li>
-
-              <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/4.png">
-                  <span class="border-mask small-12 abs"></span>
-                  <img src="media/thp2.png" alt="">
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/2.png">
-                  <span class="border-mask small-12 abs"></span>
-                  <img src="media/thp3.png" alt="">
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/3.png">
-                  <span class="border-mask small-12 abs"></span>
-                  <img src="media/thp4.png" alt="">
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/2.png">
-                  <span class="border-mask small-12 abs"></span>
-                  <img src="media/thp2.png" alt="">
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/2.png">
-                  <span class="border-mask small-12 abs"></span>
-                  <img src="media/thp3.png" alt="">
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="d-block small-12 left rel" data-post-thumbnail="http://www.homeegrill.com.br/galerias/17/3.png">
-                  <span class="border-mask small-12 abs"></span>
-                  <img src="media/thp4.png" alt="">
-                </a>
-              </li>
+              <?php endforeach; ?>
             </ul>
           </nav>
 
           <figure id="product-canvas" class="left text-center d-table rel">
             <div class="zoom-image">
-              <img src="http://www.homeegrill.com.br/galerias/17/3.png" alt="">
+              <?php 
+                global $post;
+                $gallery = get_field('produto_galeria',$post->ID);
+                $u = 0;
+                foreach ($gallery as $photo):
+                  $u++;
+                  if(1 == $u):
+                  $large = wp_get_attachment_image_src( $photo['produto_foto'], 'full' );
+              ?>
+              <img src="<?php echo $large[0]; ?>" alt="">
+              <?php endif; endforeach; ?>
             </div>
 
             <figcaption class="small-12 abs p-bottom p-left text-right">
@@ -87,23 +71,43 @@
       <!-- // galeria com zoom -->
 
       <!-- informações sobre o produto -->
+      <?php
+        $intro = get_field('produto_chamada',$post->ID);
+        $preco = get_field('produto_preco',$post->ID);
+        $parcelas = get_field('produto_parcelas',$post->ID);
+        $link = get_field('produto_url',$post->ID);
+        $garantia = get_field('produto_garantia',$post->ID);
+        $frete = get_field('produto_frete',$post->ID);
+      ?>
       <div id="product-info" class="small-12 medium-4 large-4 columns rel">
+        
+        <?php if ($intro): ?>
         <header class="divide-30">
-          <h5 class="no-margin">Para os que desejam um grelhado excepcional e não abrem mão da sofisticação!</h5 class="no-margin">
+          <h5 class="no-margin"><?php echo $intro; ?></h5 class="no-margin">
         </header>
-
+        <?php endif ?>
+        
         <article class="tiny-12 small-6 medium-12 left">
-          <h2 class="price oil no-margin lh-normal">R$ 2.800,00</h2>
-          <p class="no-margin lh-normal font-small oil">À vista</p>
-          <p class="no-margin lh-normal font-small oil">Ou em <strong>até 12 x de 260,00</strong> no cartão de crédito</p>
+          <?php if ($preco): ?>
+            <h2 class="price oil no-margin lh-normal"><?php echo $preco; ?></h2>
+            <p class="no-margin lh-normal font-small oil">À vista</p>
+          <?php endif ?>
+          
+          <?php if ($parcelas): ?>
+            <p class="no-margin lh-normal font-small oil">Ou em <strong>até <?php echo $parcelas; ?></strong> no cartão de crédito</p>  
+          <?php endif ?>
+          
+          <?php if ($link): ?>
           <p class="divide-30 show-for-medium-up">
             <h3>
-              <a href="#" class="button-success small-12 left text-left text-low font-xlarge">
+              <a href="<?php echo $link; ?>" class="button-success small-12 left text-left text-low font-xlarge" target="_blank">
                 <span class="left">Comprar agora</span>
                 <span class="d-block left icon-cart2"></span>
               </a>
             </h3>
-          </p>
+          </p>  
+          <?php endif ?>
+          
           <div class="divide-30 show-for-medium-only"></div>
         </article>
 
@@ -111,19 +115,25 @@
           <nav class="about-product">
             <ul class="no-bullet no-margin">
               <li>
-                <p class="font-medium font-bold divide-10"><a href="#" class="font-bold"><i class="icon-help d-block left"></i> Dúvidas sobre o seu projeto?</a></p>
+                <?php $page = get_page_by_title('Perguntas frequentes'); ?>
+                <p class="font-medium font-bold divide-10"><a href="<?php echo esc_html(get_page_uri($page->ID)); ?>" title="Dúvidas sobre o seu projeto?" class="font-bold"><i class="icon-help d-block left"></i> Dúvidas sobre o seu projeto?</a></p>
               </li>
 
               <li>
-                <p class="font-medium font-bold divide-10"><a href="#" class="font-bold"><i class="icon-location2 d-block left"></i> Veja nossos pontos de venda</a></p>
+                <?php $page = get_page_by_title('Pontos de venda'); ?>
+                <p class="font-medium font-bold divide-10"><a href="<?php echo esc_html(get_page_uri($page->ID)); ?>" title="Veja nossos pontos de venda" class="font-bold"><i class="icon-location2 d-block left"></i> Veja nossos pontos de venda</a></p>
               </li>
 
               <li>
-                <p class="font-medium font-bold divide-10"><i class="icon-calendar-o d-block left"></i> Garantia de 3 anos</p>
+                <?php if ($garantia): ?>
+                <p class="font-medium font-bold divide-10"><i class="icon-calendar-o d-block left"></i> Garantia de <?php echo $garantia; ?></p>
+                <?php endif ?>
               </li>
 
               <li>
-                <p class="font-medium font-bold no-margin"><i class="icon-prazo d-block left"></i> Prazo de entrega: até 20 dias úteis</p>
+                <?php if ($frete): ?>
+                  <p class="font-medium font-bold no-margin"><i class="icon-prazo d-block left"></i> Prazo de entrega: até <?php echo $frete; ?> úteis</p>
+                <?php endif ?>
               </li>
             </ul>
           </nav>

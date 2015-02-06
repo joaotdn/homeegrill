@@ -1,6 +1,6 @@
 <?php
 /**
- * Post type : Artigos
+ * Post type : Lojas
  */
 function lojas_init() {
   $labels = array(

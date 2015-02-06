@@ -1,6 +1,6 @@
 <?php
 /**
- * Post type : Artigos
+ * Post type : Destaques
  */
 function slider_init() {
   $labels = array(

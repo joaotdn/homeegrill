@@ -1,16 +1,10 @@
 	
 	<nav id="breadcrumb" class="row" role="navigation">
 		<div class="small-12 columns">
-			<span>
-				<span class="font-lite">Você está aqui:</span>
-			</span>
-
-			<span>
-	    		<a href="#">Categoria</a>
-	    	</span>
-
-	    	<span>
-	    		<span>Conteúdo</span>
-	    	</span>
+			<?php if(function_exists('bcn_display'))
+		        {
+		          bcn_display();
+		        }
+	      	?>
 		</div>
   	</nav><!-- // breadcrumb -->

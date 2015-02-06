@@ -630,7 +630,7 @@ $yellow-tint: 30%;
 //slide colunistas
 
 .blog-thumb {
-	height: rem-calc(200);
+	height: rem-calc(160);
 	@extend %transition;
 
 	&:hover {
@@ -745,6 +745,26 @@ $yellow-tint: 30%;
 	color: $white;
 }
 
+.posttags,.author-social-links {
+	a:not(:first-child) {
+		&:before {
+			content: ", ";
+		}
+	}
+}
+
+.screen-reader-text {
+	display: none !important;
+}
+
+.tb-close-icon {
+	background-color: #ccc;
+}
+
+.TB_caption {
+	display: none !important;
+}
+
 #post-galery {
 	overflow: hidden;
 	&:hover {
@@ -773,12 +793,16 @@ $yellow-tint: 30%;
 
 	span {
 
+		&[typeof="v:Breadcrumb"] {
+			margin-right: rem-calc(6);
+			float: left;
+		}
+
 		a,span {
 			@extend .font-medium;
 			@extend .font-bold;
 			@extend .text-low;
 			float: left;
-			margin-right: rem-calc(10);
 		}
 
 		span.font-lite {
@@ -811,6 +835,7 @@ $yellow-tint: 30%;
 	width: rem-calc(90);
 	@extend %full-height;
 	background-color: $white;
+	border-right: 1px solid $silver;
 
 	&:hover {
 		.small-thumb-next,.small-thumb-prev {
@@ -852,9 +877,7 @@ $yellow-tint: 30%;
 	@extend .p-top;
 	@extend .p-left;
 	@extend %transition;
-	border: 1px solid $silver;
-	border-left: none;
-	border-bottom: none;
+	border-bottom: 1px solid $silver;
 	z-index: 9;
 
 	&:hover {
@@ -863,6 +886,13 @@ $yellow-tint: 30%;
 
 	&.active {
 		border:6px solid $primary-color;
+	}
+}
+
+
+.vertical-slider {
+	img {
+		padding: rem-calc(5);
 	}
 }
 
@@ -1382,6 +1412,46 @@ $yellow-tint: 30%;
 	}
 }
 
+.page-numbers {
+	@extend .left;
+	margin: rem-calc(10 10 0 10);
+}
+
+.navigation {
+	ol {
+		list-style-type: none;
+		@extend .no-margin;
+	}
+
+	li {
+		@extend .left;
+		margin-left: rem-calc(10);
+		@extend %first-child-no-left;
+	}
+
+	.next,.prev {
+		@extend .btn;
+	}
+
+	a:not(.next),
+	a:not(.prev),
+	span {
+		@extend .font-bold;
+		@extend .font-large;
+		color: $body-font-color;
+		line-height: 3.4;
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		&.current {
+			color: $primary-color;
+		}
+	}
+	
+}
+
 .select-writter {
 
 	h5 {
@@ -1422,6 +1492,9 @@ $yellow-tint: 30%;
  */
 #footer {
 	padding: rem-calc(40) 0;
+	.search-in-blog {
+		display: none;
+	}
 }
 
 .social-footer {

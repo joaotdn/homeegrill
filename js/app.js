@@ -36,10 +36,12 @@
 		}
 	});
 	
+	$("img",".post-inner-content").parent("a").addClass("thickbox");
 
 })();
 
 $('a','.tab-options').setFirstClass();
+$('a','.tab-moveis').setFirstClass();
 
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs

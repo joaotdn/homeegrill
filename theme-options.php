@@ -117,6 +117,12 @@ array( "name" => "Link para a loja",
   "type" => "text",
   "std" => ""),
 
+array( "name" => "Catálogo institucional",
+  "desc" => "Link para o catálogo institucional na página interna do produto",
+  "id" => $shortname."_catalogo",
+  "type" => "text",
+  "std" => ""),
+
 array( "type" => "close"),
 /*
   CLOSE LINKS

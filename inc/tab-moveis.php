@@ -6,8 +6,8 @@
 
           <ul class="inline-list tab-options tab-moveis">
             <?php
-              $moveis = get_term_by( 'name', 'moveis', 'categoria-produto' );
-              $terms = get_terms('categoria-produto','hide_empty=0&child_of='.$moveis->term_id);
+              $moveis = get_term_by( 'name', 'moveis', 'produtos' );
+              $terms = get_terms('produtos','child_of='.$moveis->term_id);
             ?>
             <li>
               <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $moveis->slug; ?>">Recentes</a></h4>
@@ -31,7 +31,7 @@
           <div id="showroom-carousel" class="carousel-moveis small-12 left owl-carousel owl-theme owl-responsive-1000 owl-loaded">
             
             <?php
-              $args = array( 'posts_per_page' => 6, 'post_type' => 'produtos', 'taxonomy' => 'categoria-produto', 'term' => 'moveis' );
+              $args = array( 'posts_per_page' => 6, 'post_type' => 'produto', 'taxonomy' => 'produtos', 'term' => 'moveis' );
               $produtos_posts = get_posts( $args );
               foreach ($produtos_posts as $post): setup_postdata( $post );
             ?>
