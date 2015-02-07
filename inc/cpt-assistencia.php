@@ -1,22 +1,22 @@
 <?php
 /**
- * Post type : Lojas
+ * Post type : Assistência
  */
-function lojas_init() {
+function assistencia_init() {
   $labels = array(
-    'name'               => 'Lojas',
-    'singular_name'      => 'Loja',
+    'name'               => 'Assistência',
+    'singular_name'      => 'Assistência',
     'add_new'            => 'Adicionar Nova',
-    'add_new_item'       => 'Adicionar nova Loja',
-    'edit_item'          => 'Editar Loja',
-    'new_item'           => 'Nova Loja',
-    'all_items'          => 'Todas as Lojas',
-    'view_item'          => 'Ver Loja',
-    'search_items'       => 'Buscar Lojas',
+    'add_new_item'       => 'Adicionar nova Assistência',
+    'edit_item'          => 'Editar Assistência',
+    'new_item'           => 'Nova Assistência',
+    'all_items'          => 'Todas as Assistências',
+    'view_item'          => 'Ver Assistência',
+    'search_items'       => 'Buscar Assistência',
     'not_found'          => 'N&atilde;o encontrada',
     'not_found_in_trash' => 'N&atilde;o encontrada',
     'parent_item_colon'  => '',
-    'menu_name'          => 'Lojas'
+    'menu_name'          => 'Assistência'
   );
 
   $args = array(
@@ -27,17 +27,17 @@ function lojas_init() {
     'show_ui'            => true,
     'show_in_menu'       => true,
     'query_var'          => true,
-    'rewrite'            => array( 'slug' => 'lojas' ),
+    'rewrite'            => array( 'slug' => 'assistencia' ),
     //'menu_icon'           => get_stylesheet_directory_uri() . '/images/works.png',
     'capability_type'    => 'post',
     'has_archive'        => false,
     'hierarchical'       => false,
     'menu_position'      => 4,
-    'supports'           => array( 'title', 'thumbnail' )
+    'supports'           => array( 'title' )
   );
 
-  register_post_type( 'lojas', $args );
+  register_post_type( 'assistencia', $args );
 }
-add_action( 'init', 'lojas_init' );
+add_action( 'init', 'assistencia_init' );
 
 ?>

@@ -28,10 +28,10 @@ function produtos_init() {
     'show_ui'            => true,
     'show_in_menu'       => true,
     'query_var'          => true,
-    'rewrite'            => array( 'slug' => 'produtos' ),
+    'rewrite'            => array( 'slug' => 'produto' ),
     'capability_type'    => 'post',
-    'has_archive'        => false,
-    'hierarchical'       => false,
+    'has_archive'        => true,
+    'hierarchical'       => true,
     'menu_position'      => 4,
     'supports'           => array( 'title', 'thumbnail' )
   );

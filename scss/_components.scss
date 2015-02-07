@@ -23,6 +23,7 @@ $yellow-tint: 30%;
 		padding: 0 rem-calc(5);
 	}
 }
+
 /*
 	------------------------------------------------------------------------
 	Header
@@ -737,6 +738,11 @@ $yellow-tint: 30%;
 	}
 }
 
+.acf-map {
+	width: 100%;
+	@extend %full-height;
+}
+
 .nav-gallery {
 	top: 40%;
 	z-index: 999;
@@ -1182,11 +1188,7 @@ $yellow-tint: 30%;
 
 .sale-point {
 	&.fix {
-		padding: rem-calc(0 30);
-
-		hgroup {
-			padding: rem-calc(40 0);
-		}
+		padding: rem-calc(30);
 	}
 }
 

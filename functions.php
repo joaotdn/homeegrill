@@ -306,6 +306,20 @@ require get_template_directory() . '/inc/cpt-produtos.php';
  */
 require get_template_directory() . '/inc/cpt-diferenciais.php';
 
+/**
+ * Implementa tipo de post personalizado para "Pontos de venda"
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/inc/cpt-pontos.php';
+
+/**
+ * Implementa tipo de post personalizado para "Assistência técnica"
+ *
+ * @since home & GRILL 1.0
+ */
+require get_template_directory() . '/inc/cpt-assistencia.php';
+
 /*
     Icones para post-types
     (http://melchoyce.github.io/dashicons/)
@@ -330,9 +344,17 @@ function add_menu_icons_styles(){
 #menu-posts-diferencial div.wp-menu-image:before {
   content: "\f155";
 }
-li#toplevel_page_edit-post_type-acf {
-	display: none !important;
+
+#menu-posts-pontos div.wp-menu-image:before {
+  content: "\f230";
 }
+
+#menu-posts-assistencia div.wp-menu-image:before {
+  content: "\f308";
+}
+/*li#toplevel_page_edit-post_type-acf {
+	display: none !important;
+}*/
 </style>
  
 <?php
