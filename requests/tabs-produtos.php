@@ -21,7 +21,7 @@ function req_products_list() {
 	
   } else {
 	
-  	$args = array( 'posts_per_page' => 6, 'post_type' => 'produto', 'taxonomy' => 'produtos', 'term' => $_post_type );
+  	$args = array( 'posts_per_page' => 6, 'post_type' => 'produto', 'taxonomy' => 'produtos', 'orderby' => 'rand', 'term' => $_post_type );
 	
   }
 

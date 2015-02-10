@@ -10,7 +10,7 @@
               $terms = get_terms('produtos','child_of='.$moveis->term_id);
             ?>
             <li>
-              <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $moveis->slug; ?>">Recentes</a></h4>
+              <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $moveis->slug; ?>">Todos</a></h4>
             </li>
             <?php
               foreach ($terms as $term):
@@ -31,7 +31,7 @@
           <div id="showroom-carousel" class="carousel-moveis small-12 left owl-carousel owl-theme owl-responsive-1000 owl-loaded">
             
             <?php
-              $args = array( 'posts_per_page' => 6, 'post_type' => 'produto', 'taxonomy' => 'produtos', 'term' => 'moveis' );
+              $args = array( 'posts_per_page' => 6, 'post_type' => 'produto', 'taxonomy' => 'produtos', 'term' => 'moveis', 'orderby' => 'rand' );
               $produtos_posts = get_posts( $args );
               foreach ($produtos_posts as $post): setup_postdata( $post );
             ?>

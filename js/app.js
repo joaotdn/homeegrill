@@ -43,6 +43,17 @@
 $('a','.tab-options').setFirstClass();
 $('a','.tab-moveis').setFirstClass();
 
+(function() {	
+	$('input').each(function(index, el) {
+		if($(this).attr('class') === 'req-name') {
+			$(this).attr({
+				required:'',
+				pattern: '[a-zA-Z]+'
+			});
+		}
+	});
+})();
+
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
@@ -168,6 +179,12 @@ $('li','#main-menu').each(function(index, el) {
 		$('a:first-child',this).append('<span class="icon-chevron-circle-down"></span>').bind('click touchstart',function(e)
 			{e.preventDefault();} );
 	}
+});
+
+$('li','#main-menu').each(function(index, el) {
+	if ($(this).hasClass('current-menu-parent')) {
+		$(this).find('a').trigger('click');
+	};
 });
 
 $('li a:first-child','#main-menu').on('click touchstart',function(e) {
@@ -389,6 +406,9 @@ function requestAjaxProducts(tabOptions,container,instance) {
 			},
 			beforeSend: function() {
 				console.log('foi');
+				caroulselContainer.animate({opacity: 0}, 'fast', function() {
+					$('.ajax-loader-mac').fadeIn('fast');
+				});
 			},
 			complete: function() {
 				console.log('comleto');
@@ -397,11 +417,8 @@ function requestAjaxProducts(tabOptions,container,instance) {
 				});
 			},
 			success: function(data) {
-				caroulselContainer.animate({opacity: 0}, 'fast', function() {
-					$(this).html(data);
-					$('.ajax-loader-mac').fadeIn('fast');
-					instance.reinit();
-				});
+				caroulselContainer.html(data);
+				instance.reinit();
 			}
 		});
 	});
@@ -481,7 +498,7 @@ $('a','#list-states-form').bind('click',function(e) {
 	var txt = $(this).text();
 	
 	$(this).parents('.states-container')
-	.siblings('input[type="text"]')
+	.siblings('.wpcf7-form-control-wrap').find('input[type="text"]')
 	.val(txt);
 
 	Foundation.libs.dropdown.close($('#list-states-form'));

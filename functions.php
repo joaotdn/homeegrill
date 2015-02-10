@@ -8,7 +8,7 @@
  */
 
 //Versão do tema
-define('HG_VERSION', '1.2.4');
+define('HG_VERSION', '1.2.5');
 
 if ( ! function_exists( 'ac_setup' ) ) :
 	function hg_setup() {
@@ -352,9 +352,9 @@ function add_menu_icons_styles(){
 #menu-posts-assistencia div.wp-menu-image:before {
   content: "\f308";
 }
-/*li#toplevel_page_edit-post_type-acf {
+li#toplevel_page_edit-post_type-acf {
 	display: none !important;
-}*/
+}
 </style>
  
 <?php

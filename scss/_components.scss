@@ -289,7 +289,7 @@ $yellow-tint: 30%;
 					display: none;
 				}
 
-				&:hover {
+				&:hover, &:active {
 					background-color: $primary-color;
 					color: $yellow;
 				}
@@ -299,6 +299,11 @@ $yellow-tint: 30%;
 				padding-left: rem-calc(20);
 				&:first-child {
 					padding-left: 0;
+				}
+				&.current-menu-item {
+					a {
+						color: $yellow !important;
+					}
 				}
 			}
 		}
@@ -558,8 +563,8 @@ $yellow-tint: 30%;
 	}
 
 	img {
-		height: 100%;
-		width: auto;
+		width: 100%;
+		height: auto !important;
 		@extend .centered;
 	}
 }
@@ -719,6 +724,21 @@ $yellow-tint: 30%;
 
 .gallery-thumb {
 	height: rem-calc(320);
+}
+
+.wpcf7-form {
+	@extend .left;
+
+	p {
+		@extend .no-margin;
+	}
+	input[type="submit"] {
+		line-height: 0;
+		border: none;
+		@extend .text-low;
+		@extend .font-bold;
+		@extend .font-large;
+	}
 }
 
 .gallery-pager {
