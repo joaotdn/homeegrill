@@ -171,6 +171,14 @@ $yellow-tint: 30%;
 	}
 }
 
+.submenu-container {
+	.current-menu-item {
+		a {
+			color: $yellow !important;
+		}
+	}
+}
+
 /*
 	------------------------------------------------------------------------
 	Menu offcanvas - MOBILE
@@ -311,6 +319,11 @@ $yellow-tint: 30%;
 
 	li {
 		@extend .no-margin;
+		&.current-menu-item {
+			a {
+				background-color: $primary-color;
+			}
+		}
 	}
 
 	a {
@@ -706,6 +719,12 @@ $yellow-tint: 30%;
 	font-size: .75rem;
 	background-color: $ghost;
 	padding: .3125rem;
+}
+
+.send-btn {
+	padding: rem-calc(6 20);
+	right: rem-calc(16);
+	top: rem-calc(7);
 }
 
 .aligncenter {

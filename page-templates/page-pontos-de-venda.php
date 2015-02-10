@@ -72,6 +72,10 @@
                   <p class="divide-10 font-lite font-medium"><?php echo get_field('ponto_telefone',$post->ID); ?></p>      
                 <?php endif ?>
 
+                <?php if (get_field('ponto_site',$post->ID)): ?>
+                  <p class="divide-10 font-lite font-medium">site: <a href="<?php echo get_field('ponto_site',$post->ID); ?>" target="_blank"><?php echo get_field('ponto_site',$post->ID); ?></a></p>      
+                <?php endif ?>
+
                 <?php if (get_field('ponto_endereco',$post->ID)): ?>
                   <p class="divide-10 font-lite font-medium no-margin"><?php echo get_field('ponto_endereco',$post->ID); ?></p>      
                 <?php endif ?>
@@ -86,7 +90,9 @@
         </nav>
       </section>
 
-      <?php  get_template_part('content-share'); ?>
+      <div class="small-12 columns">
+        <?php  get_template_part('content-share'); ?>
+      </div>
 
     </section>
 

@@ -1,6 +1,6 @@
 <section id="our-features" class="small-12 left rel">
     
-    <div class="small-11 medium-7 large-6 abs p-left p-top bg-rows">
+    <div class="small-12 medium-7 large-6 abs p-left p-top bg-rows">
       <div class="bg-oil small-12 left"></div>
       <div class="bg-oil-light small-12 left"></div>
     </div>

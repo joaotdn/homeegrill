@@ -53,9 +53,11 @@
               foreach ($produtos_posts as $post): setup_postdata( $post );
                 $tel = get_field('loja_telefone',$post->ID);
                 $email = get_field('loja_email',$post->ID);
+                $cidade = get_field('loja_cidade',$post->ID);
+                $cidade = explode('-', $cidade);
             ?>
 
-            <h5 class="no-margin"><?php the_title(); ?></h5>
+            <h5 class="no-margin"><?php echo $cidade[0]; ?></h5>
             
             <?php if ($tel): ?>
               <p class="no-margin"><?php echo $tel; ?></p>

@@ -60,7 +60,9 @@
         </nav>
       </section>
 
-      <?php  get_template_part('content-share'); ?>
+      <div class="small-12 columns">
+        <?php  get_template_part('content-share'); ?>
+      </div>
 
     </section>
 

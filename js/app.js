@@ -487,6 +487,19 @@ $('.icon-arrow-down','.form-field').on('click', function() {
 
 });
 
+//se o menu estiver ativo
+(function() {
+	$('li','#main-menu').each(function(index, el) {
+		if($(this).hasClass('current-menu-parent')) {
+			$('.submenu',this).clone().appendTo('.submenu-container');
+			$('.submenu','.submenu-container').show();
+			$('.submenu-bar').height(58);
+			$('a',this).addClass('active');
+			$('div','.header-lines').addClass('active');
+		}
+	});
+})();
+
 $('.not-keyword').keypress(function(event) {
 	/* Act on the event */
 	event.preventDefault();
@@ -612,7 +625,11 @@ $('.cycle-slideshow.about-features-cycle').on('cycle-pager-activated',function(e
 	$('.cycle-slideshow.content-features-cycle').cycle('goto', optionHash.currSlide);
 });
 
-
+//formularios
+$('.send-btn').on('click',function(e) {
+	e.preventDefault();
+	$(this).siblings('.wpcf7-form-control-wrap').find('input[type="file"]').trigger('click');
+});
 
 /*
 	Slider de produtos

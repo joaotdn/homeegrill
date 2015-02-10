@@ -44,7 +44,7 @@
             <div class="small-12 medium-4 right shop-info bg-white rel">
               <hgroup class="small-12">
                 <div class="divide-20"></div>
-                <h4 class="font-low no-margin"><?php the_title(); ?></h4>
+                <h4 class="text-low no-margin"><?php the_title(); ?></h4>
                 <h5 class="divide-10 font-lite"><?php echo get_field('loja_telefone',$post->ID); ?></h5>
                 <h6 class="font-lite font-medium"><?php echo get_field('loja_email',$post->ID); ?></h6>
               </hgroup>
@@ -99,7 +99,9 @@
         </nav>
       </section>
 
-      <?php  get_template_part('content-share'); ?>
+      <div class="small-12 columns">
+        <?php  get_template_part('content-share'); ?>
+      </div>
 
     </section>
 
