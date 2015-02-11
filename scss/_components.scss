@@ -6,6 +6,18 @@ $yellow-tint: 30%;
 	height: 0 !important;
 }
 
+.goog-te-banner-frame {
+	display: none !important;
+}
+
+body select.goog-te-combo {
+	border: none !important;
+	background-color: transparent !important;
+	@extend .no-margin;
+	color: $yellow;
+	outline: none !important;
+}
+
 .ajax-loader {
 	display: none;
 	&.show {

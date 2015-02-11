@@ -43,6 +43,24 @@
 $('a','.tab-options').setFirstClass();
 $('a','.tab-moveis').setFirstClass();
 
+$('a','.select-lang').each(function(index, el) {
+	$(this).attr('href', '#');	
+});
+
+$('a','.select-lang').setFirstClass();
+$('a','.select-lang').on('click',function(e) {
+
+	e.preventDefault();
+	
+	$(this).addClass('active')
+	.parents('li')
+	.siblings('li')
+	.find('a')
+	.removeClass('active');
+
+	$(document).scrollTop(0);
+});
+
 (function() {	
 	$('input').each(function(index, el) {
 		if($(this).attr('class') === 'req-name') {
@@ -105,7 +123,6 @@ $('a, span','#nav-features').on('click',function(e) {
 		});
 	}
 })();
-
 
 /*
 	------------------------------------

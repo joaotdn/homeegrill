@@ -193,7 +193,7 @@
       }
     ?>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
 
     <?php wp_footer(); ?>
   </body>

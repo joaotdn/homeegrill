@@ -27,7 +27,7 @@
 
     <?php wp_head(); ?>
   </head>
-  <body>
+  <body id="body-wrapper">
     
     <!-- offcanvas menu -->
     <a href="#" class="close-offcanvas hide-offcanvas small-12"></a>
@@ -95,10 +95,17 @@
         </h2>
         
         <nav class="select-lang clang left show-for-medium-up" role="navigation">
+          <!--<ul class="inline-list no-margin lh-normal">
+            <li><a href="#" title="Português brasileiro" class="active" data-language="pt"><strong>Brasil</strong></a></li>
+            <li><a href="#" title="English" onClick="traduzir('body-wrapper','body-wrapper','en');" data-language="en"><strong>English</strong></a></li>
+          </ul>-->
+          
           <ul class="inline-list no-margin lh-normal">
-            <li><a href="#" title="Português brasileiro" class="active"><strong>Brasil</strong></a></li>
-            <li><a href="#" title="English"><strong>English</strong></a></li>
+            <li><strong><?php echo do_shortcode('[glt language="Portuguese" label="Brasil"]'); ?></strong></li>
+            <li><strong><?php echo do_shortcode('[glt language="English" label="English"]'); ?></strong></li>
           </ul>
+
+          <?php // echo do_shortcode('[google-translator]'); ?>
         </nav><!-- selecionar lingua -->
         
         <nav class="menu-subscriber left">
