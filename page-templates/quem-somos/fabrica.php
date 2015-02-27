@@ -31,7 +31,7 @@
         </div>
       </header>
 
-      <article class="small-12 medium-9 large-8 columns nav-content-features bg-ghost">
+      <article class="small-12 medium-9 large-8 columns end nav-content-features bg-ghost">
 
         <div class="small-12 left">
           <p class="font-large"><?php echo get_field('sobre_fabrica_texto',$post->ID); ?></p>
@@ -58,7 +58,7 @@
         </div>
       </article>
       
-      <a href="#" title="" class="small-12 medium-9 large-8 columns end d-block more-pics white">
+      <a href="#" title="" class="small-12 medium-9 large-8 columns end d-block more-pics white prev-default no-cursor">
         <span class="left">Visão geral do parque fabril da home & GRILL</span>
         <span class="right"><i class="icon-chevron-circle-right hide-for-tiny"></i></span>
       </a>

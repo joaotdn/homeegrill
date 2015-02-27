@@ -33,10 +33,12 @@
               <span class="">Todos os estados</span>
               <i class="icon-arrow-down right white font-bold"></i>
             </h5>
-
-            <ul id="list-states" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
-              <li><a href="#" title="Todos" class="font-medium small-12 primary" data-select-state="todos">Todos os estados</a></li>
-            </ul>
+            
+            <div class="small-12 columns">
+              <ul id="list-states" class="f-dropdown bg-white small" data-dropdown-content aria-hidden="true" tabindex="-1">
+                <li><a href="#" title="Todos" class="font-medium small-12 primary" data-select-state="todos">Todos os estados</a></li>
+              </ul>
+            </div>
           </nav>
 
           <div class="divide-20"></div>
@@ -62,7 +64,7 @@
 
             <div class="small-12 medium-4 left bg-white rel full-height sale-point fix">
               <hgroup class="small-12">
-                <h4 class="text-low no-margin"><?php the_title(); ?></h4>
+                <h4 class="no-margin"><?php the_title(); ?></h4>
                 <?php if (get_field('assis_cidade',$post->ID)): ?>
                   <h4 class="divide-20 font-lite"><?php echo get_field('assis_cidade',$post->ID); ?></h4>      
                 <?php endif ?>

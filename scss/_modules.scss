@@ -159,9 +159,6 @@
 	margin-bottom: rem-calc(40);
 }
 
-
-
-
 /*
 	------------------------------------------------------------------------
 	Backgrounds
@@ -351,4 +348,9 @@
     to {
     	opacity: .5;
     }
+}
+
+//outros
+.no-cursor {
+	cursor: default !important;
 }

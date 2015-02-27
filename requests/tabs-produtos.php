@@ -43,7 +43,12 @@ function req_products_list() {
                   <header class="small-12 left d-table">
                     <hgroup class="small-12 d-table-cell">
                       <?php $posttags = wp_get_post_tags( $post->ID ); ?>
-                      <h3 class="font-lite no-margin lh-normal"><?php echo $posttags[0]->name; ?></h3>
+                      <h3 class="font-lite no-margin lh-normal">
+                        <?php
+                          $this_terms = wp_get_post_terms( $post->ID, 'produtos' );
+                          echo $this_terms[1]->name;
+                        ?>
+                      </h3>
                       <h3 class="font-bold no-margin lh-normal"><?php echo $post->post_title; ?></h3>
                     </hgroup>
                   </header>

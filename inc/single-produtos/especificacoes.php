@@ -1,5 +1,10 @@
-<!-- especificações -->
-  <div id="product-espec" class="small-12 left data-panel bg-ghost">
+  <!-- especificações -->
+  <?php
+    global $post;
+    $terms = wp_get_post_terms( $post->ID, 'produtos');
+    $exclude = $terms[0]->slug;
+  ?>
+  <div id="product-espec" class="small-12 left data-panel bg-ghost" <?php if($exclude == 'acessorios') echo "style=\"visibility:hidden;height:0;padding:0;\""; ?>>
         <!-- inicio tab colunistas -->
     <nav id="showroom-tab-product" class="small-12 left">
       <div class="row">
@@ -65,7 +70,7 @@
             <div class="small-12 medium-4 large-4 columns">
               <?php
                 /*
-                  Manual do proprietário
+                  Catálogo institucional
                 */
                 $catalogo = get_option('nt_catalogo');
               ?>

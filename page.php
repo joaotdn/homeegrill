@@ -40,6 +40,34 @@
       </article><!-- // artigo -->
 
       <aside id="sidebar" class="page-sidebar small-12 medium-4 columns">
+        
+        <?php 
+          $page = get_page_by_title('Faca seu projeto');
+          if (is_page($page->ID)):
+        ?>
+
+        <!-- widget: face seu projeto -->
+        <div id="widget" class="small-12 left call-we">
+          <figure class="small-12 left bg-cover rel" data-thumb="<?php echo get_template_directory_uri(); ?>/images/projeto.png">
+            <figcaption class="abs p-top p-left bg-white font-bold font-large">veja o passo a passo</figcaption>
+          </figure>
+          <section class="small-12 left bg-white">
+            
+            <?php
+              $i = 0;
+              $steps = get_field('projeto_passos',$post->ID);
+              foreach ($steps as $step):
+                $i++;
+            ?>
+            <h5><?php printf('%d. %s',$i,$step['projeto_passo']); ?></h5>
+            <p><?php echo $step['projeto_passo_desc']; ?></p>
+            <?php endforeach; ?>
+
+          </section>
+        </div>
+
+        <?php else: ?>
+
         <!-- widget: ligue para gente -->
         <div id="widget" class="small-12 left call-we">
           <figure class="small-12 left bg-cover rel" data-thumb="<?php echo get_template_directory_uri(); ?>/images/atendente.png">
@@ -73,13 +101,16 @@
               endforeach;
               $whatsapp = get_option('nt_ws');
                if ($whatsapp) {
-                 echo "<p class=\"no-margin font-small\"><strong>Whatsapp</strong></p>";
-                 printf('<p class="font-small">%s</p><div class="divide-20"></div>',$whatsapp);
+                 echo "<h5 class=\"no-margin\"><strong>Whatsapp</strong></h5>";
+                 printf('<p class="no-margin">%s</p><div class="divide-20"></div>',$whatsapp);
                }
             ?>
 
           </section>
         </div>
+          
+        <?php endif; ?>
+        
       </aside>
 
     </div><!-- // row -->

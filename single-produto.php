@@ -4,6 +4,10 @@
 
   //breadcrumb
   get_template_part('content-breadcrumb');
+
+  global $post;
+  $terms = wp_get_post_terms( $post->ID, 'produtos');
+  $exclude = $terms[0]->slug;
   ?>
   
   <div class="row">
@@ -42,7 +46,7 @@
           </a>
         </li>
 
-        <li>
+        <li <?php if($exclude == 'acessorios') echo "style=\"visibility:hidden;width:0;\""; ?>>
           <a href="#product-espec" class="" title="Especificações">
             <span class="d-table-cell">Especificações</span>
           </a>

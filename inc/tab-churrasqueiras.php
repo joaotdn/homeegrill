@@ -8,9 +8,12 @@
             <?php
               $churrasqueiras = get_term_by( 'name', 'churrasqueiras', 'produtos' );
               $terms = get_terms('produtos','child_of='.$churrasqueiras->term_id);
+
+              $acessorios = get_term_by( 'name', 'acessorios', 'produtos' );
+              $_terms = get_terms('produtos','child_of='.$acessorios->term_id);
             ?>
             <li>
-              <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $churrasqueiras->slug; ?>">Todas</a></h4>
+              <h4 class="font-large"><a href="#" class="d-block text-low" title="Mais recentes" data-product-type="<?php echo $churrasqueiras->slug; ?>">Todas as churrasqueiras</a></h4>
             </li>
             <?php
               foreach ($terms as $term):
@@ -46,7 +49,12 @@
                   
                   <header class="small-12 left d-table">
                     <hgroup class="small-12 d-table-cell">
-                      <h3 class="font-lite no-margin lh-normal"><?php get_first_tag(); ?></h3>
+                      <h3 class="font-lite no-margin lh-normal">
+                        <?php
+                          $this_terms = wp_get_post_terms( $post->ID, 'produtos' );
+                          echo $this_terms[1]->name;
+                        ?>
+                      </h3>
                       <h3 class="font-bold no-margin lh-normal"><?php the_title(); ?></h3>
                     </hgroup>
                   </header>

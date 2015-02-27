@@ -67,7 +67,7 @@
       ------------------------------------------------------------------
      */
     
-    // require get_template_directory() . "/page-templates/quem-somos/depoimentos.php";
+    require get_template_directory() . "/page-templates/quem-somos/depoimentos.php";
 
 
   //footer

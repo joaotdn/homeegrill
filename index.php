@@ -9,7 +9,9 @@
   require get_template_directory() . "/inc/tab-churrasqueiras.php";
 
   //Tab - moveis
-  require get_template_directory() . "/inc/tab-moveis.php";
+  $moveis = get_term_by( 'name', 'moveis', 'produtos' );
+  $count = $moveis->count;
+  if($count !== 0) require get_template_directory() . "/inc/tab-moveis.php";
 
   //Tab posts
   require get_template_directory() . "/inc/tab-posts.php";

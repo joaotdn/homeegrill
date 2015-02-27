@@ -156,7 +156,7 @@
                 if($page):
               ?>
               <h3 class="no-margin font-large">
-                <a href="<?php echo esc_html(get_page_uri($page->ID)); ?>" title="Faça seu projeto" class="button-glass no-margin font-large make-project">
+                <a href="<?php echo esc_html(get_page_link($page->ID)); ?>" title="Faça seu projeto" class="button-glass no-margin font-large make-project">
                   <i class="d-block left icon-container tiny-no-margin">
                     <i class="icon-pencil d-block"></i>
                   </i>

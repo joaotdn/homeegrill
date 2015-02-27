@@ -8,7 +8,7 @@
  */
 
 //Versão do tema
-define('HG_VERSION', '1.2.5');
+define('HG_VERSION', '1.2.7');
 
 if ( ! function_exists( 'ac_setup' ) ) :
 	function hg_setup() {
@@ -133,7 +133,7 @@ add_action( 'wp_footer', 'hg_load_scripts' );
 function hg_load_styles() {
 
 	wp_enqueue_style( 
-		'aberto_concursos', 
+		'homeegrill', 
 		get_stylesheet_directory_uri() . '/style.css', 
 		array(), 
 		HG_VERSION, 

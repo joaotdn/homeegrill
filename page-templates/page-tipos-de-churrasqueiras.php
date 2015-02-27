@@ -40,7 +40,7 @@
             <div class="small-12 medium-4 right shop-info bg-white rel">
               <hgroup class="small-12">
                 <div class="divide-20"></div>
-                <h4 class="text-low no-margin"><?php echo $churrasqueira['ch_tipo']; ?></h4>
+                <h3 class="text-low no-margin"><?php echo $churrasqueira['ch_tipo']; ?></h3>
               </hgroup>
 
               <a href="#" class="display-product-data button small-12 abs p-bottom p-left text-low font-xlarge no-margin" title="Ver agora">Ver agora <span class="icon-chevron-circle-right font-medium"></a>

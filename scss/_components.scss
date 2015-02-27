@@ -36,6 +36,19 @@ body select.goog-te-combo {
 	}
 }
 
+.stButton .stHBubble,
+.stButton .stMainServices {
+	height: 23px !important;
+}
+
+div.wpcf7-validation-errors {
+	border: none !important;
+}
+
+.wpcf7-file {
+	padding: 12px !important;
+}
+
 /*
 	------------------------------------------------------------------------
 	Header
@@ -546,7 +559,7 @@ body select.goog-te-combo {
 
 .tab-options {
 
-	a {
+	a,span {
 		border-width: 1px;
 		border-style: solid;
 		border-color: transparent;
@@ -734,9 +747,11 @@ body select.goog-te-combo {
 }
 
 .send-btn {
-	padding: rem-calc(6 20);
-	right: rem-calc(16);
+	padding: rem-calc(6 100);
+	left: rem-calc(16);
 	top: rem-calc(7);
+	z-index: 999;
+	display: none;
 }
 
 .aligncenter {
@@ -1206,8 +1221,9 @@ body select.goog-te-combo {
 	//@extend .rel;
 	height: rem-calc(250);
 	overflow: hidden;
-	padding-top: rem-calc(10);
-	padding-bottom: rem-calc(10);
+	//padding-top: rem-calc(10);
+	//padding-bottom: rem-calc(10);
+	margin-top: 5px !important;
 }
 
 #drop-subscribe {
@@ -1632,4 +1648,26 @@ body select.goog-te-combo {
 	&:hover {
 		opacity: 0.8;
 	}
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"]::before {
+  display: inline-block;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  padding: rem-calc(6 100);
+  right: rem-calc(7);
+  top: rem-calc(-5.5);
+  z-index: 999;
+  display: none;
+  @extend .abs;
+  @extend .button;
+  @extend .d-block;
+  @extend .abs;
+  @extend .text-low;
+  @extend .no-margin;
 }

@@ -40,6 +40,14 @@
 
 })();
 
+//envio de arquivo
+(function() {
+		$('.send-file-input').each(function(index, el) {
+			var v = $(this).data('value');
+			$(this,'input[type="file"]:before').css('content',v);
+		});
+})();
+
 $('a','.tab-options').setFirstClass();
 $('a','.tab-moveis').setFirstClass();
 
@@ -143,7 +151,7 @@ $(document).ready(function() {
 	});
 });
 
-$('.prev-default').on('click touchstart',function(e) {
+$('.prev-default').on('click',function(e) {
 	e.preventDefault();
 });
 
@@ -777,6 +785,4 @@ $('.button-white').on('click',function(e) {
 
 //Footer
 $('.footer-newsletter').clone().appendTo('.copy-newsletter');
-
-
 
