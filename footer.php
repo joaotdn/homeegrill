@@ -142,10 +142,22 @@
             <h3 class="font-large">receba nossas novidades</h3>
           </header>
 
-          <form action="" class="small-12 left" data-abide>
+          <form action="https://foccus.mailee.me/go/add_contact_form" id="mailee-form" method="post" class="small-12 left">
+            
+            <input name='key' type='hidden' value='49d87b'>
+            <?php
+              $page = get_page_by_title("Dados enviados com sucesso");
+              $link = get_page_link($page->ID);
+            ?>
+            <input name='url_ok' type='hidden' value='<?php echo esc_html( $link ); ?>'>
+            <?php
+              $page = get_page_by_title("Erro ao enviar os dados");
+              $link = get_page_link($page->ID);
+            ?>
+            <input name='url_error' type='hidden' value='<?php echo esc_html( $link ); ?>'>
+            
             <label class="no-margin small-8 left">
-              <input type="email" class="small-12 left bg-white" placeholder="cadastre seu email" required pattern="email">
-              <small class="error small-12 left">E-mail inválido</small>
+              <input type="email" name="email" class="small-12 left bg-white" placeholder="cadastre seu email" required>
             </label>
             
             <label class="no-margin small-4 left">
@@ -192,8 +204,22 @@
         echo stripcslashes($scripts);
       }
     ?>
-
+    
+    <!-- google translate -->
     <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+
+    <!-- formulario da newsletter -->
+    <script>
+     document.getElementById('mailee-form').onsubmit = function(){
+       re = /^[a-z0-9\.]+@([a-z0-9][a-z0-9]*[a-z0-9-]\.)+([a-z-]+\.)?([a-z-_]+)$/
+       if(!this.email.value.match(re)) {
+         alert("Por favor, preencha corretamente o email");
+         this.email.focus();
+         return false;
+       }
+       return true;
+     }
+    </script>
 
     <?php wp_footer(); ?>
   </body>

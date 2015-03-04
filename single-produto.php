@@ -46,7 +46,7 @@
           </a>
         </li>
 
-        <li <?php if($exclude == 'acessorios') echo "style=\"visibility:hidden;width:0;\""; ?>>
+        <li>
           <a href="#product-espec" class="" title="Especificações">
             <span class="d-table-cell">Especificações</span>
           </a>

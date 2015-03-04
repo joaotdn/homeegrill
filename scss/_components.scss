@@ -689,7 +689,7 @@ div.wpcf7-validation-errors {
 }
 
 .post-title {
-	min-height: rem-calc(130);
+	height: rem-calc(130);
 	max-height: rem-calc(130);
 }
 
@@ -901,6 +901,10 @@ div.wpcf7-validation-errors {
 	height: rem-calc(450);
 	border: 1px solid $silver;
 	overflow: hidden;
+
+	.cycle-carousel-wrap {
+		width: 100%;
+	}
 }
 
 .list-small-thumbs {
@@ -1119,9 +1123,7 @@ div.wpcf7-validation-errors {
 
 #product-down {
 	.post-title {
-		min-height: rem-calc(100) !important;
-		max-height: rem-calc(100) !important;
-		padding: rem-calc(0 30);
+		padding: rem-calc(30);
 	}
 }
 
@@ -1444,7 +1446,7 @@ div.wpcf7-validation-errors {
 	}
 
 	figcaption {
-		min-height: rem-calc(95);
+		height: rem-calc(95);
 		padding: rem-calc(0 30);
 	}
 }

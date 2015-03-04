@@ -360,4 +360,27 @@ li#toplevel_page_edit-post_type-acf {
 <?php
 }
 add_action( 'admin_head', 'add_menu_icons_styles' );
+
+/*
+    Configurações do Mailee
+ */
+
+require get_template_directory() . '/Mailee.php';
+define('MAILEE_CONFIG_SITE', '49d87b7ed8662');
+
+add_action( 'wpcf7_before_send_mail', 'CF7_pre_send' );
+ 
+function CF7_pre_send($cf7) {
+
+   $email = $_POST['email'];
+
+   $contact = new MaileeContact(array(
+    'email' => $email, 
+    'internal_id' => 556070
+    ));
+   $contact->save();
+
+}
+
+
 ?>

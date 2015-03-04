@@ -36,10 +36,10 @@
                   if (1 == $i) { $i = "active"; }
               ?>
               <li>
-                <a href="#" class="d-table small-12 left rel full-height" data-post-thumbnail="<?php echo $large[0]; ?>">
+                <a href="#" class="d-block small-12 left rel full-height" data-post-thumbnail="<?php echo $large[0]; ?>">
                   <span class="border-mask small-12 abs <?php echo $i; ?>"></span>
-                  <div class="small-12 d-table-cell">
-                    <img src="<?php echo $small[0]; ?>" alt="">
+                  <div class="small-12 left full-height bg-cover" data-thumb="<?php echo $small[0]; ?>">
+                    <!--<img src="" alt="">-->
                   </div>
                 </a>
               </li>

@@ -54,7 +54,7 @@
       Fábrica
       ------------------------------------------------------------------
      */
-    require get_template_directory() . "/page-templates/quem-somos/fabrica.php";
+    //require get_template_directory() . "/page-templates/quem-somos/fabrica.php";
 
     /*
       Links

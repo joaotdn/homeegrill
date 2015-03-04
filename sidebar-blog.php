@@ -130,7 +130,19 @@
           <h5 class="font-large text-low">Receba os novos posts por email</h5>
           <p class="font-lite font-small font-medium divide-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, ad, modi incidunt et molestiae aut reprehenderit asperiores rem.</p>
 
-          <form action="" class="small-12 left" data-abide>
+          <form action="https://foccus.mailee.me/go/add_contact_form" id="mailee-form" method="post" class="small-12 left" data-abide>
+            <input name='key' type='hidden' value='49d87b'>
+            <?php
+              $page = get_page_by_title("Dados enviados com sucesso");
+              $link = get_page_link($page->ID);
+            ?>
+            <input name='url_ok' type='hidden' value='<?php echo esc_html( $link ); ?>'>
+            <?php
+              $page = get_page_by_title("Erro ao enviar os dados");
+              $link = get_page_link($page->ID);
+            ?>
+            <input name='url_error' type='hidden' value='<?php echo esc_html( $link ); ?>'>
+            
            <label class="no-margin small-8 left">
               <input type="email" class="small-12 left bg-ghost" placeholder="cadastre seu email" required pattern="email">
               <small class="error small-12 left">E-mail inválido</small>

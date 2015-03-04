@@ -4,7 +4,7 @@
     $terms = wp_get_post_terms( $post->ID, 'produtos');
     $exclude = $terms[0]->slug;
   ?>
-  <div id="product-espec" class="small-12 left data-panel bg-ghost" <?php if($exclude == 'acessorios') echo "style=\"visibility:hidden;height:0;padding:0;\""; ?>>
+  <div id="product-espec" class="small-12 left data-panel bg-ghost">
         <!-- inicio tab colunistas -->
     <nav id="showroom-tab-product" class="small-12 left">
       <div class="row">
@@ -26,8 +26,8 @@
                 </div>
               </figure>
 
-              <article class="post-title fix small-12 left block-url d-table bg-oil">
-                <h2 class="font-medium no-margin d-table-cell">
+              <article class="post-title fix small-12 left block-url bg-oil">
+                <h2 class="font-medium no-margin">
                   <a href="<?php echo $espec; ?>" target="_blank" title="Especificações do produto" class="white small-12 left lh-normal">Especificações do produto</a>
                   <span class="white small-12 left font-lite">Linha, modelos e tamanhos</span>
                 </h2>
@@ -39,12 +39,12 @@
               </a>
               <div class="divide-20 hide-for-medium-up"></div>
             </div>
-            
+
             <?php
               /*
                 Manual do proprietário
                */
-              $manual = get_field('produto_manual',$post->ID);
+              $manual = get_option( 'nt_manual_prop' );
             ?>
             <div class="small-12 medium-4 large-4 columns">
               <figure class="small-12 left rel">
@@ -53,8 +53,8 @@
                 </div>
               </figure>
 
-              <article class="post-title fix small-12 left block-url d-table bg-oil">
-                <h2 class="font-medium no-margin d-table-cell">
+              <article class="post-title fix small-12 left block-url bg-oil">
+                <h2 class="font-medium no-margin">
                   <a href="<?php echo $manual; ?>" title="Manual do proprietário" target="_blank" class="white small-12 left lh-normal">Manual do proprietário</a>
                   <span class="white small-12 left font-lite">Cuidados e manutenção</span>
                 </h2>
@@ -67,7 +67,7 @@
               <div class="divide-20 hide-for-medium-up"></div>
             </div>
 
-            <div class="small-12 medium-4 large-4 columns">
+            <div class="small-12 medium-4 large-4 columns end">
               <?php
                 /*
                   Catálogo institucional
@@ -80,8 +80,8 @@
                 </div>
               </figure>
 
-              <article class="post-title fix small-12 left block-url d-table bg-oil">
-                <h2 class="font-medium no-margin d-table-cell">
+              <article class="post-title fix small-12 left block-url bg-oil">
+                <h2 class="font-medium no-margin">
                   <a href="<?php echo esc_html($catalogo); ?>" title="Catálogo institucional" class="white small-12 left lh-normal">Catálogo institucional</a>
                   <span class="white small-12 left font-lite">Tudo sobre a home & GRILL</span>
                 </h2>

@@ -123,6 +123,12 @@ array( "name" => "Catálogo institucional",
   "type" => "text",
   "std" => ""),
 
+array( "name" => "Manual do proprietário (acessórios e churrasqueiras)",
+  "desc" => "Link para o manual do proprietário na página interna do produto",
+  "id" => $shortname."_manual_prop",
+  "type" => "text",
+  "std" => ""),
+
 array( "type" => "close"),
 /*
   CLOSE LINKS
