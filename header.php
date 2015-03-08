@@ -101,8 +101,8 @@
           </ul>-->
           
           <ul class="inline-list no-margin lh-normal">
-            <li><strong><?php echo do_shortcode('[glt language="Portuguese" label="Brasil"]'); ?></strong></li>
-            <li><strong><?php echo do_shortcode('[glt language="English" label="English"]'); ?></strong></li>
+            <li><strong><?php // echo do_shortcode('[glt language="Portuguese" label="Brasil"]'); ?></strong></li>
+            <li><strong><?php // echo do_shortcode('[glt language="English" label="English"]'); ?></strong></li>
           </ul>
 
           <?php // echo do_shortcode('[google-translator]'); ?>
